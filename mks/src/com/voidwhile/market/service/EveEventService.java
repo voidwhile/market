@@ -11,4 +11,6 @@ public interface EveEventService extends IBaseService<EveEvent> {
 	 * @return
 	 */
 	public List<EveEvent> findEvent();
+	
+	public void deleteByIds(String[] ids);
 }

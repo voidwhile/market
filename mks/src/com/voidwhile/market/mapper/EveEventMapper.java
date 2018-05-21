@@ -54,4 +54,6 @@ public interface EveEventMapper {
 	List<EveEvent> findEvent();
 	
 	int countByMap(Map<String, Object> param);
+	
+	void deleteByIds(String[] ids);
 }

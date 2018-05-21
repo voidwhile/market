@@ -63,4 +63,9 @@ public class EveEventServiceImpl implements EveEventService {
 		return mapper.findEvent();
 	}
 
+	@Override
+	public void deleteByIds(String[] ids) {
+		mapper.deleteByIds(ids);
+	}
+
 }
