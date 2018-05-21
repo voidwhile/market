@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysUserMapper" >
+	<resultMap id="UserRoleMap" type="SysUserRole">
+		<id column="uid" property="uid" />
+	    <result column="supplier_id" property="supplierId" />
+	    <result column="user_name" property="userName" />
+	    <result column="plain_password" property="plainPassword" />
+	    <result column="password" property="password" />
+	    <result column="real_name" property="realName" />
+	    <result column="dept_id" property="deptId" />
+	    <result column="gender" property="gender" />
+	    <result column="birthday" property="birthday"/>
+	    <result column="portrait" property="portrait" />
+	    <result column="tel" property="tel" />
+	    <result column="phone" property="phone" />
+	    <result column="qq" property="qq" />
+	    <result column="email" property="email" />
+	    <result column="phone_code" property="phoneCode" />
+	    <result column="last_login" property="lastLogin" />
+	    <result column="last_device" property="lastDevice" />
+	    <result column="last_ip" property="lastIp" />
+	    <result column="login_num" property="loginNum" />
+	    <result column="status" property="status" />
+	    <result column="is_system" property="isSystem" />
+	    <result column="create_time" property="createTime" />
+	    <result column="update_time" property="updateTime" />
+        <result column="imgpath" property="imgpath" />
+        <result column="user_position" property="userPosition" />
+		<collection property="roleList" column="uid" javaType="ArrayList"
+			ofType="SysRole" select="com.voidwhile.system.mapper.SysRoleMapper.getRoleByuid" />
+	</resultMap>
+	
+	<!-- 查询字段 -->
+	<sql id="baseColumn">
+		uid, supplier_id, user_name, plain_password, password, real_name, dept_id, gender, 
+    	birthday, portrait, tel, phone, qq, email, phone_code, last_login, last_device, last_ip, 
+    	login_num, status, is_system,  create_time, update_time,imgpath,user_position
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="selectWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+		      	<if test="supplierId != null" >
+		        	and supplier_id = #{supplierId}
+		      	</if>
+		      	<if test="userName != null" >
+		        	and (user_name like CONCAT('%',#{userName},'%') 
+					OR real_name like CONCAT('%',#{userName},'%')
+					)
+		      	</if>
+		      		<if test="userNameLogin!= null" >
+		        	and user_name=#{userNameLogin}
+		      	</if>
+		      	<if test="realName != null" >
+		        	and real_name = #{realName}
+		      	</if>
+		      	<if test="deptId != null" >
+		        	and dept_id = #{deptId}
+		      	</if>
+		      	<!-- 部门级联查询 -->
+		      	<if test="cascadeDeptId != null">
+		      		and FIND_IN_SET(dept_id, queryChildrenDept(#{cascadeDeptId}))
+		      	</if>
+		      	<if test="gender != null" >
+		        	and gender = #{gender}
+		      	</if>
+		      	<if test="tel != null" >
+		        	and tel = #{tel}
+		      	</if>
+		      	<if test="phone != null" >
+		       	 	and phone = #{phone}
+		      	</if>
+		      	<if test="qq != null" >
+		        	and qq = #{qq}
+		      	</if>
+		      	<if test="email != null" >
+		        	and email = #{email}
+		      	</if>
+		      	<if test="lastDevice != null" >
+		        	and last_device = #{lastDevice}
+		      	</if>
+		      	<if test="lastIp != null" >
+		        	and last_ip = #{lastIp}
+		      	</if>
+		      	<if test="loginNum != null" >
+		        	and login_num = #{loginNum}
+		      	</if>
+		      	<if test="status != null">
+		      		and status = #{status}
+		      	</if>
+		      	<if test="isSystem != null">
+		      		and is_system = #{isSystem}
+		      	</if>
+		      	<if test="imgpath != null">
+		      		and imgpath = #{imgpath}
+		      	</if>
+		      	<if test="userPosition != null">
+		      		and user_position = #{userPosition}
+		      	</if>
+		      	<if test="updateTime != null">
+		      		<![CDATA[ and update_time >= #{updateTime}]]>
+		      	</if>
+		      	<if test="uid != null">
+		      		and NOT EXISTS (SELECT b.driver_user FROM tb_car_info a,tb_car_info_driver b WHERE a.uid = b.carinfo_id AND b.delete_flag='0' AND a.uid != #{uid} and b.driver_user = u.uid)
+		      	</if>
+		      	<if test="driverId != null">
+		      		and uid not in(SELECT driver_user FROM tb_car_info_driver WHERE delete_flag='0'AND driver_user not in(#{driverId}))
+		      	</if>
+			</trim>
+		</where>
+	</sql>
+	<select id="findByNameAndPwd" parameterType="java.util.Map" resultType="SysUser">
+		select
+		<include refid="baseColumn" />
+		from sys_user
+		where user_name=#{userName} and plain_password=#{plainPassword} and is_system=#{isSystem}
+	</select>
+	<!-- 查询语句 -->
+	<select id="selectAuditor" resultType="SysUser">
+	SELECT DISTINCT 
+	  c.uid
+	FROM
+	  sys_user c 
+	WHERE c.`uid` IN 
+	  (SELECT 
+	    b.`user_id` 
+	  FROM
+	    sys_user_role b 
+	  WHERE b.`role_id` IN 
+	    (SELECT 
+	      a.`role_id` 
+	    FROM
+	      sys_role_menu a 
+	    WHERE a.`menu_id` = 
+	      (SELECT 
+	        d.uid 
+	      FROM
+	        sys_menus d 
+      WHERE d.`menu_code` = 'audit_dsh')))
+	</select>
+	<!-- 查询有审批权利的人-->
+	<select id="getById" parameterType="java.lang.String" resultType="SysUser">
+		select
+		<include refid="baseColumn" />
+		from sys_user a
+		where uid=#{uid} and a.status='1'
+	</select>
+	<select id="getByPhone" parameterType="java.lang.String" resultType="SysUser">
+		select
+		<include refid="baseColumn" />
+		from sys_user
+		where phone=#{phone}
+	</select>
+	<!-- 按Map查询角色 -->
+	<select id="findByMap" resultType="SysUser" parameterType="java.util.Map">
+		select
+		<include refid="baseColumn" />
+		from sys_user u
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+	
+	<!-- 统计角色数量 -->
+	<select id="countByMap" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(*) from sys_user u
+		<include refid="selectWhereClause" />
+	</select>
+	<!-- 查询结束 -->
+
+	<!-- 插入语句 -->
+	<insert id="insert" parameterType="SysUser" useGeneratedKeys="true" keyProperty="uid">
+		insert into sys_user (
+			uid, supplier_id, user_name, plain_password, password, real_name, 
+      		dept_id, gender, birthday, portrait, tel, phone, qq, email, phone_code, 
+      		last_login, last_device, last_ip, login_num, status, is_system,  update_time, create_time,imgpath,user_position
+      	) values (
+      		#{uid}, #{supplierId}, #{userName}, #{plainPassword}, #{password},
+    		#{realName}, #{deptId}, #{gender}, #{birthday},#{portrait}, #{tel}, 
+    		#{phone}, #{qq}, #{email}, #{phoneCode}, #{lastLogin}, #{lastDevice}, 
+    		#{lastIp}, #{loginNum}, #{status}, #{isSystem}, #{updateTime}, now(),#{imgpath},#{userPosition}
+    	)
+	</insert>
+	<!-- 删除语句 -->
+	<delete id="deleteById" parameterType="java.lang.String">
+		<!-- delete from sys_user where uid = #{uid} -->
+		update sys_user set status="0",update_time = now() where uid = #{uid}
+	</delete>
+	<!-- 更新 -->
+	<update id="updateById" parameterType="SysUser">
+		update sys_user
+	    <set >
+	      <if test="userName != null" >
+	        user_name = #{userName},
+	      </if>
+	      <if test="plainPassword != null" >
+	        plain_password = #{plainPassword},
+	      </if>
+	      <if test="password != null" >
+	        password = #{password},
+	      </if>
+	      <if test="realName != null" >
+	        real_name = #{realName},
+	      </if>
+	      <if test="deptId != null" >
+	        dept_id = #{deptId},
+	      </if>
+	      <if test="gender != null" >
+	        gender = #{gender},
+	      </if>
+	      <if test="birthday != null" >
+	        birthday = #{birthday},
+	      </if>
+	      <if test="portrait != null" >
+	        portrait = #{portrait},
+	      </if>
+	      <if test="tel != null" >
+	        tel = #{tel},
+	      </if>
+	      <if test="phone != null" >
+	        phone = #{phone},
+	      </if>
+	      <if test="qq != null" >
+	        qq = #{qq},
+	      </if>
+	      <if test="email != null" >
+	        email = #{email},
+	      </if>
+	      <if test="phoneCode != null" >
+	        phone_code = #{phoneCode},
+	      </if>
+	      <if test="lastLogin != null" >
+	        last_login = #{lastLogin},
+	      </if>
+	      <if test="lastDevice != null" >
+	        last_device = #{lastDevice},
+	      </if>
+	      <if test="lastIp != null" >
+	        last_ip = #{lastIp},
+	      </if>
+	      <if test="loginNum != null" >
+	        login_num = #{loginNum},
+	      </if>
+	      <if test="status != null" >
+	        status = #{status},
+	      </if>
+	      <if test="isSystem != null" >
+	        is_system = #{isSystem},
+	      </if>
+	      
+	      <if test="updateTime != null" >
+	        update_time = #{updateTime},
+	      </if>
+	       <if test="imgpath != null" >
+	        imgpath = #{imgpath},
+	      </if>
+          <if test="userPosition != null" >
+	        user_position = #{userPosition},
+	      </if>
+    	</set>
+		where uid = #{uid}
+	</update>
+	<!-- 更新结束 -->
+	
+	<!-- 用户权限操作 -->
+	<select id="getUserRoleById" resultMap="UserRoleMap" parameterType="java.lang.String">
+		select ur.user_id as real_name,ur.role_id as user_name,r.role_code as attr1,r.role_name as attr2 from sys_user_role as ur,sys_role as r where  ur.role_id=r.uid and ur .user_id=#{uid}
+	</select>
+	<!-- 查勾选司机所有信息 -->
+	<select id="findById" parameterType="java.lang.String" resultType="SysUser">
+		select  * from sys_user where uid = #{uid}
+	</select>
+	
+	
+	<insert id="insertUserRole">
+		insert into sys_user_role(user_id, role_id) values (#{param1}, #{param2})
+	</insert>
+	<!-- 删除用户角色关联表中当前用户的数据 -->
+	<delete id="deleteRoleByuid" parameterType="java.lang.String" >
+    	delete from sys_user_role where user_id=#{uid}
+  	</delete>
+  	
+	<!-- 删除用户角色关联表中用户的相关角色数据 -->
+	<delete id="deleteRoleByuidAndRoleId" >
+    	delete from sys_user_role where user_id=#{uid} and role_id=#{roleId}
+  	</delete>
+	<!-- 用户权限操作结束 -->
+</mapper>

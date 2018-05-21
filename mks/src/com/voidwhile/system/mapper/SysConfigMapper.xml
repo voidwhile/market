@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysConfigMapper" >
+	<!-- 查询字段 -->
+	<sql id="baseColumn">
+		uid,
+		config_code, 
+		config_value, 
+		config_desc, 
+		supplier_id, 
+		create_time, 
+		update_time
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="selectWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+		      	<if test="supplierId != null" >
+		        	and supplier_id = #{supplierId}
+		      	</if>
+		      	<if test="configCode != null" >
+		        	and config_code = #{configCode}
+		      	</if>
+		      	<if test="configDesc != null" >
+		        	and config_desc like CONCAT('%',#{configDesc},'%') 
+		      	</if>
+			</trim>
+		</where>
+	</sql>
+	<!-- 查询语句 开始 -->
+	<select id="getById" parameterType="java.lang.String" resultType="SysConfig">
+		select
+		<include refid="baseColumn" />
+		from sys_config
+		where uid=#{uid}
+	</select>
+	<!-- 按Map查询 -->
+	<select id="findByMap" resultType="SysConfig" parameterType="java.util.Map">
+		select
+		<include refid="baseColumn" />
+		from sys_config
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+
+	<select id="findByParams" resultType="SysConfig" parameterType="java.util.Map">
+		select
+		<include refid="baseColumn" />
+		from sys_config
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+	
+	<!-- 统计记录数量 -->
+	<select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(*) from sys_config
+			<include refid="selectWhereClause" />
+	</select>
+	<!-- 查询结束 -->
+
+	<!-- 插入语句 -->
+	<insert id="insert" parameterType="SysConfig" useGeneratedKeys="true" keyProperty="uid">
+		insert into sys_config (
+		 	uid, config_code, config_value, config_desc, supplier_id, create_time, update_time
+		) values (
+			#{uid}, #{configCode}, #{configValue}, #{configDesc}, #{supplierId}, #{createTime}, #{updateTime}
+    	)
+	</insert>
+	<!-- 删除语句 -->
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from sys_config where uid = #{uid}
+	</delete>
+	
+	<delete id="deleteByIds">
+		delete from sys_config where uid in
+		<foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	<!-- 更新 -->
+	<update id="updateByIdSelective" parameterType="SysConfig">
+		update sys_config
+	    <set>
+	      <if test="configCode != null" >
+	        config_code = #{configCode},
+	      </if>
+	      <if test="configValue != null" >
+	        config_value = #{configValue},
+	      </if>
+	      <if test="configDesc != null" >
+	        config_desc = #{configDesc},
+	      </if>
+	      <if test="supplierId != null" >
+	        supplier_id = #{supplierId},
+	      </if>
+	      <if test="updateTime != null" >
+	        update_time = #{updateTime},
+	      </if>
+	    </set>
+	    where uid = #{uid}
+	</update>
+	<update id="updateById" parameterType="SysConfig">
+		update sys_config
+	    set config_value = #{configValue},
+      		config_desc = #{configDesc},
+      		update_time = #{updateTime}
+	    where uid = #{uid}
+	</update>
+	<!-- 更新结束 -->
+</mapper>

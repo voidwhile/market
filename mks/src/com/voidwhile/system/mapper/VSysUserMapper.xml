@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.VSysUserMapper" >
+  	<sql id="selectWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+		      	<if test="supplierId != null" >
+		        	and supplier_id = #{supplierId}
+		      	</if>
+		      	<if test="userName != null" >
+		        	and user_name = #{userName}
+		      	</if>
+		      	<if test="realName != null" >
+		        	and real_name = #{realName}
+		      	</if>
+		      	<if test="deptId != null" >
+		        	and dept_id = #{deptId}
+		      	</if>
+		      	<!-- 部门级联查询 -->
+		      	<if test="cascadeDeptId != null">
+		      		and FIND_IN_SET(dept_id, queryChildrenDept(#{cascadeDeptId}))
+		      	</if>
+		      	<if test="gender != null" >
+		        	and gender = #{gender}
+		      	</if>
+		      	<if test="tel != null" >
+		        	and tel = #{tel}
+		      	</if>
+		      	<if test="phone != null" >
+		       	 	and phone = #{phone}
+		      	</if>
+		      	<if test="qq != null" >
+		        	and qq = #{qq}
+		      	</if>
+		      	<if test="email != null" >
+		        	and email = #{email}
+		      	</if>
+			</trim>
+		</where>
+	</sql>
+	<!-- 按Map查询角色 -->
+	<select id="findByMap" resultType="VSysUser" parameterType="java.util.Map">
+		select * from v_sys_user
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+
+	<!-- 统计角色数量 -->
+	<select id="countByMap" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+		select count(*) from v_sys_user
+		<include refid="selectWhereClause" />
+	</select>
+	<!-- 查询结束 -->
+</mapper>

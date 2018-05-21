@@ -1,0 +1,34 @@
+.file-group {
+    position: relative;
+    width: 132px;
+    height: 25px;
+    border:1px lightgray solid;
+    overflow: hidden;
+    cursor: pointer;
+    line-height: 25px;
+    font-size: 13px;
+    text-align: center;
+    color: black;
+    border-radius: 4px;
+    float:left;
+    margin-right:10px;
+}
+.file-group input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 30px;
+   	opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer; 
+}
+.filespan {
+	float:left;
+	width:140px;
+	height:25px;
+	line-height:25px;
+	font-size:13px;
+	color:black;
+	margin-right:10px;
+	border:1px lightgray solid;
+}

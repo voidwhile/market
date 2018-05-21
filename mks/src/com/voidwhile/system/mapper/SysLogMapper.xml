@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysLogMapper">
+	<!-- 查询字段 -->
+	<sql id="logColumns">
+		uid,
+		supplier_id,
+		operator,
+		log_level, 
+		log_type, 
+		log_content, 
+		ip_address, 
+		create_time
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="whereClause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="supplierId != null">
+					and supplier_id=#{supplierId}
+				</if>
+				<if test="operator != null">
+					and operator like CONCAT('%',#{operator},'%')
+				</if>
+				<if test="logLevel != null">
+					and log_level=#{logLevel}
+				</if>
+				<if test="logType != null">
+					and log_type like CONCAT('%',#{logType},'%')
+				</if>
+				<if test="startTime != null">
+					<![CDATA[ and create_time>=#{startTime}]]>
+				</if>
+				<if test="endTime != null">
+					<![CDATA[ and create_time<=#{endTime}]]>
+				</if>
+			</trim>
+		</where>
+	</sql>
+	<!-- 插入语句 -->
+	<insert id="insert" parameterType="SysLog">
+		INSERT INTO sys_log (uid, supplier_id, operator, log_level, log_type, log_content, ip_address, create_time)
+		VALUES (#{uid}, #{supplierId}, #{operator}, #{logLevel}, #{logType}, #{logContent}, #{ipAddress}, #{createTime})
+	</insert>
+	
+	<delete id="deleteByIds">
+		delete from sys_log where uid in
+		<foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<select id="findByMap" parameterType="java.util.Map" resultType="SysLog">
+		SELECT 
+			<include refid="logColumns"/>
+		FROM
+			sys_log
+			<include refid="whereClause" />
+			<if test="orderByClause != null" >
+		      	order by ${orderByClause}
+		    </if>
+			<if test="offset != null and pageSize != null">
+				limit #{offset} , #{pageSize}
+			</if>
+	</select>
+	
+	<select id="countByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT 
+			count(*)
+		FROM
+			sys_log
+			<include refid="whereClause" />
+	</select>
+</mapper>

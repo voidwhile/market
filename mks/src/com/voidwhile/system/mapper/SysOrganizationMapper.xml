@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysOrganizationMapper" >
+<!-- 查询字段 -->
+	<sql id="baseColumn">
+		uid, supplier_id, p_id, org_name, org_code, org_head, org_phone, status, create_time, update_time
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="selectWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+		      	<if test="supplierId != null" >
+		        	and supplier_id = #{supplierId}
+		      	</if>
+		      	<if test="pId != null" >
+		        	and p_id = #{pId}
+		      	</if>
+		      	<if test="orgName != null">
+		      		and org_name like CONCAT('%',#{orgName},'%') 
+		      	</if>
+		      	<if test="orgCode != null">
+		      		and org_code = #{orgCode}
+		      	</if>
+		      	<if test="orgPhone!= null">
+		      		and org_code = #{orgCode}
+		      	</if>
+		      	<if test="status != null">
+		      		and status = #{status}
+		      	</if>
+			</trim>
+		</where>
+	</sql>
+	<!-- 查询语句 开始 -->
+	<select id="getById" parameterType="java.lang.String" resultType="SysOrganization">
+		select
+		<include refid="baseColumn" />,(select a.real_name from sys_user a where a.uid=b.org_head ) as realName,
+		(select a.uid from sys_user a where a.uid=b.org_head ) as userUid
+		from sys_organization b
+		where  b.uid=#{uid}
+	</select>
+	<!-- 按Map查询 -->
+	<select id="findByMap" resultType="SysOrganization" parameterType="java.util.Map">
+		select
+		<include refid="baseColumn" />
+		from sys_organization
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+
+	<!-- 统计记录数量 -->
+	<select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(*) from sys_organization
+			<include refid="selectWhereClause" />
+	</select>
+	<!-- 查询结束 -->
+
+	<!-- 插入语句 -->
+	<insert id="insert" parameterType="SysOrganization" useGeneratedKeys="true" keyProperty="uid">
+		insert into sys_organization (
+			uid, supplier_id, p_id, org_name, org_code, org_head, org_phone, status,create_time, update_time
+      	) values (
+      		#{uid}, #{supplierId}, #{pId}, #{orgName}, #{orgCode}, #{orgHead}, #{orgPhone}, 
+      		#{status}, #{createTime}, #{updateTime}
+      	)
+	</insert>
+	<!-- 删除语句 -->
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from sys_organization where uid = #{uid}
+	</delete>
+	
+	<!-- 更新 -->
+	<update id="updateById" parameterType="SysOrganization">
+		update sys_organization
+	    set p_id = #{pId},
+		    org_name = #{orgName},
+		    org_code = #{orgCode},
+		    org_head = #{orgHead}, 
+		    org_phone = #{orgPhone},
+		    status = #{status},
+		    update_time = #{updateTime}
+	    where uid = #{uid}
+	</update>
+	<!-- 更新结束 -->
+</mapper>

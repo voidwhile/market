@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.market.mapper.AppSessionMapper" >
+	<sql id="Base_Column_List" >
+    	session_id, supplier_id, supplier_code, user_id, user_name, client_type, login_time
+  	</sql>
+  	
+  	<select id="getBySessionId" resultType="AppSession" >
+	    select 
+	    	<include refid="Base_Column_List" />
+	    from app_session
+	    where session_id=#{sessionId}
+	</select>
+  	
+  	<insert id="insert" parameterType="AppSession" >
+    	insert into app_session (
+    		session_id, supplier_id, supplier_code, user_id, user_name, client_type, login_time
+      	) values (
+      		#{sessionId}, #{supplierId}, #{supplierCode}, #{userId}, #{userName}, #{clientType}, now()
+      	)
+  	</insert>
+	
+	<delete id="deleteBySupplierAndUserName" >
+    	delete from app_session
+    	where user_id= #{param1} and user_name=#{param2}
+  	</delete>
+</mapper>

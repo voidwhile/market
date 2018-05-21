@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysMenusMapper" >
+	<!-- 查询字段 -->
+	<sql id="baseColumnList" >
+    	uid, 
+    	parent_id, 
+    	parent_code, 
+    	menu_name, 
+    	menu_code, 
+    	menu_url, 
+    	menu_icon, 
+    	menu_bigicon, 
+    	menu_order, 
+    	remark, 
+    	status, 
+    	valid_time, 
+    	invalid_time, 
+    	create_time, 
+    	update_time
+  	</sql>
+  	
+  	<!-- 条件 -->
+  	<sql id="Where_Clause" >
+	    <where>
+	    	<trim prefixOverrides="and">
+	    		<if test="parentId != null">
+					and parent_id=#{parentId}
+				</if>
+				<if test="menuName != null">
+					and menu_name=#{menuName}
+				</if>
+				<if test="menuCode != null">
+					and menu_code=#{menuCode}
+				</if>
+				<if test="status != null">
+					and status=#{status}
+				</if>
+	    	</trim>
+	    </where>
+  	</sql>
+  	
+  	<select id="getById" resultType="SysMenus" parameterType="java.lang.Long" >
+    	select
+    		<include refid="baseColumnList" />
+    	from sys_menus
+    	where uid = #{uid}
+  	</select>
+  	
+  	<select id="findByMap" resultType="SysMenus" parameterType="java.util.Map" >
+    	select
+    		<include refid="baseColumnList" />
+    	from sys_menus
+    	<include refid="Where_Clause" />
+    	
+    	<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+  	</select>
+  
+  	<!-- 插入语句 -->
+  	<insert id="insert" parameterType="SysMenus" useGeneratedKeys="true" keyProperty="uid" >
+    	insert into sys_menus (parent_id, parent_code, menu_name, menu_code, menu_url, 
+      		menu_icon, menu_bigicon, menu_order, remark, status, valid_time, invalid_time, 
+      		create_time, update_time) 
+      	values 
+      		(#{parentId}, #{parentCode}, #{menuName}, #{menuCode}, #{menuUrl}, #{menuIcon}, 
+      		#{menuBigicon}, #{menuOrder}, #{remark}, #{status}, #{validTime}, #{invalidTime}, 
+      		#{createTime},#{updateTime})
+  	</insert>
+  
+  	<!-- 按菜单ID删除菜单 -->
+  	<delete id="deleteById" parameterType="java.lang.Long" >
+    	delete from sys_menus
+    	where uid = #{uid}
+  	</delete>
+  
+  	<!-- 按菜单ID更新菜单 -->
+  	<update id="updateById" parameterType="SysMenus" >
+    	update sys_menus
+    	set parent_id = #{parentId},
+      		parent_code = #{parentCode},
+	      	menu_name = #{menuName},
+	      	menu_code = #{menuCode},
+	      	menu_url = #{menuUrl},
+	      	menu_icon = #{menuIcon},
+	      	menu_bigicon = #{menuBigicon},
+	      	menu_order = #{menuOrder},
+	     	remark = #{remark},
+	      	status = #{status},
+	      	valid_time = #{validTime},
+	      	invalid_time = #{invalidTime},
+	      	update_time = #{updateTime}
+    	where uid = #{uid}
+  	</update>
+  	
+ 
+ 	<!-- 关联查询：根据roleId获取菜单列表 -->
+	<select id="findMenusByRoleId" resultType="SysMenus" parameterType="java.lang.String">
+		SELECT m.* 
+		from sys_menus m,sys_role_menu rm 
+		where m.uid=rm.menu_id and rm.role_id=#{roleId} and m.status='1' 
+		order by m.menu_order 
+	</select>
+	
+	<!-- 关联查询：根据父菜单ID和roleId获取菜单列表 -->
+	<select id="findMenusByPIdAndUserId" resultType="SysMenus">
+		SELECT m.* 
+			from sys_menus m
+			left join sys_role_menu rm on m.uid=rm.menu_id 
+			left join sys_user_role ur on rm.role_id=ur.role_id
+			where  m.parent_id=#{param1} and ur.user_id=#{param2} and m.status='1' 
+			order by m.menu_order asc
+	</select>
+	
+	
+		<!-- 统计记录数量 -->
+	<select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(*) from sys_menus
+			<include refid="Where_Clause" />
+	</select>
+</mapper>

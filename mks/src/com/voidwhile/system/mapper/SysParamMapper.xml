@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.system.mapper.SysParamMapper" >
+ 	<!-- 查询字段 -->
+	<sql id="baseColumn">
+		uid, 
+		supplier_id, 
+		param_code, 
+		param_name, 
+		issystem, 
+		remark, 
+		create_time, 
+		update_time
+	</sql>
+	<!-- 查询条件 -->
+	<sql id="selectWhereClause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="supplierId != null">
+					and supplier_id=#{supplierId}
+				</if>
+		      	<if test="paramCode != null" >
+		        	and param_code = #{paramCode}
+		      	</if>
+		      	<if test="paramName != null" >
+		        	and param_name like CONCAT('%',#{paramName},'%')  
+		      	</if>
+			</trim>
+		</where>
+	</sql>
+	<select id="options" resultType="java.lang.String" parameterType="String">
+	${value}
+	</select>
+	<!-- 查询语句 开始 -->
+	<select id="getById" parameterType="java.lang.String" resultType="SysParam">
+		select
+		<include refid="baseColumn" />
+		from sys_param
+		where uid=#{uid}
+	</select>
+	<!-- 按Map查询 -->
+	<select id="findByMap" resultType="SysParam" parameterType="java.util.Map">
+		select
+		<include refid="baseColumn" />
+		from sys_param
+		<include refid="selectWhereClause" />
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+		<if test="offset != null and pageSize != null">
+			limit #{offset} , #{pageSize}
+		</if>
+	</select>
+
+	<!-- 统计记录数量 -->
+	<select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(*) from sys_param
+			<include refid="selectWhereClause" />
+	</select>
+	<!-- 查询结束 -->
+
+	<!-- 插入语句 -->
+	<insert id="insert" parameterType="SysParam" useGeneratedKeys="true" keyProperty="uid">
+		insert into sys_param (
+			uid, supplier_id, param_code, param_name, issystem, remark, create_time, update_time)
+    	values (
+    		#{uid}, #{supplierId}, #{paramCode}, #{paramName}, #{issystem}, #{remark}, #{createTime}, #{updateTime} 
+      	)
+	</insert>
+	<!-- 删除语句 -->
+	<delete id="deleteById" parameterType="java.lang.String">
+		delete from sys_param where uid = #{uid}
+	</delete>
+	<!-- 更新 -->
+	<update id="updateById" parameterType="SysParam">
+		update sys_param
+	    set param_name = #{paramName},
+      		remark = #{remark},
+      		update_time = #{updateTime}
+	    where uid = #{uid}
+	</update>
+	<!-- 更新结束 -->
+</mapper>

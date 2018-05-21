@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.voidwhile.market.mapper.AppVersionMapper" >
+  	<sql id="Base_Column_List" >
+   	 	supplier_id, title, version, remark, file, is_must, version_time
+  	</sql>
+  	<select id="getBySupplierId" resultType="AppVersion" parameterType="java.lang.String" >
+    	select 
+    	<include refid="Base_Column_List" />
+    	from app_version
+    	where supplier_id = #{supplierId}
+  	</select>
+  	
+  	<insert id="insert" parameterType="AppVersion" >
+    	insert into app_version (
+    		supplier_id, title, version, remark, file, is_must, version_time
+    	) values (
+    		#{supplierId}, #{title}, #{version}, #{remark}, #{file}, 
+      		#{isMust}, #{versionTime}
+    	)
+  	</insert>
+  	<update id="update" parameterType="AppVersion" >
+		update app_version
+	    set title = #{title},
+	      	version = #{version},
+	      	remark = #{remark},
+	      	file = #{file},
+	      	is_must = #{isMust},
+	      	version_time = #{versionTime}
+	    where supplier_id = #{supplierId}
+  	</update>
+</mapper>

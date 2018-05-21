@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<description>Customer Tag</description>
+	<display-name>"Coder Tags"</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>rif</short-name>
+	<uri>/framework-tags</uri>
+	<tag>
+		<name>menuAttrTag</name>
+		<tag-class>com.voidwhile.common.taglib.authority.MenuAttributeManagerTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>menuCode</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

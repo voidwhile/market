@@ -1,0 +1,27 @@
+.tableBox{
+	border-left: 1px solid #ecedf3;
+	border-top: 1px solid #ecedf3;
+	border-bottom:none;
+	border-right:none;
+	
+}
+
+.tableBox th{
+	background-color:#ddd;
+	height:22px;
+	font-size: 14px;
+	border-left: none;
+	border-top: none;
+	border-bottom: 1px solid #ecedf3;
+	border-right: 1px solid #ecedf3;
+	padding: 3px;
+}
+
+.tableBox td{
+	height:22px;
+	border-left: none;
+	border-top: none;
+	border-bottom: 1px solid #ecedf3;
+	border-right: 1px solid #ecedf3;
+	padding: 3px;
+}
