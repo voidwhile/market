@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>退货</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/mui.min.js"></script>
+	</head>
+	<body class="sccg_bg mine-th">
+    	<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+			<h1 class="mui-title">退货</h1>
+		</header>
+		<div class="mui-content pd15">
+        	<P class=" hot-tit">退货原因：</P>
+           <textarea class="fk-wby" rows="15" cols="1" placeholder="请输入您的退货理由"></textarea>
+           <P class=" hot-tit">请上传商品图片：</P>
+           
+           <form class="sczp" id="form2">
+                 <a href="#picture" class="h5pz">
+                 	<!-- <input type="file" name="homeImg" value="从手机相册选择"> --><img src="images/sctp_icon.png">
+                 </a>
+				  <div class="tui_pic" id="a">
+				<div id="image" class="image"></div>
+					<span><input type="file" multiple="multiple" name="photo[]" id="photo" onchange="upload()"></span>
+				</div>
+		   </form>
+		</div>
+         <a href="mine_sccg.html" class="fk-btn">提交</a>
+	</body>
+</html>

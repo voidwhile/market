@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>编辑资料</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/mui.min.js"></script>
+        <link rel="stylesheet" href="css/LArea.css">
+        <style>
+        	.sc-hidden{
+				width: 36px;
+				height: 36px;
+				display: block;
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				opacity: 0;
+				filter: alpha(opacity=0);
+				-moz-opacity: 0;
+				-khtml-opacity: 0.5;
+				opacity: 0;
+			}
+        </style>
+  
+	</head>
+	<body class="grzl">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
+			<h1 class="mui-title">编辑资料</h1>
+		</header>
+		<div class="mui-content">
+          <ul class="mui-table-view bg_white grzx-list mt0">         
+              <li class="mui-table-view-cell">
+                <a class="mui-navigate-right grzx-tx-text">
+                  <label style="line-height:36px;">店铺图片</label>
+                  <img class="mui-pull-right yjzz-input grzl_tx" src="images/tx.png">
+                  <input id="sctx" class="sc-hidden" type="file"/>
+                </a>
+              </li>
+               <li class="mui-table-view-cell">
+                <a> 
+                   <label class="grzl-label">店铺名称</label>
+                   <input class="yjzz-input" value="请输入店铺名称">
+                </a>
+              </li>
+              <li class="mui-table-view-cell">
+                <a>
+                  <label class="grzl-label"  style="line-height:36px;">请上传营业执照</label>
+                  <img class="mui-pull-right yjzz-input sczz-btn" src="images/add_img.png">
+                  <input class="sc-hidden" type="file" value="images/add_img.png"/>
+                </a>
+              </li>
+              <li class="mui-table-view-cell">
+                <a>
+                  <label class="grzl-label">所在地区</label>
+                  <input id="demo1" readonly class="yjzz-input"  value="省份&nbsp;&or;&nbsp;&nbsp;城市&nbsp;&or;&nbsp;&nbsp;县/区&nbsp;&or;">
+                </a>
+              </li>
+              <li class="mui-table-view-cell">
+                <a>
+                  <label class="grzl-label">详细地址</label>
+                  <input class="yjzz-input"  value="请输入详细地址">
+                </a>
+              </li>
+               <li class="mui-table-view-cell">
+                <a>
+                   <label class="grzl-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                   <input class="yjzz-input"  value="请输入您的姓名">
+                </a>
+              </li>
+               <li class="mui-table-view-cell">
+                <a href="xgsjh.html">
+                   <label class="grzl-label">手&nbsp;机&nbsp;号</label>
+                   <input disabled class="yjzz-input" style="" value="请输入您的手机号"/>
+                </a>
+              </li>
+            </ul>
+            <div class="line-hui"></div>
+            <ul class="mui-table-view bg_white grzx-list mt0"> 
+               <li class="mui-table-view-cell">
+                <a>
+                  <label class="grzl-label">采购专员</label>
+                  <input class="yjzz-input"  value="请输入名称">
+                </a>
+                <a class="szshr">是否设置成收货人</a>
+              </li>
+              <li class="mui-table-view-cell">
+                <a>
+                  <label class="grzl-label">联系方式</label>
+                  <input class="yjzz-input"  value="请输入手机号">
+                </a>
+              </li>
+            </ul>
+             <a class="save-btn" href="mine.html">保存</a>
+		</div>
+	</body>
+    <script src="js/LAreaData1.js"></script>
+		<script src="js/LArea.js"></script>
+        <script>
+        var area1 = new LArea();
+        area1.init({
+            'trigger': '#demo1', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+            'valueTo': '#value1', //选择完毕后id属性输出到该位置
+            'keys': {
+                id: 'id',
+                name: 'name'
+            }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+            'type': 1, //数据源类型
+            'data': LAreaData //数据源
+        });
+        area1.value=[1,13,3];//控制初始位置，注意：该方法并不会影响到input的value
+        </script>
+
+</html>
