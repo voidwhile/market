@@ -73,5 +73,12 @@ public class PubImageServiceImpl implements PubImageService {
 		return 0;
 	}
 
+
+	@Override
+	public void deleteByBizId(PubImage record) {
+		mapper.deleteByBizId(record);
+		
+	}
+
 	 
 }

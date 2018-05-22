@@ -14,27 +14,27 @@
 <form id="editForm" class="easyui-form" method="post" data-options="novalidate:true">
 	<table id="cmdTab" class="tableBox" border="0" width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<th width="100" align="right">名称:</th>
-			<td><input class="easyui-textbox" type="text" name="cmdName" style="width:250px" missingMessage="名称不能为空！" data-options="required:true" /></td>
+			<th width="10%" align="right">名称:</th>
+			<td width="40%"><input class="easyui-textbox" type="text" name="cmdName" style="width:250px" missingMessage="名称不能为空！" data-options="required:true" /></td>
 		    
-			<th width="100" align="right">分类:</th>
-			<td><select id="cmdType" name="cmdType" onchange="addLabel();">
+			<th width="10%" align="right">分类:</th>
+			<td width="40%"><select id="cmdType" name="cmdType" onchange="addLabel();">
 			<option value="0">--请选择--</option>
 			${typeOptions}
 			</select></td>
 		</tr>
 		<tr>
-			<th width="100" align="right">标签:</th>
-			<td colspan="3" id="labels"></td>
+			<th width="10%" align="right">标签:</th>
+			<td width="90%" colspan="3" id="labels"></td>
 		</tr>
 		
 		<tr>
-			<th width="100" align="right">品牌:</th>
+			<th width="10%" align="right">品牌:</th>
 			<td><select id="cmdBrand" name="cmdBrand" >
 			<option value="0">--请选择--</option>
 			${brandOptions}
 			</select></td>
-			<th width="100" align="right">状态:</th>
+			<th width="10%" align="right">状态:</th>
 			<td>
 			<select name="cmdStatus" >
 			${statusOptions}
@@ -43,44 +43,44 @@
 	
 		</tr>
 		<tr>
-			<th width="100" align="right">图片:</th>
-			<td colspan="3">
+			<th width="10%" align="right">图片:</th>
+			<td width="90%" colspan="3">
 				<input type="file" name="pic" id="pic" onchange="saveFile(this.id)">
 	        </td>
 		</tr>
 		<tr>
-			<th width="100" align="right">预览:</th>
-			<td colspan="3" id="picShow"></td>
+			<th width="10%" align="right">预览:</th>
+			<td width="90%" colspan="3" id="picShow"></td>
 		</tr>
 		<tr>
-			<th width="100" align="right">上架时间 :</th>
-			<td><input  class="easyui-datebox textbox" type="text" name="dputawayTime" missingMessage="地址电话不能为空！" data-options="required:false" /></td>
+			<th width="10%" align="right">上架时间 :</th>
+			<td width="40%"><input  class="easyui-datebox textbox" type="text" name="dputawayTime" missingMessage="地址电话不能为空！" data-options="required:false" /></td>
 	
-			<th width="100" align="right">生产日期:</th>
-			<td><input class="easyui-datebox textbox" type="text" name="dproduceDate"   /></td>
+			<th width="10%" align="right">生产日期:</th>
+			<td width="40%"><input class="easyui-datebox textbox" type="text" name="dproduceDate"   /></td>
 		</tr>
 		<tr>
-			<th width="100" align="right">保质期:</th>
-			<td><input  class="easyui-textbox" type="text" name="shelfLife"/></td>
-			<th width="100" align="right">到期日:</th>
-			<td><input class="easyui-datebox textbox" type="text" name="dexpirationDate"  /></td>
+			<th width="10%" align="right">保质期:</th>
+			<td width="40%"><input  class="easyui-textbox" type="text" name="shelfLife"/></td>
+			<th width="10%" align="right">到期日:</th>
+			<td width="40%"><input class="easyui-datebox textbox" type="text" name="dexpirationDate"  /></td>
 	    </tr>
 		<tr id="tr_sup">
-			<th width="100" align="right">供应商:</th>
-			<td>
+			<th width="10%" align="right">供应商:</th>
+			<td width="40%">
 			<select name="supplierId" >
 			<option value="0">--请选择--</option>
 			${supplierOptions}
 			</select>
 			</td>
-			<th width="100" align="right">添加规格:</th>
-			<td>
+			<th width="10%" align="right">添加规格:</th>
+			<td width="40%">
 				<a class="easyui-linkbutton" id="1" onclick="addSft();" iconCls="icon-add" plain="true" href="javascript:void(0)"></a>
 			</td>
 		</tr>
 		<tr id="tr_sft">
-			<th width="100" align="right">规格:</th>
-			<td colspan="3">
+			<th width="10%" align="right">规格:</th>
+			<td width="90%" colspan="3">
 			
 			<select name="specification" >
 			${specificationOptions}
@@ -90,8 +90,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th width="100" align="right">商品详情:</th>
-			<td colspan="3">
+			<th width="10%" align="right">商品详情:</th>
+			<td width="90%" colspan="3">
 			<script type="text/plain" id="description" name="description"
 					style="width:95%;height:360px;"/>
 			</td>
@@ -116,7 +116,7 @@ var ue = UE.getEditor('description');
 function submitForm(){
 	$.messager.progress({title:'请稍候',msg:'数据提交中...'});
 	$('#editForm').form('submit', {
-		url: '${path}/cmd/cmd/save.do',
+		url: path+'/cmd/cmd/save.do',
 		onSubmit: function(param){
 			var isValid = $(this).form('enableValidation').form('validate');
 			if (!isValid){

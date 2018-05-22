@@ -114,6 +114,12 @@
     <include refid="Base_Column_List" />
     from mk_cmd_commodity
     <include refid="selectWhereClause" />
+    <if test="orderByClause != null">
+		order by ${orderByClause}
+	</if>
+	<if test="offset != null and pageSize != null">
+		limit #{offset} , #{pageSize}
+	</if>
   </select>
   <select id="countByMap" parameterType="java.util.Map" resultType="java.lang.Integer">
     <!--

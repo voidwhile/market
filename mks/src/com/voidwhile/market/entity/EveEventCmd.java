@@ -1,5 +1,7 @@
 package com.voidwhile.market.entity;
 
+import java.math.BigDecimal;
+
 public class EveEventCmd {
     /**
      *
@@ -99,4 +101,27 @@ public class EveEventCmd {
     public void setCmdId(Long cmdId) {
         this.cmdId = cmdId;
     }
+    
+    private String cmdName;
+    
+    private BigDecimal price;
+
+	public String getCmdName() {
+		return cmdName;
+	}
+
+	public void setCmdName(String cmdName) {
+		this.cmdName = cmdName;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+    
+    
+    
 }

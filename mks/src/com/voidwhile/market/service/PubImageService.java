@@ -9,4 +9,5 @@ public interface PubImageService extends IBaseService<PubImage> {
 	
 	public List<PubImage> findByMap(Map<String, Object> param);
 	public void insertimage(PubImage image);
+	public void deleteByBizId(PubImage record);
 }

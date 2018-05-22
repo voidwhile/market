@@ -57,6 +57,8 @@ public interface PubImageMapper {
 	List<PubImage> selectByMap(Map<String, Object> param);
 
 	PubImage findById(Integer id);
+	
+	void deleteByBizId(PubImage record);
 
 	
 

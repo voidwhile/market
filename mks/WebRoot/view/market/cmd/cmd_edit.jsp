@@ -128,7 +128,7 @@ $(function(){
 function submitForm(){
 	$.messager.progress({title:'请稍候',msg:'数据提交中...'});
 	$('#editForm').form('submit', {
-		url: '${path}/cmd/cmd/save.do',
+		url: path+'/cmd/cmd/save.do',
 		onSubmit: function(param){
 			var isValid = $(this).form('enableValidation').form('validate');
 			if (!isValid){

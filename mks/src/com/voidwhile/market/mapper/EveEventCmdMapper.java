@@ -1,5 +1,8 @@
 package com.voidwhile.market.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.voidwhile.market.entity.EveEventCmd;
 
 public interface EveEventCmdMapper {
@@ -50,4 +53,8 @@ public interface EveEventCmdMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(EveEventCmd record);
+
+	List<EveEventCmd> findByMap(Map<String, Object> param);
+
+	int countByMap(Map<String, Object> param);
 }
