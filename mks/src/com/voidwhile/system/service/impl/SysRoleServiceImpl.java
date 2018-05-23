@@ -237,18 +237,8 @@ public class SysRoleServiceImpl implements SysRoleService {
 		if (roleList != null && roleList.size() > 0) {
 			for(SysRole role : roleList){
 				String roleCode = StringUtils.trimToEmpty(role.getRoleCode());
-				if (StringUtils.isEmpty(rlt) && SysConstant.ROLE_CODE_SALEMAN.equals(roleCode)) {
-					rlt = roleCode;
-					continue;
-				}
-				if (SysConstant.ROLE_CODE_DIRECTOR.equals(roleCode)) {
-					rlt = roleCode;
-					continue;
-				}
-				if (SysConstant.ROLE_CODE_BOSS.equals(roleCode)) {
-					rlt = roleCode;
-					break;
-				}
+				rlt = roleCode;
+				break;
 			}
 		}
 		return rlt;

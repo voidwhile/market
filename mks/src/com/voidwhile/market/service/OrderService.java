@@ -2,6 +2,7 @@ package com.voidwhile.market.service;
 
 import java.util.Map;
 
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.market.entity.OdrOrder;
 import com.voidwhile.market.entity.OdrOrderDetail;
 import com.voidwhile.system.bean.PageResult;

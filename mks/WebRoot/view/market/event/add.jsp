@@ -35,7 +35,7 @@
 			<td width="90%" id="picShow"></td>
 		</tr>
 		<tr>
-			<td align="center" colspan="2">活动详情:</td>
+			<td align="center" colspan="2">活动详情</td>
 		</tr>
 		<tr>
 			<td colspan="2"><script type="text/plain" id="description" name="description"

@@ -1,5 +1,7 @@
 package com.voidwhile.system.constant;
 
+import com.voidwhile.core.utils.PropertyUtils;
+
 /**
  *******************************************************************************
  * 系统管理常量类，添加常量时请注明其用途
@@ -50,17 +52,6 @@ public class SysConstant {
 	/**
 	 * **************************
 	 * 
-	 * 位置上报类型， SIGNIN：签到， SIGNOUT：签退， SUBMIT：位置上报
-	 */
-	public static final String LOCATION_TYPE_SIGNIN = "signin";
-
-	public static final String LOCATION_TYPE_SIGNOUT = "signout";
-
-	public static final String LOCATION_TYPE_SUBMIT = "submit";
-
-	/**
-	 * **************************
-	 * 
 	 * 报表类型：day：日报表,week：周报表,month：月报表,year：年报表
 	 */
 	public static final String WORK_REPORT_DAY = "day";
@@ -68,28 +59,9 @@ public class SysConstant {
 	public static final String WORK_REPORT_MONTH = "month";
 	public static final String WORK_REPORT_YEAR = "year";
 
-	/**
-	 * **************************
-	 * 
-	 * 系统默认角色代码
-	 */
-	// 系统管理员
-	public static final String ROLE_CODE_ADMIN = "admin";
-	// 高管
-	public static final String ROLE_CODE_BOSS = "boss";
-	//主管
-	public static final String ROLE_CODE_DIRECTOR = "director";
-	// 业务员
-	public static final String ROLE_CODE_SALEMAN = "saleman";
-
-	/*****************************
-	 * 用户数据范围
-	 */
-	// 全部数据，无限制
-	public static final String ROLE_DATARANG_FULL = "full";
-	// 部门内数据
-	public static final String ROLE_DATARANG_DEPT = "dept";
-	// 只能查询自己的数据
-	public static final String ROLE_DATARANG_OWNER = "owner";
+	public static final String FILE_ROOT = PropertyUtils.getPropertyValue("config.properties", "file.path");
+	public static final String IMG_URL = PropertyUtils.getPropertyValue("config.properties", "imgUrl");
+	public static final String PATH = PropertyUtils.getPropertyValue("config.properties", "path");
+	public static final String WXMENUPATH = PropertyUtils.getPropertyValue("config.properties", "WXMenuPath");
 
 }

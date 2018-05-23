@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.market.entity.EveEvent;
 import com.voidwhile.market.entity.EveEventCmd;
 import com.voidwhile.system.bean.PageResult;

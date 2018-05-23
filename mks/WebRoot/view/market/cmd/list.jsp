@@ -61,8 +61,11 @@ var _dialogHeight=800;
 		<div class="toolbar_class">
 			&nbsp;&nbsp;&nbsp;&nbsp; <a class="easyui-linkbutton" id="addbtn" iconCls="icon-add" plain="true" href="javascript:void(0)" onclick="insert()" >新增</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="updbtn" iconCls="icon-edit" plain="true" href="javascript:void(0)" onclick="edit()">修改</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="showbtn" iconCls="icon-show" plain="true" href="javascript:void(0)" onclick="show()">预览</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="showbtn" iconCls="icon-eye-open" plain="true" href="javascript:void(0)" onclick="show()">预览</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="showbtn" iconCls="icon-tags" plain="true" href="javascript:void(0)" onclick="sale()">特价</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="showbtn" iconCls="icon-bullhorn" plain="true" href="javascript:void(0)" onclick="recom()">推荐</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="easyui-linkbutton" id="delbtn" iconCls="icon-remove" plain="true" href="javascript:void(0)" onclick="removeFn()">删除</a>
+			
 		</div>
 	</div>
 	</div>
@@ -131,6 +134,28 @@ function show(){
 	if (selects.length==1) {
 		var uid = selects[0][getId()];	
 		openEditorDialog("预览", 600, 800, path+"/cmd/cmd/detail.do?cmdId="+uid);
+	} else if(selects.length < 1) {
+		$.messager.alert('提示', '<br>请选中您要修改的记录!', 'info');
+	}else if(selects.length > 1) {
+		$.messager.alert('提示', '<br>修改，只能选择一条记录!', 'info');
+	}
+}
+function sale(){
+	var selects =  $('#dbgrid').datagrid('getSelections');
+	if (selects.length==1) {
+		var uid = selects[0][getId()];
+		openEditorDialog("添加特拉商品", 600, 400, path+"/cmd/cmd/sale.do?cmdId="+uid);
+	} else if(selects.length < 1) {
+		$.messager.alert('提示', '<br>请选中您要修改的记录!', 'info');
+	}else if(selects.length > 1) {
+		$.messager.alert('提示', '<br>修改，只能选择一条记录!', 'info');
+	}
+}
+function recom(){
+	var selects =  $('#dbgrid').datagrid('getSelections');
+	if (selects.length==1) {
+		var uid = selects[0][getId()];	
+		openEditorDialog("添加推荐商品", 600, 400, path+"/cmd/cmd/recom.do?cmdId="+uid);
 	} else if(selects.length < 1) {
 		$.messager.alert('提示', '<br>请选中您要修改的记录!', 'info');
 	}else if(selects.length > 1) {

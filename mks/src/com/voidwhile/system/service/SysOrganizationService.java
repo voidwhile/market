@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 
 import com.voidwhile.common.bean.tree.TreeNode;
-import com.voidwhile.market.service.IBaseService;
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.system.entity.SysOrganization;
 
 /**

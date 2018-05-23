@@ -77,11 +77,7 @@ public class SysUserController extends BaseController {
 		if (supplier == null) {
 			return null;
 		}
-		if (SysConstant.ROLE_DATARANG_DEPT.equals(admin.getDataRange()) && StringUtils.isEmpty(parentId)) {
-			parentId = admin.getUser().getDeptId();
-		} else if (StringUtils.isEmpty(parentId)) {
-			parentId = "0";
-		}
+		parentId = "0";
 		List<String> selectedUser = null;
 		if (StringUtils.isNotEmpty(selected)) {
 			selectedUser = Arrays.asList(selected.split(","));

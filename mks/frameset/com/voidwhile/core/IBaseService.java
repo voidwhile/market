@@ -1,4 +1,4 @@
-package com.voidwhile.market.service;
+package com.voidwhile.core;
 
 import java.util.List;
 import java.util.Map;

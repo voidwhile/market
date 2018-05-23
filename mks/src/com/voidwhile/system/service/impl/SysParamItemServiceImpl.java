@@ -94,7 +94,7 @@ public class SysParamItemServiceImpl implements SysParamItemService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @see com.voidwhile.market.service.IBaseService#findPageData(java.util.Map, int,
+	 * @see com.voidwhile.core.IBaseService#findPageData(java.util.Map, int,
 	 *      int, java.lang.String)
 	 */
 	@Override

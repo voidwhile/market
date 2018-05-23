@@ -134,13 +134,10 @@ public class LoginController extends BaseController {
 					List<SysRole> roleList = roleService.getByUserId(user.getUid()+"");
 					// 用户的权限信息
 					Set<SysMenus> menuList = null;
-					String dataRang = SysConstant.ROLE_DATARANG_OWNER;
 					if (SysConstant.YES.equals(user.getIsSystem())) {
 						menuList = menuService.findMenusByPIdAndSupplierLevel(0, supplier.getSupplierLevel());
-						dataRang = SysConstant.ROLE_DATARANG_FULL;
 					} else {
 						menuList = menuService.findMenusByPIdAndUserId(0, user.getUid()+"");
-						dataRang = getDataRang(roleList);
 					}
 					
 					Admin admin = new Admin();
@@ -148,7 +145,6 @@ public class LoginController extends BaseController {
 					admin.setSupplier(supplier);
 					admin.setRoleList(roleList);
 					admin.setMenuList(menuList);
-					admin.setDataRange(dataRang);
 					
 					logger.info("登陆成功：{} - {}", username, RequestUtils.getIpAddr(request));
 					SysLogHelper.info(supplier.getUid(), username, "系统登陆", "登陆成功", RequestUtils.getIpAddr(request));
@@ -226,34 +222,5 @@ public class LoginController extends BaseController {
 		return "system/login";
 	}
 
-	/**
-	 * @MethodName: getDataRang
-	 * @Description: 获取用户数据范围
-	 * @param roleList
-	 *
-	 * @Author: xiaowei
-	 * @Create Date: 2014年12月12日 下午5:04:24
-	 */
-	private String getDataRang(List<SysRole> roleList) {
-		String rlt = "";
-		if (roleList != null && roleList.size() > 0) {
-			for (SysRole role : roleList) {
-				String datarange = StringUtils.trimToEmpty(role.getDataRange());
-				if (StringUtils.isEmpty(rlt) && SysConstant.ROLE_DATARANG_OWNER.equals(datarange)) {
-					rlt = datarange;
-					continue;
-				}
-				if (SysConstant.ROLE_DATARANG_DEPT.equals(datarange)) {
-					rlt = datarange;
-					continue;
-				}
-				if (SysConstant.ROLE_DATARANG_FULL.equals(datarange)) {
-					rlt = datarange;
-					break;
-				}
-			}
-		}
-		return rlt;
-	}
 
 }

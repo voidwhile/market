@@ -1,0 +1,46 @@
+.liu-div {
+    float: left;
+}
+
+.liu-div1 {
+    width: 110px;
+}
+
+.liu-div3,
+.liu-div2 {
+    width: 92px;
+    height: 44px;
+    line-height: 44px;
+    text-align: right
+}
+
+.liu-div .p2 {
+    font-size: 12px;
+}
+.liu-div3{
+    padding-right: 15px;
+}
+.liu-color {
+    color: #0bcf9e;
+    font-size: 14px;
+}
+
+.line {
+    width: 100%;
+    height: 55px;
+    background-color: #f0f0f0;
+    line-height: 55px;
+    padding-left:15px
+}
+.line div{
+    display: inline-block;
+    width: 46%;
+
+}
+.div-right{
+    text-align: right;
+}
+.span-color{
+    color: #0bcf9e;
+
+}

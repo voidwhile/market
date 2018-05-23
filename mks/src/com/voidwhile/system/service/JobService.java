@@ -2,7 +2,7 @@ package com.voidwhile.system.service;
 
 import java.util.List;
 
-import com.voidwhile.market.service.IBaseService;
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.system.entity.Job;
 
 public interface JobService extends IBaseService<Job> {

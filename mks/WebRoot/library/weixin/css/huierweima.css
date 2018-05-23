@@ -1,0 +1,20 @@
+.liu-btn{
+    width: 80%;
+    background-color: #0bcf9f;
+    color: white;
+    margin-left: 10%;
+    height: 45px;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.liu-p{
+    text-align: center;
+    margin-bottom: 60px;
+    color: #000000;
+
+}
+.img{
+    width:125px ;
+    height: 125px;
+    margin: 55px auto 8px;
+}

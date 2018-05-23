@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+	font-family: "微软雅黑";
+}
+li{
+	list-style: none;
+}
+body,html{
+	position: relative;
+
+}
+.head_Bills{
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	background: #0BCF9E;
+	font-size: 0.36rem;
+	color: #FFF;
+	position: relative;
+	text-align: center;
+}
+.pad{
+	padding: 0.2rem;
+}
+.pad-le{
+	padding: 0 0.2rem;
+}
+.enterLeft{
+	position: absolute;
+    width: 0.28rem;
+    height: 0.28rem;
+    background: url(../img/white.png) no-repeat;
+    background-size: contain;
+    left: 0.2rem;
+    top: 50%;
+    margin-top: -0.14rem;
+}
+.head_Zhin{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: .28rem;
+	color: #333333;
+	border-bottom: 0.01rem solid #e0e0e0;
+}
+.head_Zhin span{
+	display: inline-block;
+	margin-right: 0.15rem;
+	width: .06rem;
+	height: .28rem;
+	background: #0BCF9E;
+	    vertical-align: middle;
+}
+.head_content ul li{
+	font-size: 0.24rem;
+	color: #666666;
+	line-height: 0.4rem;
+	letter-spacing: 0.01rem;
+}
+.head_content .firstLi{
+	margin-bottom: 0.15rem;
+}
+.head_content .lastLi span{
+	color: #0BCF9E;
+}
+.body_content{
+	padding-bottom: 0.8rem;
+}
+.body_content ul li{
+	font-size: 0.24rem;
+	color: #666666;
+	line-height: 0.4rem;
+	letter-spacing: 0.04rem;
+	text-align: justify;
+	margin: 0.2rem 0;
+}
+.body_content ul li span{
+	color: #333333;
+}
+.footer_Bills{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	font-size: 0.28rem;
+	color: #FFF;
+	background: #0BCF9E;
+}

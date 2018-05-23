@@ -2,7 +2,7 @@ package com.voidwhile.system.service;
 
 import org.springframework.dao.DataAccessException;
 
-import com.voidwhile.market.service.IBaseService;
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.system.entity.SysSupplier;
 
 /**

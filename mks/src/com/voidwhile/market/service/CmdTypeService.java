@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 
 import com.voidwhile.common.bean.tree.TreeNode;
+import com.voidwhile.core.IBaseService;
 import com.voidwhile.market.entity.CmdType;
 
 /** 
