@@ -170,6 +170,9 @@ public class CmdCommodityCtrl extends BaseController {
 		
 		Map<String, Object> map = new HashMap<>();
 		try {
+			if (imgs!=null) {
+				entity.setImgPath(imgs[0]);
+			}
 			if (entity.getCmdId()!=null) {
 				service.update(entity);
 				labelService.deleteByCmdId(entity.getCmdId());

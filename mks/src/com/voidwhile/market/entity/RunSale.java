@@ -201,4 +201,36 @@ public class RunSale {
     public void setSaleType(Integer saleType) {
         this.saleType = saleType;
     }
+    
+    private BigDecimal price;
+    
+    private String cmdImg;
+    private String cmdName;
+    
+
+	public String getCmdName() {
+		return cmdName;
+	}
+
+	public void setCmdName(String cmdName) {
+		this.cmdName = cmdName;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public String getCmdImg() {
+		return cmdImg;
+	}
+
+	public void setCmdImg(String cmdImg) {
+		this.cmdImg = cmdImg;
+	}
+    
+    
 }

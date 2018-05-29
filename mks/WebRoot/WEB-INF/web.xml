@@ -45,7 +45,7 @@
   </filter>
   <filter-mapping>
     <filter-name>jfinal</filter-name>
-    <url-pattern>/wx/*</url-pattern>
+    <url-pattern>/jf/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>MarketManage</servlet-name>
@@ -71,6 +71,10 @@
   <servlet-mapping>
     <servlet-name>MarketManage</servlet-name>
     <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MarketManage</servlet-name>
+    <url-pattern>*.wx</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>MarketManage</servlet-name>

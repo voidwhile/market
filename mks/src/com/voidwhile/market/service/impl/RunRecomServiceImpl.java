@@ -1,5 +1,6 @@
 package com.voidwhile.market.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.voidwhile.common.utils.DateUtils;
 import com.voidwhile.market.entity.RunRecommend;
 import com.voidwhile.market.mapper.RunRecommendMapper;
 import com.voidwhile.market.service.RunRecomService;
@@ -55,6 +57,12 @@ public class RunRecomServiceImpl implements RunRecomService {
 	public int countByMap(Map<String, Object> param) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public RunRecommend getTodayRecom() {
+		String today = DateUtils.dateToString(new Date());
+		return mapper.getTodayRecom(today);
 	}
 
 }

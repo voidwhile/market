@@ -50,4 +50,6 @@ public interface RunRecommendMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(RunRecommend record);
+
+	RunRecommend getTodayRecom(String today);
 }

@@ -1,5 +1,6 @@
 package com.voidwhile.market.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class RunRecommend {
@@ -134,4 +135,23 @@ public class RunRecommend {
     public void setIntro(String intro) {
         this.intro = intro;
     }
+    
+    private BigDecimal price;
+    private String cmdName;
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public String getCmdName() {
+		return cmdName;
+	}
+
+	public void setCmdName(String cmdName) {
+		this.cmdName = cmdName;
+	}
 }

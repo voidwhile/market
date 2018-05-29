@@ -65,6 +65,8 @@ public class CmdCommodity {
 	 */
 	private Long supplierId;
 	
+	private String imgPath;
+	
 	private String description;//描述
 	
 	private CmdStatus status;//状态 
@@ -342,5 +344,13 @@ public class CmdCommodity {
 	 */
 	public void setSupplierId(Long supplierId) {
 		this.supplierId = supplierId;
+	}
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
 	}
 }

@@ -1,5 +1,8 @@
 package com.voidwhile.market.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.voidwhile.market.entity.RunSale;
 
 public interface RunSaleMapper {
@@ -50,4 +53,10 @@ public interface RunSaleMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(RunSale record);
+    
+    RunSale getTodaySale(String today);
+    
+    List<RunSale> selectByMap(Map<String, Object> param);
+	
+	int countByMap(Map<String, Object> param);
 }

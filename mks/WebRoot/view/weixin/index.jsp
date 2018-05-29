@@ -89,7 +89,8 @@
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
 					<div class="mui-indicator"></div>
-				</div>
+					<div class="mui-indicator"></div>
+			  </div>
 			</div>
             <!--轮播结束-->
             <!--商品分类开始-->
@@ -170,9 +171,11 @@
             <div class="line-hui"></div>
             <!--广告位开始-->
             <div class="ad-list">
-            	<a href="fl_splb_ggw.html">
-                	<img src="${path }/library/weixin/images/ad.png"/>
+            	<c:forEach items="${adAdverts }" var="ad">
+            	<a href="${ad.url }">
+                	<img src="${imgUrl }${ad.imgPath}"/>
                 </a>
+            	</c:forEach>
             </div>
             <!--广告位结束-->
             <div class="line-hui"></div>
@@ -181,53 +184,32 @@
         <!--今日特价-新品推荐开始-->
 		<div class="jrtj-list">
         	<p class="jrtj-tit"><span class="jrtj-ico"></span>今日特价</p>
-            <p class="jrtj-mc">小台农芒500g</p>
-            <p class="jrtj-mc-aside">果汁香浓</p>
-            <p class="jrtj-jg">￥8.5</p>
+            <p class="jrtj-mc">${runSale.cmdName }</p>
+            <p class="jrtj-mc-aside">${runSale.intro }</p>
+            <p class="jrtj-jg">￥${runSale.salePrice }</p>
         </div>
         <div class="xptj-list">
         	<p class="jrtj-tit"><span class="xptj-ico"></span>新品推荐</p>
-            <p class="jrtj-mc">佳沛绿奇异果6个</p>
-            <p class="jrtj-mc-aside">酸甜爽口</p>
-            <p class="jrtj-jg">￥19.9</p>
+            <p class="jrtj-mc">${runRecommend.cmdName }</p>
+            <p class="jrtj-mc-aside">${runRecommend.intro }</p>
+            <p class="jrtj-jg">￥${runRecommend.price }</p>
         </div>
         <!--今日特价-新品推荐结束-->
         <div class="line-hui clear"></div>
         <!--特价商品开始-->
         <div class="tjsp-tit-list">特价商品</div>
         <div class="tjsp-list pdb80">
+        	<c:forEach items="${sales }" var="s">
         	  <a class="tjsp-list-item" href="spxq.html">
-                <img class="" src="${path }/library/weixin/images/tjsp.png">
-                 <p class="xs-tit">鲁花5S一级花生油5.436L 赠送900ml 食用油 健康</p>
+                <img class="" src="${imgUrl }${s.cmdImg}">
+                 <p class="xs-tit">${s.cmdName }</p>
                  <div class="xs-jg-list">
-                    <span class="mui-pull-left xs-jg">￥<span>169.9</span></span>
-                    <span class="mui-pull-right xs-scx del-line">原价：￥199.9</span>
+                    <span class="mui-pull-left xs-jg">￥<span>${s.salePrice }</span></span>
+                    <span class="mui-pull-right xs-scx del-line">原价：￥${s.price }</span>
                  </div>
              </a>
-             <a class="tjsp-list-item"  href="spxq.html">
-                <img class="" src="${path }/library/weixin/images/tjsp2.png">
-                 <p class="xs-tit">山东栖霞精品红富士1kg果径80-85mm 苹果</p>
-                 <div class="xs-jg-list">
-                    <span class="mui-pull-left xs-jg">￥<span>169.9</span></span>
-                    <span class="mui-pull-right xs-scx del-line">原价：￥199.9</span>
-                 </div>
-             </a>
-               <a class="tjsp-list-item"  href="spxq.html">
-                <img class="" src="${path }/library/weixin/images/tjsp.png">
-                 <p class="xs-tit">鲁花5S一级花生油5.436L 赠送900ml 食用油 健康</p>
-                 <div class="xs-jg-list">
-                    <span class="mui-pull-left xs-jg">￥<span>169.9</span></span>
-                    <span class="mui-pull-right xs-scx del-line">原价：￥199.9</span>
-                 </div>
-             </a>
-               <a class="tjsp-list-item"  href="spxq.html">
-                <img class="" src="${path }/library/weixin/images/tjsp2.png">
-                 <p class="xs-tit">山东栖霞精品红富士1kg果径80-85mm 苹果</p>
-                 <div class="xs-jg-list">
-                    <span class="mui-pull-left xs-jg">￥<span>169.9</span></span>
-                    <span class="mui-pull-right xs-scx del-line">原价：￥199.9</span>
-                 </div>
-             </a>
+        	</c:forEach>
+             
         </div>
                
 
