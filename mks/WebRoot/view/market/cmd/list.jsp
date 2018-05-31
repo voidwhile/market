@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="${path}/library/easyui/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${path}/library/easyui/themes/icon.css">  
 <link rel="stylesheet" type="text/css" href="${path}/library/css/style.css">
-<link rel="stylesheet" type="text/css" href="${path}/library/css/form.css">            
 <script type="text/javascript" src="${path}/library/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${path}/library/easyui/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="${path}/library/js/ajaxfileupload.js"></script>

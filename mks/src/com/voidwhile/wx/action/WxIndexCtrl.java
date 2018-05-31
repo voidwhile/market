@@ -21,7 +21,7 @@ import com.voidwhile.system.constant.SysConstant;
 
 @Controller
 @RequestMapping("/wx/index")
-public class IndexCtrl {
+public class WxIndexCtrl {
 	
 	@Autowired
 	private AdAdvertService advertService;
@@ -30,6 +30,11 @@ public class IndexCtrl {
 	@Autowired
 	private RunSaleService saleService;
 	
+	/**
+	 * 微信首页
+	 * @param map
+	 * @return
+	 */
 	@RequestMapping("/index.wx")
 	public String index(ModelMap map){
 		Map<String, Object> param = new HashMap<String, Object>();
@@ -46,8 +51,18 @@ public class IndexCtrl {
 		map.put("runSale", runSale);
 		map.put("runRecommend", runRecommend);
 		map.put("banner", banner);
+		if (banner.size()>2) {
+			map.put("l", banner.get(banner.size()-1));
+		}
 		map.put("adAdverts", adAdverts);
 		map.put("imgUrl", SysConstant.IMG_URL);
 		return "weixin/index";
+	}
+	
+	@RequestMapping("/advert.wx")
+	public String advert(String advertId,ModelMap map){
+		AdAdvert advert = advertService.getById(advertId);
+		map.put("advert", advert);
+		return "weixin/advert/advert";
 	}
 }

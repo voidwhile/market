@@ -1,5 +1,6 @@
 package com.voidwhile.market.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -81,7 +82,26 @@ public class CmdCommodity {
 	
 	private List<PubImage> images;//图片
 	
+	private BigDecimal price;
 	
+	private BigDecimal eventPrice;
+	
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public BigDecimal getEventPrice() {
+		return eventPrice;
+	}
+
+	public void setEventPrice(BigDecimal eventPrice) {
+		this.eventPrice = eventPrice;
+	}
+
 	public List<PubImage> getImages() {
 		return images;
 	}

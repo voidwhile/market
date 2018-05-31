@@ -357,16 +357,12 @@ document.getElementById('changeIndex').addEventListener('tap',
       window.location.href = "mine.html";
     });
 /*底部导航结束*/
-/*document.getElementById('mf_return').addEventListener('tap',
-    function(e) {
-      e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-      window.location.href = "mf.html";
-    });*/
+
 //获得slider插件对象(自动轮播)
 $(function(){
 	var gallery = mui('.mui-slider');
 	gallery.slider({
-	  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+	  interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
 	});
 
 })

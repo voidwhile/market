@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ include file="../../common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,30 +8,30 @@
 </head>
 <body>
 <div id="editDiv" class="easyui-panel" border="false" style="padding:5px 10px">
-<form id="editForm" class="easyui-form" method="post" data-options="novalidate:true">
-	<table id="cmdTab" class="tableBox" border="0" width="100%" cellpadding="0" cellspacing="0">
+  <form id="editForm" class="easyui-form"  method="post"> 
+	<table id="cmdTab" class="tableBox" width="100%" border="0" cellspacing="1">
 		<tr>
-			<th width="10%" align="right">名称:</th>
-			<td width="40%"><input class="easyui-textbox" type="text" name="cmdName" style="width:250px" missingMessage="名称不能为空！" data-options="required:true" /></td>
+			<th><label>名称:</label></th>
+			<td><input class="easyui-validatebox textbox" type="text" id="cmdName" name="cmdName" style="width:250px" missingMessage="名称不能为空！" data-options="required:true" /></td>
 		    
-			<th width="10%" align="right">分类:</th>
-			<td width="40%"><select id="cmdType" name="cmdType" onchange="addLabel();">
+			<th><label>分类:</label></th>
+			<td><select id="cmdType" name="cmdType" onchange="addLabel();">
 			<option value="0">--请选择--</option>
 			${typeOptions}
 			</select></td>
 		</tr>
 		<tr>
-			<th width="10%" align="right">标签:</th>
-			<td width="90%" colspan="3" id="labels"></td>
+			<th><label>标签:</label></th>
+			<td  colspan="3" id="labels"></td>
 		</tr>
 		
 		<tr>
-			<th width="10%" align="right">品牌:</th>
+			<th><label>品牌:</label></th>
 			<td><select id="cmdBrand" name="cmdBrand" >
 			<option value="0">--请选择--</option>
 			${brandOptions}
 			</select></td>
-			<th width="10%" align="right">状态:</th>
+			<th><label>状态:</label></th>
 			<td>
 			<select name="cmdStatus" >
 			${statusOptions}
@@ -43,44 +40,44 @@
 	
 		</tr>
 		<tr>
-			<th width="10%" align="right">图片:</th>
-			<td width="90%" colspan="3">
+			<th><label>图片:</label></th>
+			<td  colspan="3">
 				<input type="file" name="pic" id="pic" onchange="saveFile(this.id)">
 	        </td>
 		</tr>
 		<tr>
-			<th width="10%" align="right">预览:</th>
-			<td width="90%" colspan="3" id="picShow"></td>
+			<th><label>预览:</label></th>
+			<td  colspan="3" id="picShow"></td>
 		</tr>
 		<tr>
-			<th width="10%" align="right">上架时间 :</th>
-			<td width="40%"><input  class="easyui-datebox textbox" type="text" name="dputawayTime" missingMessage="地址电话不能为空！" data-options="required:false" /></td>
+			<th><label>上架时间 :</label></th>
+			<td><input  class="easyui-datebox textbox" type="text" name="dputawayTime" missingMessage="地址电话不能为空！" data-options="required:false" /></td>
 	
-			<th width="10%" align="right">生产日期:</th>
-			<td width="40%"><input class="easyui-datebox textbox" type="text" name="dproduceDate"   /></td>
+			<th><label>生产日期:</label></th>
+			<td><input class="easyui-datebox textbox" type="text" name="dproduceDate"   /></td>
 		</tr>
 		<tr>
-			<th width="10%" align="right">保质期:</th>
-			<td width="40%"><input  class="easyui-textbox" type="text" name="shelfLife"/></td>
-			<th width="10%" align="right">到期日:</th>
-			<td width="40%"><input class="easyui-datebox textbox" type="text" name="dexpirationDate"  /></td>
+			<th><label>保质期:</label></th>
+			<td><input  class="easyui-textbox" type="text" name="shelfLife"/></td>
+			<th><label>到期日:</label></th>
+			<td><input class="easyui-datebox textbox" type="text" name="dexpirationDate"  /></td>
 	    </tr>
 		<tr id="tr_sup">
-			<th width="10%" align="right">供应商:</th>
-			<td width="40%">
+			<th><label>供应商:</label></th>
+			<td>
 			<select name="supplierId" >
 			<option value="0">--请选择--</option>
 			${supplierOptions}
 			</select>
 			</td>
-			<th width="10%" align="right">添加规格:</th>
-			<td width="40%">
+			<th><label>添加规格:</label></th>
+			<td>
 				<a class="easyui-linkbutton" id="1" onclick="addSft();" iconCls="icon-add" plain="true" href="javascript:void(0)"></a>
 			</td>
 		</tr>
 		<tr id="tr_sft">
-			<th width="10%" align="right">规格:</th>
-			<td width="90%" colspan="3">
+			<th><label>规格:</label></th>
+			<td  colspan="3">
 			
 			<select name="specification" >
 			${specificationOptions}
@@ -90,8 +87,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th width="10%" align="right">商品详情:</th>
-			<td width="90%" colspan="3">
+			<th><label>商品详情:</label></th>
+			<td  colspan="3">
 			<script type="text/plain" id="description" name="description"
 					style="width:95%;height:360px;"/>
 			</td>

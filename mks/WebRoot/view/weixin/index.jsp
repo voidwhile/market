@@ -1,48 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/taglib.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<title>大手掌</title>
-	<link href="${path}/library/weixin/css/mui.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css"/>
-	<link rel="stylesheet" href="${path}/library/weixin/css/style.css" />
-	<link rel="stylesheet" href="${path}/library/weixin/css/tabs.css" />
-	<link rel="stylesheet" href="${path}/library/weixin/css/swiper.min.css" />
-	<link rel="stylesheet" href="${path}/library/weixin/css/iconfont.css" />  
-	<link rel="stylesheet" href="${path}/library/weixin/css/slide.css" />  
-	<script type="text/javascript" src="${path}/library/weixin/js/idangerous.swiper.min.js" ></script>
-	<script type="text/javascript" src="${path}/library/weixin/js/iconfont.js" ></script>
-	<script src="${path}/library/weixin/js/mui.min.js"></script>
-	<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
-	<script src="${path}/library/weixin/js/slide.js"></script>
-	<script type="text/javascript" src="${path}/library/weixin/js/demo.js"></script>
-	<script type="text/javascript" src="${path}/library/weixin/js/iscroll.js"></script>
-	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
-	 
-	<style type="text/css">
-		.mui-slider .mui-slider-group .mui-slider-item {height: auto !important;}
-		.m-tabs {height: auto;}
-		.m-news-activity {padding: 0;}
-		.pd65{padding-bottom:65px;}
-		.m-kind ul li img{width:58%;margin:0 21%;}
-	</style>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+<title>大手掌</title>
+<link rel="stylesheet" type="text/css"
+	href="${path}/library/weixin/css/mui.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/library/weixin/css/app.css" />
+
+
 </head>
-<body onLoad="loaded()">
+<body>
 		<nav class="search-list index-con">
-        	<div class="search-list-con" style="padding-left:10px">
-            	<div class="search-list-city">
-                	<a href="csxz.html">
-                    	郑州<span class="mui-icon mui-icon-arrowdown"></span>
-                     </a>
-                </div>
+        	<div  style="padding-left:10px">
+            	
                  <div class="search-list-address search-list-small">
-                        <a href="ss.html"><img src="${path }/library/weixin/images/search_ico.png"/>
+                        <a href="ss.html"><img src="${path }/library/weixin/images/search_ico.png" style="margin-top: 7px;"/>
                         <input class="search-list-input" type="text" placeholder="请输入您想要的食材"></a>
                     </div>
             </div>
@@ -51,144 +31,129 @@
 			<!-- 轮播图 -->
 			<div class="mui-slider">
 			  <div class="mui-slider-group mui-slider-loop">
-			    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+			    <c:if test="${!empty banner}">
 			    <div class="mui-slider-item mui-slider-item-duplicate">
-			    	<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
+			    	<a href="${l.url }">
+			    		<img src="${imgUrl }${l.imgPath}" />
 			    	</a>
 			    </div>
+			    <c:forEach items="${ banner}" var="b">
 			    <div class="mui-slider-item">
-			    	<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
+			    	<a href="${b.url }">
+			    		<img src="${imgUrl }${b.imgPath}" />
 			    	</a>
 			    </div>
-			    <div class="mui-slider-item">
-			    	<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
-			    	</a>
-			    </div>
-			    <div class="mui-slider-item">
-			    	<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
-			    	</a>
-			    </div>
-			    <div class="mui-slider-item">
-					<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
-			    	</a>
-			    </div>
-			    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+			    </c:forEach>
+			    
+			    <c:set var="f" value="${banner[0] }" />
 			    <div class="mui-slider-item mui-slider-item-duplicate">
-			    	<a href="#">
-			    		<img src="${path }/library/weixin/images/banner.png" />
+			    	<a href="${f.url }">
+			    		<img src="${imgUrl }${f.imgPath}" />
 			    	</a>
 			    </div>
+			    </c:if>
+			    
+			    
 			  </div>
-			  <div class="mui-slider-indicator mui-text-center">
-					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-			  </div>
+			  
 			</div>
             <!--轮播结束-->
             <!--商品分类开始-->
-            <div id="Gallery">
-                <div class="mui-slider-group spfl">
+            <div id="Gallery" style="height:201px">
+                <div class="mui-slider-group spfl" style="height:100px">
                     <div class="mui-slider-item">
                         <ul class="mui-table-view mui-grid-view mui-grid-9">
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/scl_ico.png"/>
-                                    <div class="mui-media-body">
-                                        蔬菜类
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	蔬菜类
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/sg_ico.png"/>
-                                    <div class="mui-media-body">
-                                        水果类
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	水果类
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/mmly_ico.png"/>
-                                    <div class="mui-media-body">
-                                        米面粮油
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	米面粮油
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/jg_ico.png"/>
-                                    <div class="mui-media-body">
-                                        菌菇类
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	菌菇类
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/xr_ico.png"/>
-                                    <div class="mui-media-body">
-                                        鲜肉类
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	鲜肉类
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/st_ico.png"/>
-                                    <div class="mui-media-body">
-                                        食堂类
-                                    </div>
+                                    <span class="mui-media-body">
+                                       	 副食类
+                                    </span>
                                 </a>
                             </li>
                                <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/jp_ico.png"/>
-                                    <div class="mui-media-body">
-                                        精品区
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	精品区
+                                    </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
                                 <a href="fl.html">
                                     <img src="${path }/library/weixin/images/qbfl_ico.png"/>
-                                    <div class="mui-media-body">
-                                        全部分类
-                                    </div>
+                                    <span class="mui-media-body">
+                                        	全部分类
+                                    </span>
                                 </a>
                             </li>
                         
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>    
             <!--商品分类结束-->
             <div class="line-hui"></div>
             <!--广告位开始-->
             <div class="ad-list">
             	<c:forEach items="${adAdverts }" var="ad">
             	<a href="${ad.url }">
-                	<img src="${imgUrl }${ad.imgPath}"/>
+                	<img src="${imgUrl }${ad.imgPath}" />
                 </a>
             	</c:forEach>
             </div>
             <!--广告位结束-->
             <div class="line-hui"></div>
        	 </div>     
-		</div>
+		
         <!--今日特价-新品推荐开始-->
-		<div class="jrtj-list">
+		<div class="jrtj-list" style="background:url(${imgUrl }${runSale.cmdImg}) bottom right no-repeat;background-size:90px auto;background-position: 95% 92%;" onclick="showCmd('${runSale.rsCmdId}')">
         	<p class="jrtj-tit"><span class="jrtj-ico"></span>今日特价</p>
             <p class="jrtj-mc">${runSale.cmdName }</p>
             <p class="jrtj-mc-aside">${runSale.intro }</p>
             <p class="jrtj-jg">￥${runSale.salePrice }</p>
         </div>
-        <div class="xptj-list">
+        <div class="xptj-list" style="background:url(${imgUrl }${runRecommend.cmdImg}) bottom right no-repeat;background-size:90px auto;background-position: 95% 92%;" onclick="showCmd('${runRecommend.rrCmdId}')">
         	<p class="jrtj-tit"><span class="xptj-ico"></span>新品推荐</p>
             <p class="jrtj-mc">${runRecommend.cmdName }</p>
             <p class="jrtj-mc-aside">${runRecommend.intro }</p>
@@ -200,13 +165,13 @@
         <div class="tjsp-tit-list">特价商品</div>
         <div class="tjsp-list pdb80">
         	<c:forEach items="${sales }" var="s">
-        	  <a class="tjsp-list-item" href="spxq.html">
+        	  <a class="tjsp-list-item" href="javascript:showCmd('${s.rsCmdId }')">
                 <img class="" src="${imgUrl }${s.cmdImg}">
-                 <p class="xs-tit">${s.cmdName }</p>
-                 <div class="xs-jg-list">
+                 <span class="xs-tit">${s.cmdName }</span>
+                 <span class="xs-jg-list">
                     <span class="mui-pull-left xs-jg">￥<span>${s.salePrice }</span></span>
                     <span class="mui-pull-right xs-scx del-line">原价：￥${s.price }</span>
-                 </div>
+                 </span>
              </a>
         	</c:forEach>
              
@@ -238,20 +203,23 @@
         </nav>
 	</body>
 <!-- 左右滑动 -->
+<script src="${path}/library/weixin/js/mui.min.js"></script>
+<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
+<script src="${path}/library/weixin/js/iscroll.js"></script>
 <script type="text/javascript">
-var myScroll;
-function loaded () {
-	myScroll = new IScroll('#wrapper', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+
+//获得slider插件对象(自动轮播)
+$(function(){
+	var gallery = mui('.mui-slider');
+	gallery.slider({
+	  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+	});
+
+})
+function showCmd(cmdId){
+	location.href=path+"/wx/cmd/detail.wx?cmdId="+cmdId;
 }
 </script>
-<script>
-	$(function(){
-		$(".top-nav li").click(function(){
-			$(this).addClass("active").siblings("li").removeClass("active");
-		})
-	})
-
-</script>
 <!--js导航链接-->
-
+<%@ include file="../common/bottom.jsp" %>
 </html>

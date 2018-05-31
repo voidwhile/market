@@ -138,6 +138,7 @@ public class RunRecommend {
     
     private BigDecimal price;
     private String cmdName;
+    private String cmdImg;
 
 	public BigDecimal getPrice() {
 		return price;
@@ -153,5 +154,12 @@ public class RunRecommend {
 
 	public void setCmdName(String cmdName) {
 		this.cmdName = cmdName;
+	}
+	public String getCmdImg() {
+		return cmdImg;
+	}
+
+	public void setCmdImg(String cmdImg) {
+		this.cmdImg = cmdImg;
 	}
 }

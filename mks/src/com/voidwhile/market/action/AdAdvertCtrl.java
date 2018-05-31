@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -84,7 +86,8 @@ public class AdAdvertCtrl {
 	
 	@RequestMapping("/save.do")
 	@ResponseBody
-	public Map<String, Object> save(AdAdvert advert,String dstartTime,String dendTime){
+	public Map<String, Object> save(HttpServletRequest request, AdAdvert advert,String dstartTime,String dendTime){
+		String ctx = request.getContextPath() == null ? "" : request.getContextPath();
 		Map<String, Object> map = new HashMap<String, Object>();
 		Date startTime = null;
 		Date endTime = null;
@@ -99,6 +102,10 @@ public class AdAdvertCtrl {
 			advert.setEndTime(endTime);
 			if (advert.getAdvertId()==null) {
 				service.save(advert);
+				if (advert.getUrl()==null||"".equals(advert.getUrl())) {
+					advert.setUrl(ctx+"/wx/index/advert.wx?advertId="+advert.getAdvertId());
+					service.update(advert);
+				}
 			} else {
 				service.update(advert);
 			}

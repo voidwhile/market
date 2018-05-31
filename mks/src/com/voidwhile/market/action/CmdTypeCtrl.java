@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,7 @@ import com.voidwhile.market.entity.CmdType;
 import com.voidwhile.market.service.CmdTypeService;
 import com.voidwhile.system.bean.PageBean;
 import com.voidwhile.system.bean.PageResult;
+import com.voidwhile.system.constant.SysConstant;
 
 /**
  * ClassName:CmdTypeCtrl <br/>
@@ -76,14 +78,18 @@ public class CmdTypeCtrl extends BaseController {
 	 */
 	@RequestMapping("/list.do")
 	@ResponseBody
-	public Map<String, Object> list(PageBean page, HttpServletRequest request, String parentId) {
+	public Map<String, Object> list(PageBean page, String parentId,Model model) {
 		Map<String, Object> param = new HashMap<>();
 		Map<String, Object> map = new HashMap<String, Object>();
 		String orderByClause = "create_time desc";
+		if (parentId==null) {
+			parentId = "0";
+		}
 		param.put("parentId", parentId);
 		PageResult<CmdType> result = cmdTypeService.findPageData(param, page.getPage(), page.getRows(), orderByClause);
 		map.put("rows", result.getList());
 		map.put("total", result.getTotal());
+		model.addAttribute("imgUrl", SysConstant.IMG_URL);
 		return map;
 	}
 
@@ -119,6 +125,7 @@ public class CmdTypeCtrl extends BaseController {
 		commonData(request, model);
 		CmdType type = cmdTypeService.getById(id);
 		CmdType parent = cmdTypeService.getById(Tools.toString(type.getParentId()));
+		model.put("imgUrl", SysConstant.IMG_URL);
 		model.put("type", type);
 		model.put("parent", parent);
 		return "market/cmdType/type_edit";

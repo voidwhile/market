@@ -145,7 +145,7 @@ function del(ids) {
 				data : {ids:ids},
 				success : function(msg) {
 					reflash();
-					$.messager.alert('提示', msg.msg, 'info');
+					$.messager.alert('提示', msg.message, 'info');
 				}
 			});
 		}

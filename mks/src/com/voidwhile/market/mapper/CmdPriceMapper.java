@@ -48,4 +48,6 @@ public interface CmdPriceMapper {
 	int countByMap(Map<String, Object> param);
 	
 	void deleteByIds(String[] ids);
+	
+	int deleteByEventId(Long eventId);
 }

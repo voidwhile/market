@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="${path}/library/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="${path}/library/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="${path}/library/css/style.css">  
+    <script type="text/javascript" src="${path}/library/js/ajaxfileupload.js"></script>
     <script type="text/javascript" src="${path}/library/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${path}/library/easyui/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="${path}/view/js/cmd_type_list.js"></script>
@@ -30,6 +31,7 @@
 					<tr>
 						<th field="cmdType" width="50" checkbox="true"></th>
 						<th field="typeName" width="150">分类</th>
+						<th field="imgPath" formatter="getImg" width="150">分类</th>
 					</tr>
 				</thead>
 			</table>
@@ -81,7 +83,11 @@
 	 find();
  }
  
- 
+ function getImg(val,row){
+	 if(row.imgPath){
+		 return "<img width='100%' src='${imgUrl}"+row.imgPath+"' />&nbsp;&nbsp;";
+	 }
+ }
 
  
 </script>

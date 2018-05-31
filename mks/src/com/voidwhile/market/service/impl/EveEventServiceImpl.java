@@ -105,6 +105,10 @@ public class EveEventServiceImpl implements EveEventService {
 
 	@Override
 	public void deleteByIds(String[] ids) {
+		for(String eventId:ids){
+			evtCmdMapper.deleteByEventId(Long.valueOf(eventId));
+			priceMapper.deleteByEventId(Long.valueOf(eventId));
+		}
 		mapper.deleteByIds(ids);
 	}
 
