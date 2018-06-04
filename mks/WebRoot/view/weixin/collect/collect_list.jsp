@@ -41,32 +41,14 @@ height:16%
             <ul class="mui-table-view pro_list">
             	<c:forEach items="${cmdList }" var="cmd">
                 <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                    <a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.cmdId}&memberId=${memberId}">
+                    <a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.cmdId}">
                         <img class="mui-media-object mui-pull-left" src="${imgUrl }${cmd.imgPath}">
                         <div class="mui-media-body">
                             <p class="mui-ellipsis splb-tit">${cmd.cmdName }</p>
                             
                             <div class="spjg">
-                            	<div class="mui-text-left pro_list-price">
-                            	<span class="rmb">￥</span>
-                            	<span class="pro_list-price-red">
-                            	<c:if test="${ empty cmd.eventPrice }">
-                            	${cmd.price }
-                            	</c:if>
-                            	<c:if test="${ !empty cmd.eventPrice }">
-                            	${cmd.eventPrice }
-                            	</c:if>
-                            	</span>
-                            	</div>
-                            	<div class="mui-inline">
-				                	<span class="spxq-yj">
-				                	<c:if test="${ !empty cmd.eventPrice }">
-				                	原价${cmd.price }
-				                	</c:if>
-				                	</span>
-				                	
-				                </div>
-                                <button class="mui-text-right tjgwc" onclick="addCart('${cmd.cmdId}')"><img src="${path }/library/weixin/images/tjgwc.png"></button>
+                            	<div class="mui-text-left pro_list-price"><span class="rmb">￥</span><span class="pro_list-price-red">${cmd.price }</span></div>
+                                <button class="mui-text-right tjgwc"><img src="${path }/library/weixin/images/tjgwc.png"></button>
                             </div>
                         
                         </div>
@@ -85,11 +67,11 @@ height:16%
                     <span class="mui-icon nav-list-index-icon"></span>
                     <span class="mui-tab-label">首页</span>
             </a>
-            <a id="changeFl" class="mui-tab-item mui-active">
+            <a id="changeFl" class="mui-tab-item">
                 <span class="mui-icon nav-list-fl-icon"></span>
                 <span class="mui-tab-label">分类</span>
             </a>
-            <a id="changeSc" class="mui-tab-item">
+            <a id="changeSc" class="mui-tab-item mui-active">
                 <span class="mui-icon nav-list-sc-icon"></span>
                 <span class="mui-tab-label">收藏</span>
             </a>
@@ -107,18 +89,6 @@ height:16%
 <script src="${path}/library/weixin/js/mui.min.js"></script>
 <script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
 <script src="${path}/library/weixin/js/iscroll.js"></script>
-<script type="text/javascript">
-function addCart(cmdId){
-	$.ajax({
-		url:"${path }/wx/cart/save.wx",
-		type:"post",
-		data:{num:1,ocCmdId:cmdId,ocMemberId:"${memberId}"},
-		dataType:"json",
-		success:function(d){
-			mui.toast('成功加入购物车！');
-		}
-	});
-}
-</script>
+
 <%@ include file="../../common/bottom.jsp" %>
 </html>

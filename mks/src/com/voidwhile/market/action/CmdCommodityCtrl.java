@@ -35,6 +35,7 @@ import com.voidwhile.core.utils.DateUtils;
 import com.voidwhile.market.constant.MarketConstant;
 import com.voidwhile.market.entity.CmdCommodity;
 import com.voidwhile.market.entity.CmdLabel;
+import com.voidwhile.market.entity.CmdPrice;
 import com.voidwhile.market.entity.CmdSpecification;
 import com.voidwhile.market.entity.PubImage;
 import com.voidwhile.market.entity.RepInventory;
@@ -42,6 +43,7 @@ import com.voidwhile.market.entity.RunRecommend;
 import com.voidwhile.market.entity.RunSale;
 import com.voidwhile.market.service.CmdCommodityService;
 import com.voidwhile.market.service.CmdLabelService;
+import com.voidwhile.market.service.CmdPriceService;
 import com.voidwhile.market.service.CmdSpecificationService;
 import com.voidwhile.market.service.PubImageService;
 import com.voidwhile.market.service.RepInventoryService;
@@ -84,6 +86,8 @@ public class CmdCommodityCtrl extends BaseController {
 	private RunRecomService recomService;
 	@Autowired
 	private RunSaleService saleService;
+	@Autowired
+	private CmdPriceService priceService;
 
 	@RequestMapping("/list.do")
 	public String list(HttpServletRequest request, HttpServletResponse response, ModelMap map) {
@@ -123,7 +127,7 @@ public class CmdCommodityCtrl extends BaseController {
 	public String add(HttpServletRequest request, ModelMap model){
 		commonData(request, model);
 		String brandOptions = sysParamService.options("mk_cmd_brand", "brand_id", "brand_name", "1=1","6");
-		String typeOptions = sysParamService.options("mk_cmd_type", "cmd_type", "type_name", "level=3",null);
+		String typeOptions = sysParamService.options("mk_cmd_type", "cmd_type", "type_name", "level=2",null);
 		String statusOptions = sysParamService.options("mk_cmd_status", "cmd_status", "status_name", "1=1","1");
 		String supplierOptions = sysParamService.options("mk_rep_supplier", "supplier_id", "supplier_name", "1=1",null);
 		String specificationOptions = sysParamService.options("mk_cfg_specification", "cfg_sft_id", "sft_name", "1=1",null);
@@ -167,6 +171,7 @@ public class CmdCommodityCtrl extends BaseController {
 		entity.setPutawayTime(putawayTime);
 		entity.setProduceDate(produceDate);
 		entity.setExpirationDate(expirationDate);
+		entity.setCreateTime(new Date());
 		
 		Map<String, Object> map = new HashMap<>();
 		try {
@@ -178,11 +183,19 @@ public class CmdCommodityCtrl extends BaseController {
 				labelService.deleteByCmdId(entity.getCmdId());
 				sftService.deleteByCmdId(entity.getCmdId());
 			} else {
+				CmdPrice price = new CmdPrice();
+				price.setPriceType(1);
+				price.setPrice(entity.getPrice());
+				priceService.save(price);
+				entity.setCcPriceId(price.getPriceId());
 				service.save(entity);
+				price.setCmdId(entity.getCmdId());
+				priceService.update(price);
 				RepInventory inventory = new RepInventory();
 				inventory.setCmdId(entity.getCmdId());
 				inventory.setLcd(new Date());
 				inventoryService.save(inventory);
+				
 			}
 			if (specification!=null) {
 				for (int i = 0; i < specification.length; i++) {

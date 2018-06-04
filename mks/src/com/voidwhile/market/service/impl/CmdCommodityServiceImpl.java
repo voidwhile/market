@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import com.voidwhile.common.utils.Tools;
 import com.voidwhile.market.entity.CmdCommodity;
 import com.voidwhile.market.mapper.CmdCommodityMapper;
+import com.voidwhile.market.mapper.CmdPriceMapper;
 import com.voidwhile.market.service.CmdCommodityService;
 import com.voidwhile.system.bean.PageResult;
 
@@ -39,6 +40,9 @@ public class CmdCommodityServiceImpl implements CmdCommodityService {
 	
 	@Autowired
 	private CmdCommodityMapper mapper;
+	
+	@Autowired
+	private CmdPriceMapper priceMapper;
 
 	@Override
 	public void save(CmdCommodity entity) throws DataAccessException {
@@ -91,6 +95,9 @@ public class CmdCommodityServiceImpl implements CmdCommodityService {
 
 	@Override
 	public void deleteByIds(String[] ids) {
+		for(String cmdId:ids){
+			priceMapper.deleteByCmdId(Long.valueOf(cmdId));
+		}
 		mapper.deleteByIds(ids);
 	}
 

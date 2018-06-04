@@ -37,6 +37,7 @@ var _dialogHeight=800;
               	<th field="cmdId" checkbox="true"></th>
               	<th field="cmdName" sortable="true" width="200" halign="center">名称</th>
               	<th field="cmdCode" sortable="true" width="200" halign="center">编号</th>
+              	<th field="price" sortable="true" width="100" halign="center">价格</th>
               	<th field="brand" formatter="getBrand" sortable="true" width="200" halign="center">品牌</th>
               	<th field="supplier" formatter="getSupplier" sortable="true" width="200" halign="center">供应商</th>
               	<th field="status" formatter="getStatus" sortable="true" halign="center">状态</th>

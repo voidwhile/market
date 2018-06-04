@@ -36,7 +36,7 @@ public class WxIndexCtrl {
 	 * @return
 	 */
 	@RequestMapping("/index.wx")
-	public String index(ModelMap map){
+	public String index(ModelMap map,String memberId){
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("today", DateUtils.dateToString(new Date()));
 		param.put("adAdvertType", "1");
@@ -56,6 +56,7 @@ public class WxIndexCtrl {
 		}
 		map.put("adAdverts", adAdverts);
 		map.put("imgUrl", SysConstant.IMG_URL);
+		map.put("memberId", memberId);
 		return "weixin/index";
 	}
 	

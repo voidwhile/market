@@ -50,4 +50,6 @@ public interface CmdPriceMapper {
 	void deleteByIds(String[] ids);
 	
 	int deleteByEventId(Long eventId);
+	
+	int deleteByCmdId(Long cmdId);
 }

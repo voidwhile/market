@@ -48,11 +48,12 @@ public class WxCmdTypeCtrl extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("/list.wx")
-	public String list(ModelMap map) {
+	public String list(ModelMap map,String memberId) {
 		Map<String, Object> param = new HashMap<>();
 		param.put("parentId", 0);
 		List<CmdType> typeList = cmdTypeService.findByMap(param);
 		map.put("typeList", typeList);
+		map.put("memberId", memberId);
 		return "weixin/type";
 	}
 

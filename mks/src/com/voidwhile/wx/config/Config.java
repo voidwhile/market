@@ -57,7 +57,7 @@ public class Config extends JFinalConfig {
 	 */
 	public void configPlugin(Plugins me) {
 		// 配置C3p0数据库连接池插件
-		C3p0Plugin c3p0Plugin = new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("database.username"),
+		C3p0Plugin c3p0Plugin = new C3p0Plugin(PropKit.get("database.url")+"/"+PropKit.get("database.databaseName")+"?characterEncoding=utf8", PropKit.get("database.username"),
 				PropKit.get("database.password").trim());
 		me.add(c3p0Plugin);
 		// 配置ActiveRecord插件

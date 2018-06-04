@@ -7,4 +7,5 @@ public interface CmdPriceService extends IBaseService<CmdPrice> {
 	
 	public void deleteByIds(String[] ids);
 	
+	
 }

@@ -216,9 +216,9 @@ public class WeixinApiController extends ApiController {
 		Menu menu = Menu.dao.findById(menuid);
 		if (user!=null) {
 			if (menu.getBackpath()!=null) {
-				redirect(menu.getPath()+"?openid=" + user.getOpenid()+"&"+menu.getBackpath());
+				redirect(menu.getPath()+"?openid=" + user.getOpenid()+"&memberId="+user.getMemberId()+"&"+menu.getBackpath());
 			} else {
-				redirect(menu.getPath()+"?openid=" + user.getOpenid());
+				redirect(menu.getPath()+"?openid=" + user.getOpenid()+"&memberId="+user.getMemberId());
 			}
 		}
 

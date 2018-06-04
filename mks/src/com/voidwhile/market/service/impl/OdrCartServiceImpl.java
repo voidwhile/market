@@ -9,47 +9,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.voidwhile.common.utils.Tools;
-import com.voidwhile.market.entity.CmdPrice;
-import com.voidwhile.market.mapper.CmdPriceMapper;
-import com.voidwhile.market.service.CmdPriceService;
+import com.voidwhile.market.entity.MbeCollect;
+import com.voidwhile.market.entity.OdrCart;
+import com.voidwhile.market.mapper.OdrCartMapper;
+import com.voidwhile.market.service.OdrCartService;
 import com.voidwhile.system.bean.PageResult;
 
 @Service
-public class CmdPriceServiceImpl implements CmdPriceService {
+public class OdrCartServiceImpl implements OdrCartService {
 	
 	@Autowired
-	private CmdPriceMapper mapper;
+	private OdrCartMapper mapper;
 
 	@Override
-	public void save(CmdPrice entity) throws DataAccessException {
-		mapper.insert(entity);
+	public void save(OdrCart entity) throws DataAccessException {
+		mapper.insertSelective(entity);
 	}
 
 	@Override
-	public void update(CmdPrice entity) throws DataAccessException {
+	public void update(OdrCart entity) throws DataAccessException {
 		mapper.updateByPrimaryKeySelective(entity);
-
 	}
 
 	@Override
 	public void delete(String id) throws DataAccessException {
-		mapper.deleteByPrimaryKey(Tools.toLong(id));
-
+		mapper.deleteByPrimaryKey(Long.valueOf(id));
 	}
 
 	@Override
-	public CmdPrice getById(String id) throws DataAccessException {
-		return mapper.selectByPrimaryKey(Tools.toLong(id));
+	public OdrCart getById(String id) throws DataAccessException {
+		return mapper.selectByPrimaryKey(Long.valueOf(id));
 	}
 
 	@Override
-	public PageResult<CmdPrice> findPageData(Map<String, Object> param, int pageNo, int pageSize, String orderByClause)
+	public PageResult<OdrCart> findPageData(Map<String, Object> param, int pageNo, int pageSize, String orderByClause)
 			throws DataAccessException {
 		if (param == null) {
 			param = new HashMap<String, Object>();
 		}
-		PageResult<CmdPrice> pageResult = new PageResult<CmdPrice>(pageNo,pageSize);
+		PageResult<OdrCart> pageResult = new PageResult<OdrCart>(pageNo,pageSize);
 		pageResult.setTotal(this.countByMap(param));
 		param.put("offset", pageResult.getOffset());
 		param.put("pageSize", pageResult.getPageSize());
@@ -61,7 +59,7 @@ public class CmdPriceServiceImpl implements CmdPriceService {
 	}
 
 	@Override
-	public List<CmdPrice> findByMap(Map<String, Object> param) throws DataAccessException {
+	public List<OdrCart> findByMap(Map<String, Object> param) throws DataAccessException {
 		return mapper.selectByMap(param);
 	}
 
@@ -69,11 +67,5 @@ public class CmdPriceServiceImpl implements CmdPriceService {
 	public int countByMap(Map<String, Object> param) throws DataAccessException {
 		return mapper.countByMap(param);
 	}
-	
-	@Override
-	public void deleteByIds(String[] ids) {
-		mapper.deleteByIds(ids);
-	}
-
 
 }

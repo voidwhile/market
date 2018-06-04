@@ -17,7 +17,7 @@
 			<td><input class="easyui-textbox" type="text" name="cmdName" value="${cmd.cmdName }" style="width:250px" missingMessage="名称不能为空！" data-options="required:true" /></td>
 		    
 			<th width="100" align="right">分类:</th>
-			<td><select id="cmdType" name="cmdType" onchange="addLabel();">
+			<td><select id="cmdType" name="ccCmdType" onchange="addLabel();">
 			<option value="0">--请选择--</option>
 			${typeOptions}
 			</select></td>
@@ -43,6 +43,17 @@
 			</select>
 			</td>
 	
+		</tr>
+		<tr>
+			<th><label>价格:</label></th>
+			<td><input class="easyui-validatebox textbox" type="text" id="price" name="price" value="${cmd.price }" style="width:250px" missingMessage="价格不能为空！" data-options="required:true" />元</td>
+			<th><label>产地:</label></th>
+			<td><input class="easyui-validatebox textbox" type="text" id="prodPlace" name="prodPlace" value="${cmd.prodPlace }" style="width:250px"  /></td>
+		</tr>
+		
+		<tr>
+			<th><label>储存条件:</label></th>
+			<td colspan="3"><input class="easyui-validatebox textbox" type="text" id="storageCondition" name="storageCondition" value="${cmd.storageCondition }" style="width:450px" /></td>
 		</tr>
 		<tr>
 			<th width="100" align="right">图片:</th>

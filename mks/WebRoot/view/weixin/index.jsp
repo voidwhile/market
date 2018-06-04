@@ -64,7 +64,7 @@
                     <div class="mui-slider-item">
                         <ul class="mui-table-view mui-grid-view mui-grid-9">
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=46&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/scl_ico.png"/>
                                     <span class="mui-media-body">
                                         	蔬菜类
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=41&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/sg_ico.png"/>
                                     <span class="mui-media-body">
                                         	水果类
@@ -80,7 +80,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=47&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/mmly_ico.png"/>
                                     <span class="mui-media-body">
                                         	米面粮油
@@ -88,7 +88,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=43&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/jg_ico.png"/>
                                     <span class="mui-media-body">
                                         	菌菇类
@@ -96,7 +96,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=42&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/xr_ico.png"/>
                                     <span class="mui-media-body">
                                         	鲜肉类
@@ -104,7 +104,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=45&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/st_ico.png"/>
                                     <span class="mui-media-body">
                                        	 副食类
@@ -112,15 +112,15 @@
                                 </a>
                             </li>
                                <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path }/wx/cmd/list.wx?cmdType=49&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/jp_ico.png"/>
                                     <span class="mui-media-body">
-                                        	精品区
+                                        	饮品区
                                     </span>
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="fl.html">
+                                <a href="${path}/wx/type/list.wx?memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/qbfl_ico.png"/>
                                     <span class="mui-media-body">
                                         	全部分类
@@ -217,7 +217,7 @@ $(function(){
 
 })
 function showCmd(cmdId){
-	location.href=path+"/wx/cmd/detail.wx?cmdId="+cmdId;
+	location.href=path+"/wx/cmd/detail.wx?cmdId="+cmdId+"&memberId=${memberId}";
 }
 </script>
 <!--js导航链接-->
