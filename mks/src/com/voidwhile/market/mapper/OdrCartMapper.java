@@ -47,4 +47,8 @@ public interface OdrCartMapper {
 	List<OdrCart> selectByMap(Map<String, Object> param);
 
 	int countByMap(Map<String, Object> param);
+
+	List<OdrCart> selectByMemberId(Long memberId);
+
+	List<OdrCart> selectForSettle(Long memberId);
 }

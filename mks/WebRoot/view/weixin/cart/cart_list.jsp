@@ -90,7 +90,7 @@
 			</a>
 		</div>
 		<div class="buy-jjr-zx-right">
-			<a href="mine_gwc_ttjd.html"> 提交订单 </a>
+			<a href="${path }/wx/order/book.wx"> 提交订单 </a>
 		</div>
 	</div>
 	<nav class="mui-bar mui-bar-tab nav-list">

@@ -1,5 +1,7 @@
 package com.voidwhile.market.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,10 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.voidwhile.market.entity.OdrCart;
 import com.voidwhile.market.entity.OdrOrder;
 import com.voidwhile.market.entity.OdrOrderDetail;
+import com.voidwhile.market.entity.OdrSettle;
 import com.voidwhile.market.mapper.OdrOrderDetailMapper;
 import com.voidwhile.market.mapper.OdrOrderMapper;
+import com.voidwhile.market.mapper.OdrSettleMapper;
+import com.voidwhile.market.service.OdrCartService;
 import com.voidwhile.market.service.OrderService;
 import com.voidwhile.system.bean.PageResult;
 
@@ -23,7 +29,10 @@ public class OrderServiceImpl implements OrderService {
 	private OdrOrderMapper mapper;
 	@Autowired
 	private OdrOrderDetailMapper detailMapper;
-	
+	@Autowired
+	private OdrCartService cartService;
+	@Autowired
+	private OdrSettleMapper settleMapper;
 
 	@Override
 	public void save(OdrOrder entity) throws DataAccessException {
@@ -88,6 +97,46 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void deliver(Long orderId) {
 		mapper.deliver(orderId);
+	}
+
+	@Override
+	public void book(Long memberId) {
+		List<OdrCart> cmdList = cartService.findByMemberId(memberId);
+		for (OdrCart odrCart : cmdList) {
+			OdrSettle settle = new OdrSettle();
+			settle.setMemberId(memberId);
+			settle.setCartId(odrCart.getCartId());
+			settleMapper.insert(settle);
+		}
+	}
+
+	@Override
+	public void order(OdrOrder order) {
+		List<OdrCart> cmdList = cartService.findForSettle(order.getMemberId());
+		order.setOrderCode(this.createOrderCode());
+		order.setCreateTime(new Date());
+		order.setPayStatus(0);
+		order.setStatus(1);
+		this.save(order);
+		for (OdrCart cmd : cmdList) {
+			OdrOrderDetail detail = new OdrOrderDetail();
+			detail.setOrderId(order.getOrderId());
+			detail.setCmdId(cmd.getOcCmdId());
+			detail.setQuantity(cmd.getNum());
+			
+		}
+	}
+	
+	private String createOrderCode() {
+		int code = (int)Math.random()*10000;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd"); 
+	    String ctime = sdf.format(new Date());
+	    return ctime+code;
+	}
+
+	@Override
+	public void pay(OdrOrder order) {
+		
 	}
 
 }

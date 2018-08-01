@@ -68,4 +68,14 @@ public class OdrCartServiceImpl implements OdrCartService {
 		return mapper.countByMap(param);
 	}
 
+	@Override
+	public List<OdrCart> findByMemberId(Long userid) {
+		return mapper.selectByMemberId(userid);
+	}
+
+	@Override
+	public List<OdrCart> findForSettle(Long memberId) {
+		return mapper.selectForSettle(memberId);
+	}
+
 }

@@ -22,4 +22,21 @@ public interface OrderService extends IBaseService<OdrOrder> {
 	 */
 	void deliver(Long orderId);
 	
+	/**
+	 * 确认订单
+	 * @param memberId
+	 */
+	void book(Long memberId);
+	
+	/**
+	 * 提交订单
+	 * @param memberId
+	 */
+	void order(OdrOrder order);
+	
+	/**
+	 * 支付下单
+	 * @param order
+	 */
+	void pay(OdrOrder order);
 }
