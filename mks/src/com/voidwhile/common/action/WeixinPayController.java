@@ -34,13 +34,13 @@ public class WeixinPayController {
 	
 	@Autowired
 	DataSourceTransactionManager transactionManager;
-	private static String appid = PropertyUtils.getPropertyValue("shangyu.properties", "weixin.appid");// wx0c4b0b47e088488d
-	private static String partner = PropertyUtils.getPropertyValue("shangyu.properties", "weixin.partner");// 1384277002
-	private static String paternerKey = PropertyUtils.getPropertyValue("shangyu.properties", "weixin.paternerKey");// 3knWnTKJWaz7vYhpsnrEi2fPOHzpwP9R
-	private static String notify_url = PropertyUtils.getPropertyValue("shangyu.properties", "weixin.notify_url")
+	private static String appid = PropertyUtils.getPropertyValue("config.properties", "weixin.appid");// wx0c4b0b47e088488d
+	private static String partner = PropertyUtils.getPropertyValue("config.properties", "weixin.partner");// 1384277002
+	private static String paternerKey = PropertyUtils.getPropertyValue("config.properties", "weixin.paternerKey");// 3knWnTKJWaz7vYhpsnrEi2fPOHzpwP9R
+	private static String notify_url = PropertyUtils.getPropertyValue("config.properties", "weixin.notify_url")
 			+ "/weixinpay/pay_notify.do";
-	private static String url = PropertyUtils.getPropertyValue("shangyu.properties", "url");
-	private String basePath = PropertyUtils.getPropertyValue("shangyu.properties", "BasePath");
+	private static String url = PropertyUtils.getPropertyValue("config.properties", "url");
+	private String basePath = PropertyUtils.getPropertyValue("config.properties", "BasePath");
 	
 
 	@RequestMapping("/index.do")	 

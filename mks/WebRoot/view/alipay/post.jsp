@@ -31,7 +31,7 @@
                 </dd>
                 <dd class="kv-line-r dd-padding">
                     <h6>联票单价：</h6>
-                    <p>${card.cardMoney}元</p>
+                    <p>15元</p>
                 </dd>
                 <dd class="kv-line-r dd-padding">
                     <h6>总额：</h6>
@@ -43,8 +43,8 @@
         </dd>
     </dl>
     <div id="pay-methods-panel" class="pay-methods-panel">
-        <form id="pay_form" method="POST"  action="${path}/weixin/card/apliady.do">			
-		     <input type="hidden" name="outTradeNo" value="${outTradeNo}"/>			 	  
+        <form id="pay_form" method="POST"  action="${path}/wx/order/alipay.wx">			
+		     <input type="hidden" name="orderId" value="${orderId}"/>			 	  
             <div class="wrapper buy-wrapper">
                 <a href="javascript:void(0);"
                    class="J-btn-submit btn mj-submit btn-strong btn-larger btn-block">确认支付</a>
@@ -52,7 +52,7 @@
         </form>
     </div>
 </div>
-<script type="text/javascript" src="${path }/public/ap.js"></script>
+<script type="text/javascript" src="${path }/view/alipay/ap.js"></script>
 <script>
     var btn = document.querySelector(".J-btn-submit");
     btn.addEventListener("click", function (e) {

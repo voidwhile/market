@@ -43,6 +43,7 @@ import net.sf.json.JSONObject;
 public class WeixinApiController extends ApiController {
 
 	String WXMenuPath = PropKit.use("config.properties").get("WXMenuPath");
+	String basePath = PropKit.use("config.properties").get("BasePath");
 	
 	/**
 	 * 如果要支持多公众账号，只需要在此返回各个公众号对应的 ApiConfig 对象即可 可以通过在请求 url 中挂参数来动态从数据库中获取
@@ -164,7 +165,7 @@ public class WeixinApiController extends ApiController {
 	public void getJsApiInfo() {
 		String nonceStr = WebUtils.uuid();
 		String timestamp = Long.toString(System.currentTimeMillis() / 1000);
-		String basePath = PropKit.use("shangyu.properties").get("BasePath");
+		
 		JsTicket jsapi_ticket = JsTicketApi.getTicket(JsApiType.jsapi);
 
 		String[] paramArr = new String[] { "jsapi_ticket=" + jsapi_ticket.getTicket(), "timestamp=" + timestamp,

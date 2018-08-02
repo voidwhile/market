@@ -11,10 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="${path}/weixin/css/mui.min.css">
-		<link rel="stylesheet" type="text/css" href="${path}/weixin/css/app.css"/>
+		<link rel="stylesheet" href="${path}/library/weixin/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css"/>
         <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
-        <script type="text/javascript" src="${path}/weixin/js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="${path}/library/weixin/js/jquery.1.11.1.js"></script>
 	<script type="text/javascript">
 	 $(function(){
 		 
@@ -41,7 +41,7 @@
    
 </ul>
 </div>
-<c:if test="${browser==0 }"><form method="post" action="${path}/weixinpay/browser_index.do"></c:if>
+<c:if test="${browser==2 }"><form method="post" action="${path}/weixinpay/browser_index.do"></c:if>
 <c:if test="${browser==1 }"><form method="post" action="${path}/weixinpay/index.do"></c:if>
 <input type="hidden" value="${openid }" name="openid" >
 <input type="hidden" value="${orderNum }" name="orderNum" >

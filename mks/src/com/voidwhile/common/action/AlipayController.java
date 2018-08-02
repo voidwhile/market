@@ -37,8 +37,8 @@ public class AlipayController extends BaseController {
 	
 	@Autowired
 	DataSourceTransactionManager transactionManager;
-	private static String url = PropertyUtils.getPropertyValue("voidwhile.properties", "url");
-	private String basePath = PropertyUtils.getPropertyValue("voidwhile.properties", "BasePath");
+	private static String url = PropertyUtils.getPropertyValue("config.properties", "url");
+	private String basePath = PropertyUtils.getPropertyValue("config.properties", "BasePath");
 
 	@RequestMapping("/pay.do")
 	public void pay(HttpServletRequest request, HttpServletResponse response, AliTradeBean trade) {

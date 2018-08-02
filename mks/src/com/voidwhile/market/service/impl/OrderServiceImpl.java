@@ -123,8 +123,9 @@ public class OrderServiceImpl implements OrderService {
 			detail.setOrderId(order.getOrderId());
 			detail.setCmdId(cmd.getOcCmdId());
 			detail.setQuantity(cmd.getNum());
-			
+			detailMapper.insert(detail);
 		}
+		settleMapper.deleteByMemberId(order.getMemberId());
 	}
 	
 	private String createOrderCode() {

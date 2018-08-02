@@ -7,9 +7,9 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>收银台</title>
-		<link href="${path }/library/css/mui.min.css" rel="stylesheet" />
-        <link href="${path }/library/css/app.css" rel="stylesheet" />
+		<title>提交订单</title>
+		<link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/mui.min.css" />
+        <link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css" />
           <style>
 		  .picker .picker-panel {
 			position:relative;
@@ -41,32 +41,32 @@
 		</header>
     	<div class="mui-content tjdd">
             <div class="mui-card ljzf-list" style="margin:0px">
-                <form class="mui-input-group" id="form-pay">
-                	<input type="hidden" name="orderId" value="${order.orderId }">
-                	<input type="hidden" name="browser" >
+                <form class="mui-input-group" action="${path }/wx/order/topay.wx" method="post">
+                	<input type="hidden" id="orderId" name="orderId" value="${order.orderId }">
+                	<input type="hidden" id="browser" name="browser">
+                	<div class="line-hui"></div>
                     <div class="mui-input-row mui-radio">                                
-                        <label><img src="${path }/library/weixin/images/wx.png">微信支付</label>
+                        <label><img src="${path}/library/weixin/images/wx.png">微信支付</label>
                         <input name="payType" type="radio" value="1">
                     </div>
                     <div class="mui-input-row mui-radio">
-                        <label><img src="${path }/library/weixin/images/zfb.png">支付宝支付</label>
+                        <label><img src="${path}/library/weixin/images/zfb.png">支付宝支付</label>
                         <input name="payType" type="radio" value="2">
                     </div>
-                    
+	                <div class="buy-jjr-zx">
+	                     <div class="buy-jjr-zx-left">
+	                        <a class="buy-jjr-list">
+	                            <img id="photo" class="buy-jjr-img" src="${path}/library/weixin/sc_img.png">
+	                            <div class="buy-jjr-text">合计：<span class="color_red">￥100</span></div>
+	                        </a>
+	                    </div>
+	                    <div class="buy-jjr-zx-right">
+	                        <button type="submit" >
+	                        	付款
+	                        </button>
+	                    </div>
+	                </div>   
                 </form>
-                <div class="buy-jjr-zx">
-                     <div class="buy-jjr-zx-left">
-                        <a class="buy-jjr-list">
-                            <img id="photo" class="buy-jjr-img" src="${path }/library/weixin/images/sc_img.png">
-                            <div class="buy-jjr-text">合计：<span class="color_red">￥0</span></div>
-                        </a>
-                    </div>
-                    <div class="buy-jjr-zx-right">
-                        <a href="javascript:pay()">
-                       		支付
-                        </a>
-                    </div>
-                </div>   
              </div>
         </div>
          <nav class="mui-bar mui-bar-tab nav-list">
@@ -92,29 +92,28 @@
             </a>
         </nav>
 	</body>
-	<script src="${path }/library/js/jquery-1.11.1.js"></script>
-	<script src="${path }/library/js/mui.min.js"></script>
-	<script type="text/javascript" src="${path }/library/js/iscroll.js"></script>
-    <script type="text/javascript" src="${path }/library/js/demo.js"></script>
+	<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
+	<script src="${path}/library/weixin/js/mui.min.js"></script>
+	<script type="text/javascript" src="${path}/library/weixin/js/iscroll.js"></script>
+    <script type="text/javascript" src="${path}/library/weixin/js/demo.js"></script>
     <!-- 左右滑动 -->
     <script>
         $(function(){
             $(".top-nav li").click(function(){
                 $(this).addClass("active").siblings("li").removeClass("active");
-            })
+            });
+            var ua = navigator.userAgent.toLowerCase();
+    		if(ua.match(/MicroMessenger/i)=="micromessenger") {
+    			$("#browser").val(1);
+    	 	} else {
+    	 		$("#browser").val(2);
+    		}
         })
+        
     </script>
       <!--js导航链接-->
-    <script src="${path }/library/js/picker.min.js"></script>
-	<script>
-		function pay(){
-			var ua = navigator.userAgent.toLowerCase();
-			if(ua.match(/MicroMessenger/i)=="micromessenger") {
-				$("#browser").val(1);
-		 	} else {
-		 		$("#browser").val(2);
-			}
-		}	
-	</script>
-</body>
+     <script src="${path}/library/weixin/js/picker.min.js"></script>
+
+	</body>
+<%@ include file="../../common/bottom.jsp"%>		
 </html>

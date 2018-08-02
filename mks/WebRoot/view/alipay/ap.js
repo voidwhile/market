@@ -104,7 +104,7 @@
 	};
 	b.pay = function(d) {
 		var c = encodeURIComponent(a.encode(d));
-		location.href = "pay.jsp?goto=" + c
+		location.href = path+"/wx/order/pay.wx?going=" + c
 	};
 	b.decode = function(c) {
 		return a.decode(decodeURIComponent(c))

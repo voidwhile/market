@@ -121,12 +121,12 @@
         请在菜单中选择在浏览器中打开,<br/>
         以完成支付
     </div>
-    <input type="hidden" id="param" value="${goTo }">
+    <input type="hidden" id="param" value="${going }">
 </div>
 <div class="J-weixin-tip-img weixin-tip-img"></div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/public/ap.js"></script>
-<script src="${pageContext.request.contextPath}/public/weixin/js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/view/alipay/ap.js"></script>
+<script src="${pageContext.request.contextPath}/library/js/jquery-1.11.3.min.js"></script>
 <script>
     if (location.hash.indexOf('error') != -1) {
         alert('参数错误，请检查');

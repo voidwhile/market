@@ -4,14 +4,14 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
    
-    <classPathEntry    location="d:/workspace/mks/WebRoot/WEB-INF/lib/mysql-connector-java-5.1.8-bin.jar"/>
+    <classPathEntry    location="C:/Users/zhangzheng/market/mks/WebRoot/WEB-INF/lib/mysql-connector-java-5.1.8-bin.jar"/>
     <context id="DB2Tables"    targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="false"/>
         </commentGenerator>
        
-       <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:Mysql://10.66.2.5:3306/mks?characterEncoding=utf8" userId="root" password="shangyu@%5" />
+       <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:Mysql://115.28.220.220:3306/mks?characterEncoding=utf8" userId="root" password="shangyu@%220" />
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
@@ -32,7 +32,7 @@
        
        
        
-       <table tableName="mk_odr_order" domainObjectName="OdrOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+       <table tableName="mk_odr_settle" domainObjectName="OdrSettle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
         
         
       

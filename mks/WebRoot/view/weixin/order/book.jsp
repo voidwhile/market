@@ -8,8 +8,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>提交订单</title>
-		<link href="${path }/library/css/mui.min.css" rel="stylesheet" />
-        <link href="${path }/library/css/app.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/mui.min.css" />
+        <link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css" />
           <style>
 		  .picker .picker-panel {
 			position:relative;
@@ -56,20 +56,20 @@
                     </div>
                 	<div class="line-hui"></div>
                     
+	                <div class="buy-jjr-zx">
+	                     <div class="buy-jjr-zx-left">
+	                        <a class="buy-jjr-list">
+	                            <img id="photo" class="buy-jjr-img" src="${path }/library/weixin/images/sc_img.png">
+	                            <div class="buy-jjr-text">合计：<span class="color_red">￥0</span></div>
+	                        </a>
+	                    </div>
+	                    <div class="buy-jjr-zx-right">
+	                        <button type="submit" >
+	                       		 提交订单
+	                        </button>
+	                    </div>
+	                </div>   
                 </form>
-                <div class="buy-jjr-zx">
-                     <div class="buy-jjr-zx-left">
-                        <a class="buy-jjr-list">
-                            <img id="photo" class="buy-jjr-img" src="${path }/library/weixin/images/sc_img.png">
-                            <div class="buy-jjr-text">合计：<span class="color_red">￥0</span></div>
-                        </a>
-                    </div>
-                    <div class="buy-jjr-zx-right">
-                        <a href="javascript:order()">
-                       		 提交订单
-                        </a>
-                    </div>
-                </div>   
              </div>
         </div>
          <nav class="mui-bar mui-bar-tab nav-list">
@@ -112,8 +112,9 @@
 <script>
   
   function order(){
-	  
+	  $("#form-order").submit();
   }
 </script>
 	</body>
+<%@ include file="../../common/bottom.jsp"%>	
 </html>
