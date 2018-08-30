@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.voidwhile.market.entity.MbeCollect;
 import com.voidwhile.market.entity.OdrCart;
 import com.voidwhile.market.mapper.OdrCartMapper;
 import com.voidwhile.market.service.OdrCartService;
@@ -20,9 +19,25 @@ public class OdrCartServiceImpl implements OdrCartService {
 	
 	@Autowired
 	private OdrCartMapper mapper;
+	
+	@Override
+	public void add(OdrCart entity) {
+		Map<String, Object> param = new HashMap<>();
+		param.put("cmdId", entity.getOcCmdId());
+		param.put("memberId", entity.getOcMemberId());
+		List<OdrCart> list = this.findByMap(param);
+		if (list!=null&&list.size()==1) {
+			OdrCart cart = list.get(0);
+			cart.setNum(cart.getNum()+entity.getNum());
+			this.update(cart);
+		} else {
+			this.save(entity);
+		}
+	}
 
 	@Override
 	public void save(OdrCart entity) throws DataAccessException {
+		
 		mapper.insertSelective(entity);
 	}
 
@@ -76,6 +91,17 @@ public class OdrCartServiceImpl implements OdrCartService {
 	@Override
 	public List<OdrCart> findForSettle(Long memberId) {
 		return mapper.selectForSettle(memberId);
+	}
+
+	@Override
+	public Double sum(Long memberId) {
+		return mapper.sum(memberId);
+	}
+
+	@Override
+	public void settle(Long memberId) {
+		mapper.settle(memberId);
+		
 	}
 
 }

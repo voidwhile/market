@@ -48,4 +48,6 @@ public interface OdrOrderMapper {
 	public int countByMap(Map<String, Object> param);
 	
 	public void deliver(Long orderId);
+
+	void giveUp(Long memberId);
 }

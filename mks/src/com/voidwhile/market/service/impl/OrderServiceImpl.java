@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.voidwhile.market.entity.OdrCart;
 import com.voidwhile.market.entity.OdrOrder;
@@ -23,6 +24,7 @@ import com.voidwhile.market.service.OrderService;
 import com.voidwhile.system.bean.PageResult;
 
 @Service
+@Transactional(rollbackFor=Exception.class)
 public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
@@ -125,7 +127,9 @@ public class OrderServiceImpl implements OrderService {
 			detail.setQuantity(cmd.getNum());
 			detailMapper.insert(detail);
 		}
+		cartService.settle(order.getMemberId());
 		settleMapper.deleteByMemberId(order.getMemberId());
+		
 	}
 	
 	private String createOrderCode() {
@@ -138,6 +142,16 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void pay(OdrOrder order) {
 		
+	}
+
+	@Override
+	public void giveUp(Long memberId) {
+		mapper.giveUp(memberId);
+	}
+
+	@Override
+	public void cancel(Long memberId) {
+		settleMapper.deleteByMemberId(memberId);
 	}
 
 }

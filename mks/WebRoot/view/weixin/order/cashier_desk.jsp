@@ -41,7 +41,7 @@
 		</header>
     	<div class="mui-content tjdd">
             <div class="mui-card ljzf-list" style="margin:0px">
-                <form class="mui-input-group" action="${path }/wx/order/topay.wx" method="post">
+                <form id="form-pay" class="mui-input-group" action="${path }/wx/order/topay.wx" method="post">
                 	<input type="hidden" id="orderId" name="orderId" value="${order.orderId }">
                 	<input type="hidden" id="browser" name="browser">
                 	<div class="line-hui"></div>
@@ -53,18 +53,8 @@
                         <label><img src="${path}/library/weixin/images/zfb.png">支付宝支付</label>
                         <input name="payType" type="radio" value="2">
                     </div>
-	                <div class="buy-jjr-zx">
-	                     <div class="buy-jjr-zx-left">
-	                        <a class="buy-jjr-list">
-	                            <img id="photo" class="buy-jjr-img" src="${path}/library/weixin/sc_img.png">
-	                            <div class="buy-jjr-text">合计：<span class="color_red">￥100</span></div>
-	                        </a>
-	                    </div>
-	                    <div class="buy-jjr-zx-right">
-	                        <button type="submit" >
-	                        	付款
-	                        </button>
-	                    </div>
+	                <div class="buy-jjr-zx" style="    padding-top: 18;" id="btn-pay">
+                       	<a>付款</a>
 	                </div>   
                 </form>
              </div>
@@ -96,6 +86,7 @@
 	<script src="${path}/library/weixin/js/mui.min.js"></script>
 	<script type="text/javascript" src="${path}/library/weixin/js/iscroll.js"></script>
     <script type="text/javascript" src="${path}/library/weixin/js/demo.js"></script>
+    <script src="${path}/library/weixin/js/picker.min.js"></script>
     <!-- 左右滑动 -->
     <script>
         $(function(){
@@ -108,11 +99,12 @@
     	 	} else {
     	 		$("#browser").val(2);
     		}
+    		$("#btn-pay").bind("click",function(){
+    			$("#form-pay").submit();
+    		})
         })
         
     </script>
-      <!--js导航链接-->
-     <script src="${path}/library/weixin/js/picker.min.js"></script>
 
 	</body>
 <%@ include file="../../common/bottom.jsp"%>		

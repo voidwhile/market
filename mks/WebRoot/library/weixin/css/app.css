@@ -10,7 +10,7 @@ body {
 body,input,label,ul,li,p,div {
 	color: #333;
 	font-size: 16px;
-	font-family: '微软雅黑'
+	font-family: '寰蒋闆呴粦'
 }
 
 ul,li {
@@ -318,7 +318,7 @@ a {
 .mui-bar-tab {
 	border: 1px solid #f0f0f0;
 }
-/*导航条样式开始*/
+/*瀵艰埅鏉℃牱寮忓紑濮�*/
 .dhys {
 	width: 25%;
 	display: block;
@@ -428,8 +428,8 @@ background-size:20px 20px;
 .mui-bar-tab .mui-tab-item.mui-active {
 	color: #4fac39;
 }
-/*导航条样式结束*/
-/*轮播圆点样式开始*/
+/*瀵艰埅鏉℃牱寮忕粨鏉�*/
+/*杞挱鍦嗙偣鏍峰紡寮�濮�*/
 .mui-slider-indicator .mui-active.mui-indicator {
 	background: #f15323;
 }
@@ -438,7 +438,7 @@ background-size:20px 20px;
 	background: rgba(255,255,255,.6);
 	-webkit-box-shadow: 0 0 0px 0px
 }
-/*轮播圆点样式结束*/
+/*杞挱鍦嗙偣鏍峰紡缁撴潫*/
 .search-list-city {
 	position: absolute;
 	top: 15px;
@@ -620,7 +620,7 @@ background-size:20px 20px;
 	margin-bottom: 10px;
 	margin-left: 5%;
 }
-/*特价商品开始*/
+/*鐗逛环鍟嗗搧寮�濮�*/
 
 
 .tjsp-list {
@@ -700,11 +700,11 @@ background-size:20px 20px;
 	color: #e72444;
 	font-size: 16px;
 }
-/*特价商品结束*/
+/*鐗逛环鍟嗗搧缁撴潫*/
 
 
-/*特价商品结束*/
-/*今日特价开始*/
+/*鐗逛环鍟嗗搧缁撴潫*/
+/*浠婃棩鐗逛环寮�濮�*/
 .jrtj-list {
 	padding: 15px;
 	display: block;
@@ -760,7 +760,7 @@ background-size:20px 20px;
 .splb-xj {
 	padding-top: 12px !important;
 }
-/*分类开始*/
+/*鍒嗙被寮�濮�*/
 .fl-search-list {
 	z-index: 2;
 	width: 100%;
@@ -962,7 +962,7 @@ background-size:20px 20px;
 	background-color: #fff;
 	-webkit-appearance: none;
 	font-size: 16px;
-	font-family: '微软雅黑';
+	font-family: '寰蒋闆呴粦';
 }
 
 .zc input[type=password],input[type=number] {
@@ -1130,6 +1130,8 @@ background-size:20px 20px;
 	width: 50%;
 	float: left;
 	background: #fff;
+	height: 100%;
+    padding-top: 20px;
 }
 
 .buy-jjr-star {
@@ -1431,7 +1433,7 @@ a.fk-btn {
 	background-color: #f5f5f5 !important;
 	-webkit-appearance: none;
 	font-size: 16px;
-	font-family: '微软雅黑';
+	font-family: '寰蒋闆呴粦';
 }
 
 .h5pz img {
@@ -1611,7 +1613,7 @@ a.fk-btn {
 	top: 5px;
 	right: 5px;
 }
-/*----------------------------------订单状态开始-------------------------------*/
+/*----------------------------------璁㈠崟鐘舵�佸紑濮�-------------------------------*/
 .stepInfo {
 	position: relative;
 	border-left: 2px solid #f2f2f2;
@@ -1708,7 +1710,7 @@ a.fk-btn {
 	font-weight: bold;
 	color: #333
 }
-/*----------------------------------订单状态结束-------------------------------*/
+/*----------------------------------璁㈠崟鐘舵�佺粨鏉�-------------------------------*/
 .wddd .mui-control-content {
 	height: 850px !important;
 }
@@ -2374,7 +2376,7 @@ ul.grzx_fl li img {
 	text-align: center;
 	border-radius: 5px;
 }
-/*窗体切换样式开始*/
+/*绐椾綋鍒囨崲鏍峰紡寮�濮�*/
 
 .mui-fullscreen .mui-views,
 		.mui-fullscreen .mui-view,
@@ -2539,7 +2541,7 @@ ul.grzx_fl li img {
 	position: static;
 }
 
-/*窗体切换样式结束*/
+/*绐椾綋鍒囨崲鏍峰紡缁撴潫*/
 
 
 

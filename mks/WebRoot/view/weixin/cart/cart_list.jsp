@@ -34,22 +34,15 @@
 			<ul class="mui-table-view pro_list">
 				<c:forEach items="${cmdList }" var="cmd">
 					<li class="mui-table-view-cell mui-media bg_white pro_list-item">
-						<a
-						href="${path }/wx/cmd/detail.wx?cmdId=${cmd.ocCmdId}&memberId=${memberId}">
-							<img class="mui-media-object mui-pull-left"
-							src="${imgUrl }${cmd.imgPath}">
+						<a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.ocCmdId}&memberId=${memberId}">
+							<img class="mui-media-object mui-pull-left" src="${imgUrl }${cmd.imgPath}">
 							<div class="mui-media-body">
 								<p class="mui-ellipsis-2 splb-tit">${cmd.cmdName }</p>
 								<div class="spjg">
 	                            	<div class="mui-text-left pro_list-price">
 	                            	<span class="rmb">￥</span>
 	                            	<span class="pro_list-price-red">
-	                            	<c:if test="${ empty cmd.eventPrice }">
 	                            	${cmd.price }
-	                            	</c:if>
-	                            	<c:if test="${ !empty cmd.eventPrice }">
-	                            	${cmd.eventPrice }
-	                            	</c:if>
 	                            	</span>
 	                            	</div>
 	                            	<div class="mui-inline">
@@ -66,7 +59,7 @@
 						<div class="mui-numbox mui-text-right tjgwc2" data-numbox-min="0">
 							<button class="mui-btn mui-btn-numbox-minus" type="button"
 								disabled="">-</button>
-							<input class="mui-input-numbox" type="number">
+							<input class="mui-input-numbox" type="number" value="${cmd.num }">
 							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
 						</div>
 					</li>
@@ -76,18 +69,10 @@
 			</ul>
 		</div>
 	</div>
-	<div class="gwc-btn-group">
-		<a href="index.html" class="jxgw-btn">继续购物</a> <a href="gwcqk.html"
-			class="qbqk-btn">全部清空</a>
-	</div>
+	
 	<div class="buy-jjr-zx">
 		<div class="buy-jjr-zx-left">
-			<a class="buy-jjr-list"> <img id="photo" class="buy-jjr-img"
-				src="${path }/library/weixin/images/sc_img.png">
-				<div class="buy-jjr-text">
-					合计：<span class="color_red">￥0</span>
-				</div>
-			</a>
+			合计：￥<span id="sp-totalPrice" class="color_red">${totalPrice }</span>
 		</div>
 		<div class="buy-jjr-zx-right">
 			<a href="${path }/wx/order/book.wx?memberId=${memberId}"> 结算 </a>

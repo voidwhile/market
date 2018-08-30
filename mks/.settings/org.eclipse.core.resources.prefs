@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebRoot/library/weixin/css/app.css=UTF-8
 encoding//WebRoot/view/system/index.jsp=UTF-8
 encoding//src/com/voidwhile/common/action/WeixinPayController.java=UTF-8
 encoding//src/com/voidwhile/system/action/SysMenusController.java=UTF-8

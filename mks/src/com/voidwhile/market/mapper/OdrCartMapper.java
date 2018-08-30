@@ -3,7 +3,6 @@ package com.voidwhile.market.mapper;
 import java.util.List;
 import java.util.Map;
 
-import com.voidwhile.market.entity.MbeCollect;
 import com.voidwhile.market.entity.OdrCart;
 
 public interface OdrCartMapper {
@@ -51,4 +50,8 @@ public interface OdrCartMapper {
 	List<OdrCart> selectByMemberId(Long memberId);
 
 	List<OdrCart> selectForSettle(Long memberId);
+
+	Double sum(Long memberId);
+
+	void settle(Long memberId);
 }

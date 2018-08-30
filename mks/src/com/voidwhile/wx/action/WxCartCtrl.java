@@ -28,7 +28,7 @@ public class WxCartCtrl {
 		Map<String, Object> map = new HashMap<>();
 		try {
 			cart.setAddTime(new Date());
-			service.save(cart);
+			service.add(cart);
 			map.put("status", true);
 			map.put("message", "保存成功");
 		} catch (Exception e) {
@@ -39,11 +39,13 @@ public class WxCartCtrl {
 	}
 	
 	@RequestMapping("/myCart.wx")
-	public String myCollet(PageBean page, String memberId,ModelMap map){
+	public String myCollet(PageBean page, Long memberId,ModelMap map){
 		Map<String, Object> param = new HashMap<>();
 		param.put("memberId", memberId);
 		PageResult<OdrCart> result = service.findPageData(param, page.getPage(), page.getRows(), "");
+		Double totalPrice = service.sum(memberId);
 		map.put("cmdList", result.getList());
+		map.put("totalPrice", totalPrice);
 		map.put("memberId", memberId);
 		return "weixin/cart/cart_list";
 	}

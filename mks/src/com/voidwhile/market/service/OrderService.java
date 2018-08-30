@@ -24,12 +24,15 @@ public interface OrderService extends IBaseService<OdrOrder> {
 	
 	/**
 	 * 确认订单
+	 * 1.生成结算商品
 	 * @param memberId
 	 */
 	void book(Long memberId);
 	
 	/**
 	 * 提交订单
+	 * 1.清空结算商品
+	 * 2.生成订单明细
 	 * @param memberId
 	 */
 	void order(OdrOrder order);
@@ -39,4 +42,12 @@ public interface OrderService extends IBaseService<OdrOrder> {
 	 * @param order
 	 */
 	void pay(OdrOrder order);
+
+	/**
+	 * 取消订单
+	 * @param memberId
+	 */
+	void giveUp(Long memberId);
+
+	void cancel(Long memberId);
 }

@@ -66,7 +66,6 @@
 		</ul>
 	</div>
 
-	</div>
 	<nav class="mui-bar mui-bar-tab nav-list">
 		<a id="changeIndex" class="mui-tab-item"> <span
 			class="mui-icon nav-list-index-icon"></span> <span

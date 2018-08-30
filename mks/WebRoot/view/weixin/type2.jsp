@@ -3,32 +3,31 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">	
+<title>大手掌</title>
+<link rel="stylesheet" type="text/css"
+	href="${path}/library/weixin/css/mui.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${path}/library/weixin/css/app.css" />
 
-	<head>
-		<meta charset="utf-8">
-		<title>分类</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="${path}/library/weixin/css/mui.min.css">
-		<link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css"/>
-   
-	</head>
-	<body>
+
+</head>
+<body class="fl">
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
 			<h1 class="mui-title">分类</h1>
 		</header>
+		
 		<div class="mui-content mui-row mui-fullscreen fl-list">
 			<div class="mui-col-xs-3">
 				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
-					<c:forEach items="${typeList }" var="t" varStatus="s">
-					<c:if test="${s.index==0 }">
-					<a href="#content_${t.cmdType }" class="mui-control-item mui-active">${t.typeName }</a>
-					</c:if>
-					<c:if test="${s.index>=0 }">
+					<c:forEach items="${typeList }" var="t">
 					<a href="#content_${t.cmdType }" class="mui-control-item">${t.typeName }</a>
-					</c:if>
 					</c:forEach>
 				</div>
 			</div>
@@ -74,20 +73,19 @@
             </a>
         </nav>
 	</body>
-	<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
-	<script src="${path}/library/weixin/js/mui.min.js"></script>
-<script type="text/javascript" src="${path}/library/weixin/js/iscroll.js"></script>
-<script type="text/javascript" src="${path}/library/weixin/js/demo.js"></script>
 
+<script src="${path}/library/weixin/js/mui.min.js"></script>
+<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
+<script src="${path}/library/weixin/js/iscroll.js"></script>
 <script>
+			mui.init({
+				swipeBack: false //启用右滑关闭功能
+			});
 	$(function(){
 		$(".top-nav li").click(function(){
 			$(this).addClass("active").siblings("li").removeClass("active");
 		})
 	})
-	mui.init({
-		swipeBack: false //启用右滑关闭功能
-	});
 </script>
   <!--js导航链接-->
 <%@ include file="../common/bottom.jsp" %>

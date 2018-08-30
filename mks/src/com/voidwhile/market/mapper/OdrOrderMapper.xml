@@ -247,6 +247,10 @@
   </select>
   
   <update id="deliver" parameterType="java.lang.Long">
+  	update mk_odr_order set status = 3 where order_id = #{orderId}
+  </update>
+  
+  <update id="giveUp" parameterType="java.lang.Long">
   	update mk_odr_order set status = 2 where order_id = #{orderId}
   </update>
   

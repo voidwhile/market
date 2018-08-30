@@ -55,18 +55,20 @@
                       <a class="tjdd-xg">修改</a>
                     </div>
                 	<div class="line-hui"></div>
-                    
+                	商品总价：${totalPrice }
+                    <div>
+                    	<c:forEach items="${settleList}" var="c">
+                    		<div>
+	                    		${c.cmdCode} ${c.cmdName}>>>>>>>>>>> ${c.price }X${c.num }
+                    		</div>
+                    	</c:forEach>
+                    </div>
 	                <div class="buy-jjr-zx">
-	                     <div class="buy-jjr-zx-left">
-	                        <a class="buy-jjr-list">
-	                            <img id="photo" class="buy-jjr-img" src="${path }/library/weixin/images/sc_img.png">
-	                            <div class="buy-jjr-text">合计：<span class="color_red">￥0</span></div>
-	                        </a>
+	                     <div class="buy-jjr-zx-left" id="btn-cancel">
+	                        <div class="buy-jjr-text">取消</div>
 	                    </div>
-	                    <div class="buy-jjr-zx-right">
-	                        <button type="submit" >
-	                       		 提交订单
-	                        </button>
+	                    <div class="buy-jjr-zx-right" id="btn-submit">
+                       		 <a>提交订单</a>
 	                    </div>
 	                </div>   
                 </form>
@@ -95,25 +97,25 @@
             </a>
         </nav>
 	</body>
-	<script src="${path }/library/js/jquery-1.11.1.js"></script>
-	<script src="${path }/library/js/mui.min.js"></script>
-	<script type="text/javascript" src="${path }/library/js/iscroll.js"></script>
-    <script type="text/javascript" src="${path }/library/js/demo.js"></script>
+	<script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
+	<script src="${path}/library/weixin/js/mui.min.js"></script>
+	<script type="text/javascript" src="${path}/library/weixin/js/iscroll.js"></script>
+    <script type="text/javascript" src="${path}/library/weixin/js/demo.js"></script>
+    <script src="${path}/library/weixin/js/picker.min.js"></script>
     <!-- 左右滑动 -->
     <script>
         $(function(){
             $(".top-nav li").click(function(){
                 $(this).addClass("active").siblings("li").removeClass("active");
             })
+            $("#btn-submit").bind("click",function(){
+				$("#form-order").submit();
+			});
+			$("#btn-cancel").bind("click",function(){
+				$("#form-order").attr("action",path+"/wx/order/cancel.wx");
+				$("#form-order").submit();
+			});
         })
-    </script>
-      <!--js导航链接-->
-     <script src="${path }/library/js/picker.min.js"></script>
-<script>
-  
-  function order(){
-	  $("#form-order").submit();
-  }
 </script>
 	</body>
 <%@ include file="../../common/bottom.jsp"%>	
