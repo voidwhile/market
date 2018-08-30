@@ -5,7 +5,7 @@
 document.getElementById('changeIndex').addEventListener('tap',
     function(e) {
       e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-      window.location.href = "${path}/wx/index/index.wx?memberId=${memberId}";
+      window.location.href = "${path}/wx/index.wx?memberId=${memberId}";
     });
     document.getElementById('changeFl').addEventListener('tap',
     function(e) {

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>大手掌</title>
-<meta http-equiv="refresh" content="0; url=${pageContext.request.contextPath}/wx/index/index.wx" />
+<meta http-equiv="refresh" content="0; url=${pageContext.request.contextPath}/wx/index.wx" />
 </head>
 <body>
 </body>

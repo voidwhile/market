@@ -1,22 +1,91 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../../common/taglib.jsp"%>
+<%@ include file="../common/taglib.jsp"%>
 
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>一码游湖北</title>
- <meta name="viewport"
-	content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<head>
+<meta charset="utf-8">
+<title>一码游湖北</title>
+<meta name="viewport"
+ content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
 <link rel="stylesheet" href="${path}/library/weixin/css/mui.min.css">
 <link rel="stylesheet" type="text/css" href="${path}/library/weixin/css/app.css" />
-<script type="text/javascript" src="${path}/library/weixin/js/jquery.1.11.1.js"></script>
-    
-    <script>
+<script type="text/javascript" src="${path}/library/weixin/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	  pay();
+}) 
+	function onBridgeReady(){
+		   WeixinJSBridge.invoke(
+		       'getBrandWCPayRequest', {
+		           "appId": $("#appId").val(),     //公众号名称，由商户传入     
+		           "timeStamp":$("#timeStamp").val(),         //时间戳，自1970年以来的秒数     
+		           "nonceStr": $("#nonceStr").val(), //随机串     
+		           "package": $("#perpayid").val(),     
+		           "signType": "MD5",         //微信签名方式：     
+		           "paySign" : $("#paySign").val() //微信签名 
+		       },
+		       function(res){
+		    	  
+		           if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+		        	  
+		           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+		       }
+		   ); 
+		}
+	 function pay(){		   
+		if (typeof WeixinJSBridge == "undefined"){
+		   if( document.addEventListener ){
+		       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		   }else if (document.attachEvent){
+		       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+		       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		   }
+		}else{
+		   onBridgeReady();
+		}
+	}
+	 window.setInterval(showalert, 3000); 
+	 function showalert(){
+		 var userid=$("#userid").val();
+		 var openid=$("#openid").val();
+	  $.ajax({
+			type : "POST",
+			url : "${path}/weixin/card/ordersuc.do",
+			dataType : "text",
+			data : {				 
+				orderno : '${orderNum}',				 
+			},
+			success : function(data) {
+				 var obj = eval('(' + data + ')');
+				 if(obj.code==0){
+					 if(obj.stats==2){
+						 if(obj.paystate==1){
+							 var url="${path}/weixin/home/home.do?userid="+userid+"&openid="+openid;
+							     url = encodeURI(encodeURI(url));
+				 	    	     window.location.href = url;
+						 }
+						 if(obj.paystate==2){
+							 var url="${path}/weixin/wechatuser/list.do?userid="+userid+"&openid="+openid; 
+						     url = encodeURI(encodeURI(url));
+			 	    	     window.location.href = url;
+						 }
+						
+					 }
+				 }
+			}
+		});
+	}
+	 
+</script>
+ <script>
         !function (e) {
             function t(a) {
                 if (i[a])return i[a].exports;
@@ -66,7 +135,7 @@
             width: 1rem;
             height: .87rem;
            float: right;
-            margin-top: .2rem;
+            margin-top: .35rem;
             margin-right: 34%;
         }
         .right1{
@@ -74,6 +143,7 @@
         }
         .right2{
             font-size: .24rem;
+            margin-top:20px
         }
         .con{
             width: 100%;
@@ -129,7 +199,32 @@
 </head>
 
 <body style="background-color: #00a642">
-        <div class="top">
+<input type="hidden" id="appId" name="" value="${appId}">
+<input type="hidden" id="timeStamp" name="" value="${timeStamp}">
+<input type="hidden" id="nonceStr" name="" value="${nonceStr}">
+<input type="hidden" id="perpayid" name="" value="${perpayid}">
+<input type="hidden" id="paySign" name="" value="${paySign}">
+<input type="hidden" id="userid" name="" value="${userid}">
+<input type="hidden" id="openid" name="" value="${openid}">
+ <!-- <div style="background-color: #e9ecf1" class="mui-content">
+
+
+		<ul class="mui-table-view" style="margin-top: 5%">
+
+			<li class="mui-table-view-cell ">
+				<div>
+					<span style="color: #999"></span><span
+						style="width: 50%; text-align: right; float: right;">
+												</span>
+				</div>
+				<div>
+					 
+				</div>
+			</li>
+
+		</ul>
+	</div> -->
+	  <div class="top">
             <div class="test">
                 <img src="${path}/library/weixin/zf/wec.png" />
             </div>
@@ -144,24 +239,11 @@
             </div>
             <div class="ma">
               
-           <img alt="" src="${path}/weixinpay/createQrcode.do?url=${url}">
+           <img alt="" src="${path}/library/weixin/zf/icon.png">
             </div>
             <div class="span">
-                   微信扫码,向我付款
-            </div>
-            <div class="bt">
-                <div class="item">
-                    <img src="${path}/public/weixin/zf/1.png" alt=""/>
-                </div>
-                <div class="item">
-                    <img src="${path}/public/weixin/zf/2.png" alt=""/>
-                </div>
-                <div class="item">
-                    <img src="${path}/public/weixin/zf/3.png" alt=""/>
-                </div>
-
-            </div>
+              
+            </div>           
         </div>
-
 </body>
 </html>

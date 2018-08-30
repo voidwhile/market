@@ -20,7 +20,7 @@ import com.voidwhile.market.service.RunSaleService;
 import com.voidwhile.system.constant.SysConstant;
 
 @Controller
-@RequestMapping("/wx/index")
+@RequestMapping("/wx")
 public class WxIndexCtrl {
 	
 	@Autowired
