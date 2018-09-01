@@ -26,7 +26,7 @@
 					<c:if test="${s.index==0 }">
 					<a href="#content_${t.cmdType }" class="mui-control-item mui-active">${t.typeName }</a>
 					</c:if>
-					<c:if test="${s.index>=0 }">
+					<c:if test="${s.index>0 }">
 					<a href="#content_${t.cmdType }" class="mui-control-item">${t.typeName }</a>
 					</c:if>
 					</c:forEach>

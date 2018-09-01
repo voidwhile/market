@@ -41,7 +41,7 @@
 		</header>
     	<div class="mui-content tjdd">
             <div class="mui-card ljzf-list" style="margin:0px">
-                <form id="form-pay" class="mui-input-group" action="${path }/wx/order/topay.wx" method="post">
+                <form id="form-pay" class="mui-input-group" action="${path }/wx/topay.wx" method="post">
                 	<input type="hidden" id="orderId" name="orderId" value="${order.orderId }">
                 	<input type="hidden" id="browser" name="browser">
                 	<div class="line-hui"></div>

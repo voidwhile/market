@@ -104,4 +104,14 @@ public class OdrCartServiceImpl implements OdrCartService {
 		
 	}
 
+	@Override
+	public void plus(Long cartId) {
+		mapper.plus(cartId);
+	}
+
+	@Override
+	public void minus(Long cartId) {
+		mapper.minus(cartId);
+	}
+
 }

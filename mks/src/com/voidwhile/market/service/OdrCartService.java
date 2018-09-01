@@ -20,6 +20,9 @@ public interface OdrCartService extends IBaseService<OdrCart> {
 	
 	Double sum(Long memberId);
 	
+	void plus(Long cartId);
+	void minus(Long cartId);
+	
 	/**
 	 * 结算商品
 	 * @param memberId

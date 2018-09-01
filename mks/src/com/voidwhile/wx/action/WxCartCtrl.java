@@ -49,4 +49,34 @@ public class WxCartCtrl {
 		map.put("memberId", memberId);
 		return "weixin/cart/cart_list";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/plus.wx")
+	public Map<String, Object> plus(Long cartId,Long memberId) {
+		Map<String, Object> map = new HashMap<>();
+		try {
+			service.plus(cartId);
+			Double totalPrice = service.sum(memberId);
+			map.put("totalPrice", totalPrice);
+			map.put("rltCode", "0000");
+		} catch (Exception e) {
+			map.put("rltCode", "1111");
+		}
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/minus.wx")
+	public Map<String, Object> minus(Long cartId,Long memberId) {
+		Map<String, Object> map = new HashMap<>();
+		try {
+			service.minus(cartId);
+			Double totalPrice = service.sum(memberId);
+			map.put("totalPrice", totalPrice);
+			map.put("rltCode", "0000");
+		} catch (Exception e) {
+			map.put("rltCode", "1111");
+		}
+		return map;
+	}
 }

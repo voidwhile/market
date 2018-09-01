@@ -8095,7 +8095,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
                 } else {
                     self.plus.disabled = false;
                 }
-                if (self.options.min != null && !isNaN(self.options.min) && val <= parseInt(self.options.min)) {
+                if (self.options.min != null && !isNaN(self.options.min) && val < parseInt(self.options.min)) {
                     val = self.options.min;
                     self.minus.disabled = true;
                 } else {

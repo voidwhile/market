@@ -133,8 +133,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	private String createOrderCode() {
-		int code = (int)Math.random()*10000;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd"); 
+		int code = (int)(Math.random()*10000);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss"); 
 	    String ctime = sdf.format(new Date());
 	    return ctime+code;
 	}

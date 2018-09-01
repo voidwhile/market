@@ -54,4 +54,8 @@ public interface OdrCartMapper {
 	Double sum(Long memberId);
 
 	void settle(Long memberId);
+
+	void plus(Long cartId);
+
+	void minus(Long cartId);
 }

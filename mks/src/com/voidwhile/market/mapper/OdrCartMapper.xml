@@ -240,5 +240,12 @@
   	DELETE FROM mk_odr_cart WHERE cart_id IN (SELECT cart_id FROM mk_odr_settle mos WHERE mos.member_id = #{memberId})
   </delete>
   
+  <update id="plus" parameterType="java.lang.Long">
+  	update mk_odr_cart set num = num+1 WHERE cart_id = #{cartId}
+  </update>
+  <update id="minus" parameterType="java.lang.Long">
+  	update mk_odr_cart set num = num-1 WHERE cart_id = #{cartId}
+  </update>
+  
   
 </mapper>

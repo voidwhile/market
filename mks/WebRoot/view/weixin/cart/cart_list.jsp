@@ -45,22 +45,13 @@
 	                            	${cmd.price }
 	                            	</span>
 	                            	</div>
-	                            	<div class="mui-inline">
-					                	<span class="spxq-yj">
-					                	<c:if test="${ !empty cmd.eventPrice }">
-					                	原价${cmd.price }
-					                	</c:if>
-					                	</span>
-					                	
-					                </div>
 	                            </div>
 							</div>
 						</a>
 						<div class="mui-numbox mui-text-right tjgwc2" data-numbox-min="0">
-							<button class="mui-btn mui-btn-numbox-minus" type="button"
-								disabled="">-</button>
+							<button class="mui-btn mui-btn-numbox-minus" type="button" onclick="minus('${cmd.cartId}')">-</button>
 							<input class="mui-input-numbox" type="number" value="${cmd.num }">
-							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+							<button class="mui-btn mui-btn-numbox-plus" type="button" onclick="plus('${cmd.cartId}')">+</button>
 						</div>
 					</li>
 
@@ -96,9 +87,37 @@
 	
 </body>
 
-<script src="${path}/library/weixin/js/mui.min.js"></script>
+<script src="${path}/library/weixin/js/mui.js"></script>
 <script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
 <script src="${path}/library/weixin/js/iscroll.js"></script>
-
+<script type="text/javascript">
+function minus(cartId){
+	$.ajax({
+		url:path+"/wx/cart/minus.wx",
+		type:"post",
+		dataType:"json",
+		data:{cartId:cartId,memberId:'${memberId}'},
+		success:function(data){
+			if(data.rltCode=="0000"){
+				$("#sp-totalPrice").html(data.totalPrice);
+			}
+		}
+	});
+}
+function plus(cartId){
+	$.ajax({
+		url:path+"/wx/cart/plus.wx",
+		type:"post",
+		dataType:"json",
+		data:{cartId:cartId,memberId:'${memberId}'},
+		success:function(data){
+			if(data.rltCode=="0000"){
+				$("#sp-totalPrice").html(data.totalPrice);
+			}
+		}
+	});
+	
+}
+</script>
 <%@ include file="../../common/bottom.jsp"%>
 </html>
