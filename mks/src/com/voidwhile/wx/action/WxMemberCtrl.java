@@ -9,8 +9,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.voidwhile.market.entity.OdrOrder;
+import com.voidwhile.market.entity.WechatUser;
 import com.voidwhile.market.service.OdrCartService;
 import com.voidwhile.market.service.OrderService;
+import com.voidwhile.market.service.WechatUserService;
 import com.voidwhile.system.bean.PageBean;
 import com.voidwhile.system.bean.PageResult;
 
@@ -22,14 +24,17 @@ public class WxMemberCtrl {
 	private OdrCartService service;
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private WechatUserService wechatUserService;
 	
 	
 	@RequestMapping("/mine.wx")
-	public String mine(String memberId,ModelMap map){
+	public String mine(Long memberId,ModelMap map){
 		Map<String, Object> param = new HashMap<>();
 		param.put("memberId", memberId);
-		
+		WechatUser wxUser = wechatUserService.findByMemberId(memberId);
 		map.put("memberId", memberId);
+		map.put("wxUser", wxUser);
 		return "weixin/mine/mine";
 	}
 	

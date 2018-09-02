@@ -8,7 +8,6 @@ package com.voidwhile.wx.api;
 
 import java.util.Date;
 
-import com.jfinal.kit.HttpKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.log.Log;
 import com.jfinal.plugin.activerecord.Db;
@@ -35,7 +34,8 @@ import com.jfinal.weixin.sdk.msg.in.speech_recognition.InSpeechRecognitionResult
 import com.jfinal.weixin.sdk.msg.out.OutCustomMsg;
 import com.jfinal.weixin.sdk.msg.out.OutNewsMsg;
 import com.jfinal.weixin.sdk.msg.out.OutTextMsg;
-import com.voidwhile.common.utils.WebUtils;
+import com.voidwhile.common.utils.SLEmojiFilter;
+import com.voidwhile.wx.model.MbeMember;
 import com.voidwhile.wx.model.Platform;
 import com.voidwhile.wx.model.WechatUser;
 
@@ -135,21 +135,24 @@ public class WeixinMsgController extends MsgControllerAdapter {
 			Platform wxPlatForm = Platform.dao.findById(appid);
 			OutTextMsg outMsg = new OutTextMsg(inFollowEvent);
 			String openID = inFollowEvent.getFromUserName();
-			String content = wxPlatForm.getSubmsg();
-			content = content.replaceAll("&openid", openID);
-			outMsg.setContent(content);
+			if (wxPlatForm.getSubmsg()!=null) {
+				String content = wxPlatForm.getSubmsg();
+				content = content.replaceAll("&openid", openID);
+				outMsg.setContent(content);
+			}
 			WechatUser savedUser = WechatUser.dao.findFirst("select * from wx_wechat_user where openid=?", openID);
 			if (null != savedUser) {// 去关后重新主动关注
 				Db.update("update  wx_wechat_user set subscribe=1 where openid=?", openID);
 			} else {// 首次主动关注
 				WechatUser weChatUser = new WechatUser();
 				try {
+					
 					ApiResult apiResult = UserApi.getUserInfo(openID);
 					// User weChatUser=JsonUtils.parse(apiResult.getJson(),
 					// User.class);
 					JSONObject json = JSONObject.fromObject(apiResult.getJson());
 					System.out.println(apiResult.getJson());
-					// weChatUser.set("nickname",StringEscapeUtils.escapeJava(json.getString("nickname")));
+					weChatUser.set("nickname",SLEmojiFilter.filterEmoji(json.getString("nickname")));
 					weChatUser.set("subscribe", json.getString("subscribe"));
 					weChatUser.set("openid", json.getString("openid"));
 					weChatUser.set("headimgurl", json.getString("headimgurl"));
@@ -164,6 +167,10 @@ public class WeixinMsgController extends MsgControllerAdapter {
 
 					weChatUser.set("createtime", new Date());
 					System.out.println("保存关注用户" + weChatUser);
+					MbeMember member = new MbeMember();
+					member.setRealName(weChatUser.getNickname());
+					member.dao.save();
+					weChatUser.setMemberId(member.getMemberId());
 					weChatUser.save();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -172,7 +179,7 @@ public class WeixinMsgController extends MsgControllerAdapter {
 					// User.class);
 					JSONObject json = JSONObject.fromObject(apiResult.getJson());
 					System.out.println(apiResult.getJson());
-					// weChatUser.set("nickname",StringEscapeUtils.escapeJava(json.getString("nickname")));
+					weChatUser.set("nickname",SLEmojiFilter.filterEmoji(json.getString("nickname")));
 					weChatUser.set("subscribe", json.getString("subscribe"));
 					weChatUser.set("openid", json.getString("openid"));
 					weChatUser.set("headimgurl", json.getString("headimgurl"));

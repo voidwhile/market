@@ -195,7 +195,7 @@ public class WeixinApiController extends ApiController {
 	public void webScope() {
 		String appId = ApiConfigKit.getApiConfig().getAppId();
 		String state = getPara(0);
-		String redirectUrl = PropKit.use("config.properties").get("url") + "/api/getCode?appid=" + appId;
+		String redirectUrl = PropKit.use("config.properties").get("url") + "/wx/api/getCode?appid=" + appId;
 		String redirectUri = java.net.URLEncoder.encode(redirectUrl);
 		String url = SnsAccessTokenApi.getAuthorizeURL(appId, redirectUri, state, true);
 		redirect(url);
@@ -205,21 +205,21 @@ public class WeixinApiController extends ApiController {
 		String appId = ApiConfigKit.getApiConfig().getAppId();
 		String secret = ApiConfigKit.getApiConfig().getAppSecret();
 		String openId = "";
-		WechatUser user =  null;
+		WechatUser wechatUser =  null;
 		if (StrKit.notBlank(getPara("code"))) {
 			String code = getPara("code");
 			SnsAccessToken snsAccessToken = SnsAccessTokenApi.getSnsAccessToken(appId, secret, code);
 			openId = snsAccessToken.getOpenid();
-			user = WechatUser.dao.findFirst("select * from wx_wechat_user where openid=?", openId);
+			wechatUser = WechatUser.dao.findFirst("select * from wx_wechat_user where openid=?", openId);
 		}
 		int menuid = 0;
 		menuid = getParaToInt("state");
 		Menu menu = Menu.dao.findById(menuid);
-		if (user!=null) {
+		if (wechatUser!=null) {
 			if (menu.getBackpath()!=null) {
-				redirect(menu.getPath()+"?openid=" + user.getOpenid()+"&memberId="+user.getMemberId()+"&"+menu.getBackpath());
+				redirect(menu.getPath()+"?openid=" + wechatUser.getOpenid()+"&memberId="+wechatUser.getMemberId()+"&"+menu.getBackpath());
 			} else {
-				redirect(menu.getPath()+"?openid=" + user.getOpenid()+"&memberId="+user.getMemberId());
+				redirect(menu.getPath()+"?openid=" + wechatUser.getOpenid()+"&memberId="+wechatUser.getMemberId());
 			}
 		}
 

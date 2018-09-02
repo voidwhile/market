@@ -22,9 +22,9 @@
         	<nav class="mine_grzx">
 				<div class="mui-content-padded">
                     <div style=" float:left; width:60%;">
-                    	<img  class="mine-tx"  src="${path }/library/weixin/images/mine_people.png">
+                    	<img  class="mine-tx"  src="${wxUser.headimgurl }">
                        <div class="fl mine_nicheng">
-                      	 <p class="mine-tit">名称</p>
+                      	 <p class="mine-tit">${wxUser.nickname }</p>
                        </div> 
                     </div>
                     <a class="bjzl-btn" href="${path }/wx/mbe/info.wx?memberId=${memberId}"><img class="bj-icon" src="${path }/library/weixin/images/mine_bj.png"/>编辑资料<span class="mui-icon mui-icon-arrowright"></span></a>
@@ -86,7 +86,7 @@
                 </a>
               </li>
               <li class="mui-table-view-cell">
-                <a href="tel:13526776872" class="mui-navigate-right">
+                <a href="tel:17796651957" class="mui-navigate-right">
                 <img  class="mine_img" src="${path }/library/weixin/images/mine_lxkf_icon.png">
                   联系客服
                 </a>

@@ -219,11 +219,11 @@ public abstract class BaseWechatUser<M extends BaseWechatUser<M>> extends Model<
 	}
 
 	public void setMemberId(java.lang.Long memberId) {
-		set("memberId", memberId);
+		set("member_id", memberId);
 	}
 
 	public java.lang.Long getMemberId() {
-		return get("memberId");
+		return get("member_id");
 	}
 
 }

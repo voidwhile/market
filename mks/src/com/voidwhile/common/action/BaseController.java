@@ -66,7 +66,7 @@ public abstract class BaseController {
 			supplier.setUid("0");
 			supplier.setSupplierCode("0");
 			supplier.setSupplierLevel("");
-			supplier.setSupplierName("大手掌运营商");
+			supplier.setSupplierName("向悦万家运营商");
 		} else {
 			supplier = sysSupplierService.getBySupplierCode(supplierCode, true);
 		}

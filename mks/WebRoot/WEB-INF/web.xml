@@ -45,7 +45,7 @@
   </filter>
   <filter-mapping>
     <filter-name>jfinal</filter-name>
-    <url-pattern>/jf/*</url-pattern>
+    <url-pattern>/wx/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>MarketManage</servlet-name>

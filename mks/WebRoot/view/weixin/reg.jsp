@@ -9,7 +9,7 @@
 	content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">	
-<title>大手掌</title>
+<title>向悦万家</title>
 <link rel="stylesheet" type="text/css"
 	href="${path}/library/weixin/css/mui.min.css" />
 <link rel="stylesheet" type="text/css"

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>大手掌管理系统</title>
+<title>向悦万家管理系统</title>
 <%@ include file="../common/IncludeHead.jsp" %>
 <link rel="stylesheet" type="text/css" href="${path}/library/css/dpl-min.css" />
 <link rel="stylesheet" type="text/css" href="${path}/library/css/bui-min.css" />
@@ -90,7 +90,7 @@
 <!-- top -->
 <div class="header">
 	<div class="topleft">
-		<a style="font-size:18px;" href="#">大手掌</a>
+		<a style="font-size:18px;" href="#">向悦万家</a>
 	</div>
 	<div class="hnav">
 		<div class="topright">    
