@@ -145,7 +145,7 @@ public class CmdCommodityCtrl extends BaseController {
 		commonData(request, model);
 		CmdCommodity cmd = service.getById(uid);
 		String brandOptions = sysParamService.options("mk_cmd_brand", "brand_id", "brand_name", "1=1",Tools.toString(cmd.getCmdBrand()));
-		String typeOptions = sysParamService.options("mk_cmd_type", "cmd_type", "type_name", "level=3",null);
+		String typeOptions = sysParamService.options("mk_cmd_type", "cmd_type", "type_name", "level=2",Tools.toString(cmd.getCcCmdType()));
 		String statusOptions = sysParamService.options("mk_cmd_status", "cmd_status", "status_name", "1=1",Tools.toString(cmd.getCmdStatus()));
 		String supplierOptions = sysParamService.options("mk_rep_supplier", "supplier_id", "supplier_name", "1=1",Tools.toString(cmd.getSupplierId()));
 		String specificationOptions = sysParamService.options("mk_cfg_specification", "cfg_sft_id", "sft_name", "1=1",null);

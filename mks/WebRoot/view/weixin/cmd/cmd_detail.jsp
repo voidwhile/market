@@ -79,10 +79,8 @@
            </div> 
            <div class="buy-jjr-zx">
         	 <div class="buy-jjr-zx-left">
-                <a class="buy-jjr-list" href="javascript:addCollect()">
-                    <img id="collect" class="buy-jjr-img" src="${path}/library/weixin/images/sc_img.png">
-                    <div class="buy-jjr-text">收藏</div>
-                </a>
+	             <img id="collect" class="buy-jjr-img" src="${path}/library/weixin/images/sc_img.png">
+                   <div class="buy-jjr-text">收藏</div>
             </div>
             <div class="buy-jjr-zx-right">
                 <a href="javascript:addCart()">

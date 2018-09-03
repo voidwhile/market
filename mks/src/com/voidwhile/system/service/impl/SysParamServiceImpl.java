@@ -125,7 +125,7 @@ public class SysParamServiceImpl implements SysParamService {
 
 	@Override
 	public String options(String tableName,String code,String des,String whereClause,String selected) {
-		String sql = "select CONCAT("+code+",':',"+des+") from "+tableName+" where "+whereClause+" order by "+code;
+		String sql = "select CONCAT("+code+",':',"+des+") as val from "+tableName+" where "+whereClause+" order by "+code;
 		List<String> options = sysParamMapper.options(sql);
 		StringBuffer buffer = new StringBuffer();
 		for (String str : options) {

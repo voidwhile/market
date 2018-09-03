@@ -7,8 +7,8 @@
     "imageCompressEnable": true, 
     "imageCompressBorder": 1600,
     "imageInsertAlign": "none",
-    "imageUrlPrefix": "http://127.0.0.1:8888/",
-    "imagePathFormat": "../../../../file/file_root/mks/imgs/{yyyy}{mm}{dd}/{time}{rand:6}",
+    "imageUrlPrefix": "http://mks.vaiwan.com/mks/",
+    "imagePathFormat": "resource/imgs/{yyyy}{mm}{dd}/{time}{rand:6}",
 
     "scrawlActionName": "uploadscrawl", 
     "scrawlFieldName": "upfile", 

@@ -17,6 +17,9 @@ public class _MappingKit {
 
 	public static void mapping(ActiveRecordPlugin arp) {
 		arp.addMapping("mk_mbe_member", "member_id", MbeMember.class);
+		arp.addMapping("wx_menu", "menu_id", Menu.class);
+		arp.addMapping("wx_platform", "appid", Platform.class);
+		arp.addMapping("wx_wechat_user", "openid", WechatUser.class);
 	}
 }
 

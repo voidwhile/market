@@ -169,7 +169,7 @@ public class WeixinMsgController extends MsgControllerAdapter {
 					System.out.println("保存关注用户" + weChatUser);
 					MbeMember member = new MbeMember();
 					member.setRealName(weChatUser.getNickname());
-					member.dao.save();
+					member.save();
 					weChatUser.setMemberId(member.getMemberId());
 					weChatUser.save();
 				} catch (Exception e) {
