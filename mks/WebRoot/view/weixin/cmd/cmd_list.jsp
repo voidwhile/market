@@ -30,53 +30,56 @@ height:16%
         	<div class="fl-search-list-con">
                  <div class="fl-search-list-address fl-search-list-small">
                        
-                        <input class="fl-search-list-input" type="text" placeholder="请输入您想要的食材">
-                         <a href="ss.html"><img src="images/search_ico.png"/></a>
+                        <a href="${path }/wx/cmd/toSearch.wx?memberId=${memberId}"><img src="${path}/library/weixin/images/search_ico.png"/>
+                        <input class="fl-search-list-input" type="text" placeholder="请输入您想要的商品">
+                        </a>
                     </div>
             </div>
 		</nav>
 		<div class="mui-content pdb45 splb-list splb-xj">
         	<div class="line-hui"></div>
             <div class="mui-clearfix">
-            <ul class="mui-table-view pro_list">
-            	<c:forEach items="${cmdList }" var="cmd">
-                <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                    <a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.cmdId}&memberId=${memberId}">
-                        <img class="mui-media-object mui-pull-left" src="${imgUrl }${cmd.imgPath}">
-                        <div class="mui-media-body">
-                            <p class="mui-ellipsis splb-tit">${cmd.cmdName }</p>
-                            
-                            <div class="spjg">
-                            	<div class="mui-text-left pro_list-price">
-                            	<span class="rmb">￥</span>
-                            	<span class="pro_list-price-red">
-                            	<c:if test="${ empty cmd.eventPrice }">
-                            	${cmd.price }
-                            	</c:if>
-                            	<c:if test="${ !empty cmd.eventPrice }">
-                            	${cmd.eventPrice }
-                            	</c:if>
-                            	</span>
-                            	</div>
-                            	<div class="mui-inline">
-				                	<span class="spxq-yj">
-				                	<c:if test="${ !empty cmd.eventPrice }">
-				                	原价${cmd.price }
-				                	</c:if>
-				                	</span>
-				                	
-				                </div>
-                                <button class="mui-text-right tjgwc" onclick="addCart('${cmd.cmdId}')"><img src="${path }/library/weixin/images/tjgwc.png"></button>
-                            </div>
-                        
-                        </div>
-                    </a>
-                </li>
-            	</c:forEach>
-                  
-                
-                 
-            </ul> 
+            	<div id="pullrefresh" class="mui-scroll-wrapper" style="margin-top: 123px;">
+    				<div class="mui-scroll">
+			            <ul class="mui-table-view pro_list">
+			            	<c:forEach items="${cmdList }" var="cmd">
+			                <li class="mui-table-view-cell mui-media bg_white pro_list-item">
+			                    <a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.cmdId}&memberId=${memberId}">
+			                        <img class="mui-media-object mui-pull-left" src="${imgUrl }${cmd.imgPath}">
+			                        <div class="mui-media-body">
+			                            <p class="mui-ellipsis splb-tit">${cmd.cmdName }</p>
+			                            
+			                            <div class="spjg">
+			                            	<div class="mui-text-left pro_list-price">
+			                            	<span class="rmb">￥</span>
+			                            	<span class="pro_list-price-red">
+			                            	<c:if test="${ empty cmd.eventPrice }">
+			                            	${cmd.price }
+			                            	</c:if>
+			                            	<c:if test="${ !empty cmd.eventPrice }">
+			                            	${cmd.eventPrice }
+			                            	</c:if>
+			                            	</span>
+			                            	</div>
+			                            	<div class="mui-inline">
+							                	<span class="spxq-yj">
+							                	<c:if test="${ !empty cmd.eventPrice }">
+							                	原价${cmd.price }
+							                	</c:if>
+							                	</span>
+							                	
+							                </div>
+			                                
+			                            </div>
+			                        
+			                        </div>
+			                    </a>
+			                    <button class="mui-text-right tjgwc" onclick="addCart('${cmd.cmdId}')"><img src="${path }/library/weixin/images/tjgwc.png"></button>
+			                </li>
+			            	</c:forEach>
+			            </ul>
+            		</div>
+            	</div> 
           </div>
 			
 		</div>

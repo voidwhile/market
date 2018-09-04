@@ -22,8 +22,8 @@
         	<div  style="padding-left:10px">
             	
                  <div class="search-list-address search-list-small">
-                        <a href="ss.html"><img src="${path }/library/weixin/images/search_ico.png" style="margin-top: 7px;"/>
-                        <input class="search-list-input" type="text" placeholder="请输入您想要的食材"></a>
+                        <a href="${path }/wx/cmd/toSearch.wx?memberId=${memberId}"><img src="${path }/library/weixin/images/search_ico.png" style="margin-top: 7px;"/>
+                        <input class="search-list-input" type="text" placeholder="请输入您想要的商品"></a>
                     </div>
             </div>
 		</nav>

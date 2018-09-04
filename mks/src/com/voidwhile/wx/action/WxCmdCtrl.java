@@ -62,9 +62,9 @@ public class WxCmdCtrl extends BaseController {
 	private PubImageService imgService;
 
 	@RequestMapping("/list.wx")
-	public String list(ModelMap map,String cmdType,CmdCommodity cmd,String memberId) throws Exception {
+	public String list(ModelMap map, CmdCommodity cmd,String memberId) throws Exception {
 		Map<String, Object> param = new HashMap<>();
-		param.put("cmdType", cmdType);
+		param.put("label", cmd.getCcCmdType());
 		param.put("cmdName", cmd.getCmdName());
 		List<CmdCommodity> cmdList = service.findByMap(param);
 		map.put("cmdList", cmdList);
@@ -80,6 +80,12 @@ public class WxCmdCtrl extends BaseController {
 		map.put("cmd", cmd);
 		map.put("memberId", memberId);
 		return "weixin/cmd/cmd_detail";
+	}
+	
+	@RequestMapping("/toSearch.wx")
+	public String toSearch(String memberId,ModelMap map) {
+		map.put("memberId", memberId);
+		return "weixin/cmd/search";
 	}
 	
 	
