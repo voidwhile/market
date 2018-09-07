@@ -22,9 +22,9 @@
         	<nav class="mine_grzx">
 				<div class="mui-content-padded">
                     <div style=" float:left; width:60%;">
-                    	<img  class="mine-tx"  src="${wxUser.headimgurl }">
+                    	<img  class="mine-tx"  src="${member.portrait }">
                        <div class="fl mine_nicheng">
-                      	 <p class="mine-tit">${wxUser.nickname }</p>
+                      	 <p class="mine-tit">${member.realName }</p>
                        </div> 
                     </div>
                     <a class="bjzl-btn" href="${path }/wx/mbe/info.wx?memberId=${memberId}"><img class="bj-icon" src="${path }/library/weixin/images/mine_bj.png"/>编辑资料<span class="mui-icon mui-icon-arrowright"></span></a>
@@ -72,13 +72,14 @@
         	
              <div class=" line-hui"></div>
              <ul class="mui-table-view">
+              
+            
               <li class="mui-table-view-cell">
-                <a href="${path }/wx/mbe/browse.wx?memberId=${memberId}" class="mui-navigate-right">
-                <img  class="mine_img" src="${path }/library/weixin/images/mine_lljl_icon.png">
-                  浏览记录
+                <a href="${path }/wx/mbe/address.wx?memberId=${memberId}" class="mui-navigate-right">
+                <img  class="mine_img" src="${path }/library/weixin/images/map.png">
+                  我的地址
                 </a>
               </li>
-            
               <li class="mui-table-view-cell">
                 <a href="${path }/wx/mbe/feedback.wx?memberId=${memberId}" class="mui-navigate-right">
                 <img  class="mine_img" src="${path }/library/weixin/images/mine_wyfk_icon.png">

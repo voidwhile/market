@@ -1,5 +1,8 @@
 package com.voidwhile.market.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.voidwhile.market.entity.MbeMember;
 
 public interface MbeMemberMapper {
@@ -50,4 +53,8 @@ public interface MbeMemberMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(MbeMember record);
+
+	List<MbeMember> selectByMap(Map<String, Object> param);
+
+	int countByMap(Map<String, Object> param);
 }

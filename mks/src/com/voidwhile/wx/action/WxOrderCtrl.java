@@ -36,15 +36,21 @@ public class WxOrderCtrl {
 	 * @return
 	 */
 	@RequestMapping("/book.wx")
-	public String book(Long memberId, ModelMap map) {
+	public String book(Long memberId,String addrId, ModelMap map) {
 		try {
 			orderService.book(memberId);
 			List<OdrCart> settleList = cartService.findForSettle(memberId);
-			MbeAddress addr = addressService.getDefault(memberId);
+			MbeAddress addr = null;
+			if (addrId!=null) {
+				addr = addressService.getById(addrId);
+			} else {
+				addr = addressService.getDefault(memberId);
+			}
 			Double totalPrice = cartService.sum(memberId);
 			map.put("addr", addr);
 			map.put("settleList", settleList);
 			map.put("totalPrice", totalPrice);
+			map.put("memberId", memberId);
 			map.put("rltCode", "0000");
 		} catch (Exception e) {
 			map.put("rltCode", "1111");
@@ -102,6 +108,7 @@ public class WxOrderCtrl {
 			Double totalPrice = cartService.sum(order.getMemberId());
 			map.put("order", order);
 			map.put("totalPrice", totalPrice);
+			map.put("memberId", order.getMemberId());
 			map.put("rltCode", "0000");
 		} catch (Exception e) {
 			map.put("rltCode", "1111");

@@ -6,12 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.tools.Tool;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.voidwhile.common.utils.Tools;
 import com.voidwhile.market.entity.OdrCart;
 import com.voidwhile.market.entity.OdrOrder;
 import com.voidwhile.market.entity.OdrOrderDetail;
@@ -89,10 +92,10 @@ public class OrderServiceImpl implements OrderService {
 			param = new HashMap<String, Object>();
 		}
 		PageResult<OdrOrderDetail> pageResult = new PageResult<OdrOrderDetail>(pageNo,pageSize);
-		pageResult.setTotal(detailMapper.countByOrderId(param));
+		pageResult.setTotal(detailMapper.countByOrderId((Long)param.get("orderId")));
 		param.put("offset", pageResult.getOffset());
 		param.put("pageSize", pageResult.getPageSize());
-		pageResult.setList(detailMapper.findByOrderId(param));
+		pageResult.setList(detailMapper.findByOrderId((Long)param.get("orderId")));
 		return pageResult;
 	}
 
@@ -105,10 +108,13 @@ public class OrderServiceImpl implements OrderService {
 	public void book(Long memberId) {
 		List<OdrCart> cmdList = cartService.findByMemberId(memberId);
 		for (OdrCart odrCart : cmdList) {
-			OdrSettle settle = new OdrSettle();
-			settle.setMemberId(memberId);
-			settle.setCartId(odrCart.getCartId());
-			settleMapper.insert(settle);
+			int num = settleMapper.countByCartId(odrCart.getCartId());
+			if (num==0) {
+				OdrSettle settle = new OdrSettle();
+				settle.setMemberId(memberId);
+				settle.setCartId(odrCart.getCartId());
+				settleMapper.insert(settle);
+			}
 		}
 	}
 

@@ -45,14 +45,14 @@
                 	<input type="hidden" id="memberId" name="memberId" value="${addr.memberId }">
                 	<input type="hidden" id="addrId" name="addrId" value="${addr.addrId }">
                 	<div class="mui-input-row mui-radio tjdd-fdmm">
-                      <p class="ttjd-tit">收件人<span class="mui-pull-right">${addr.realName }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${addr.mp }</span></p>
+                      <p class="ttjd-tit">收件人&nbsp;&nbsp;${addr.realName }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${addr.mp }</p>
                        <div class="ttjd-list">
                        	   <img src="${path }/library/weixin/images/map.png"/>
                        	   <p class="ttjd-shdz">          
                             收货地址：${addr.address }
                           </p>
                       </div>
-                      <a class="tjdd-xg">修改</a>
+                      <a class="tjdd-xg" href="${path }/wx/mbe/selectAddr.wx?memberId=${memberId}">修改</a>
                     </div>
                 	<div class="line-hui"></div>
                 	商品总价：${totalPrice }

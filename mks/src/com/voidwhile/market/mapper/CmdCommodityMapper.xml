@@ -90,7 +90,7 @@
 			<if test="cmdId !=null">
 				and cmd_id = #{cmdId,jdbcType=BIGINT}
 			</if>
-			<if test="cmdName !=null">
+			<if test="cmdName !=null and cmdName!=''">
 				and cmd_name like CONCAT('%',#{cmdName},'%')
 			</if>
 			<if test="cmdCode !=null">

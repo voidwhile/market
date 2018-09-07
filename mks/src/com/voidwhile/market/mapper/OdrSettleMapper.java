@@ -52,4 +52,8 @@ public interface OdrSettleMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(OdrSettle record);
+    
+    int countByCartId(Long cartId);
+    
+    
 }

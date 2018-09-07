@@ -51,7 +51,7 @@
 <script src="${path}/library/weixin/js/iscroll.js"></script>
 <script type="text/javascript">
 	function search(){
-		window.location.href=path+"/wx/cmd/list.wx??memberId=${memberId}&cmdName="+$("#cmdName").val();
+		window.location.href=path+"/wx/cmd/list.wx?memberId=${memberId}&cmdName="+$("#cmdName").val();
 	}
 </script>
 </html>

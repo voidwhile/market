@@ -16,7 +16,7 @@ public abstract class Constants {
 	/**
 	 * app默认分页大小
 	 */
-	public static final int APP_PAGE_SIZE = 10;
+	public static final int APP_PAGE_SIZE = 5;
 	/**
 	 * 路径分隔符
 	 */

@@ -100,4 +100,8 @@
       cart_id = #{cartId,jdbcType=BIGINT}
     where settle_id = #{settleId,jdbcType=BIGINT}
   </update>
+  
+  <select id="countByCartId" parameterType="java.lang.Long" resultType="java.lang.Integer">
+  	select count(*) from mk_odr_settle where cart_id = #{cartId}
+  </select>
 </mapper>

@@ -6,4 +6,6 @@ import com.voidwhile.market.entity.MbeAddress;
 public interface MbeAddressServcie extends IBaseService<MbeAddress> {
 	
 	MbeAddress getDefault(Long memberId);
+	
+	void setDefault(Long memberId);
 }

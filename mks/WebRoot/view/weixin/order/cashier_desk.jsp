@@ -34,7 +34,7 @@
 		}
 		</style>
 	</head>
-	<body>
+	<body class="sccg_bg grzl">
     	<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回</a>
 			<h1 class="mui-title">收银台</h1>

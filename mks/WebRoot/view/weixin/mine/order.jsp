@@ -50,15 +50,17 @@
 				<div id="item1" class="mui-control-content mui-active">
 					<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
+							<c:forEach items="${orderList }" var="order">
                             <div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span><span class="ddbh-jyzt">交易关闭</span></p>
+                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：${order.orderCode }</span><span class="ddbh-jyzt">交易关闭</span></p>
                                 <ul class="mui-table-view pro_list">
+                                	<c:forEach items="${order.detailList }" var="detail">
                                     <li class="mui-table-view-cell mui-media bg_white pro_list-item">
                                         <a href="spxq.html">
                                             <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
                                             <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
+                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
+                                                <span class="mui-pull-right splb-jg">￥${detail.cmdPrice }</span>
                                                 <div class="spjg clear">
                                                     500g<span class="mui-pull-right">&times;2</span>
                                                 </div>
@@ -66,55 +68,12 @@
                                             </div>
                                         </a>
                                     </li>
-                                       <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
+                                	</c:forEach>
                                 </ul> 
                                 <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
                             </div>
+							</c:forEach>
                             <div class="line-hui"></div>
-                            <div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span><span class="ddbh-jyzt">交易关闭</span></p>
-                                <ul class="mui-table-view pro_list">
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                       <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> 
-                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
-                            </div>
                             
                         </div>
 					</div>

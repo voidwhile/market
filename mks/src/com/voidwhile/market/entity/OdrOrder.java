@@ -1,6 +1,7 @@
 package com.voidwhile.market.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -288,6 +289,16 @@ public class OdrOrder {
 	private String address;
 	private String phone;
 	
+	private List<OdrOrderDetail> detailList;
+	
+	public List<OdrOrderDetail> getDetailList() {
+		return detailList;
+	}
+
+	public void setDetailList(List<OdrOrderDetail> detailList) {
+		this.detailList = detailList;
+	}
+
 	public MbeAddress getAddr() {
 		return addr;
 	}

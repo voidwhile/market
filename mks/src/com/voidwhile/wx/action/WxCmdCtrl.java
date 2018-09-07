@@ -13,23 +13,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.voidwhile.common.action.BaseController;
 import com.voidwhile.market.entity.CmdCommodity;
 import com.voidwhile.market.service.CmdCommodityService;
-import com.voidwhile.market.service.CmdLabelService;
-import com.voidwhile.market.service.CmdSpecificationService;
-import com.voidwhile.market.service.PubImageService;
-import com.voidwhile.market.service.RepInventoryService;
-import com.voidwhile.system.service.SysParamService;
+import com.voidwhile.system.bean.PageBean;
+import com.voidwhile.system.bean.PageResult;
 
 /**
  * ClassName:CmdCommodityCtrl <br/>
@@ -50,25 +46,26 @@ public class WxCmdCtrl extends BaseController {
 
 	@Autowired
 	private CmdCommodityService service;
-	@Autowired
-	private CmdSpecificationService sftService;
-	@Autowired
-	private CmdLabelService labelService;
-	@Autowired
-	private SysParamService sysParamService;
-	@Autowired
-	private RepInventoryService inventoryService;
-	@Autowired
-	private PubImageService imgService;
+	
 
 	@RequestMapping("/list.wx")
-	public String list(ModelMap map, CmdCommodity cmd,String memberId) throws Exception {
+	public String list(ModelMap map, CmdCommodity cmd,String memberId,PageBean page) {
 		Map<String, Object> param = new HashMap<>();
-		param.put("label", cmd.getCcCmdType());
-		param.put("cmdName", cmd.getCmdName());
-		List<CmdCommodity> cmdList = service.findByMap(param);
-		map.put("cmdList", cmdList);
-		map.put("memberId", memberId);
+		try {
+			if (cmd.getCcCmdType()!=null) {
+				param.put("label", cmd.getCcCmdType());
+			}
+			if (StringUtils.isNotEmpty(cmd.getCmdName())) {
+				param.put("cmdName", cmd.getCmdName());
+			}
+			PageResult<CmdCommodity> result = service.findPageData(param, page.getPage(), page.getApprows(), "create_time desc");
+			map.put("cmdList", result.getList());
+			map.put("memberId", memberId);
+			map.put("label", cmd.getCcCmdType());
+			map.put("cmdName", cmd.getCmdName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "weixin/cmd/cmd_list";
 	}
 
@@ -86,6 +83,27 @@ public class WxCmdCtrl extends BaseController {
 	public String toSearch(String memberId,ModelMap map) {
 		map.put("memberId", memberId);
 		return "weixin/cmd/search";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/pulluploading.wx")
+	public Map<String, Object> pulluploading(CmdCommodity cmd,PageBean page){
+		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> param = new HashMap<>();
+		try {
+			if (cmd.getCcCmdType()!=null) {
+				param.put("label", cmd.getCcCmdType());
+			}
+			if (StringUtils.isNotEmpty(cmd.getCmdName())) {
+				param.put("cmdName", cmd.getCmdName());
+			}
+			PageResult<CmdCommodity> result = service.findPageData(param, page.getPage(), page.getApprows(), "create_time desc");
+			map.put("cmdList", result.getList());
+			map.put("rltCode", "0000");
+		} catch (Exception e) {
+			map.put("rltCode", "1111");
+		}
+		return map;
 	}
 	
 	

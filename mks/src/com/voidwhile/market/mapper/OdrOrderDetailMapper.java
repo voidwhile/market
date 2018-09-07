@@ -54,6 +54,6 @@ public interface OdrOrderDetailMapper {
      */
     int updateByPrimaryKey(OdrOrderDetail record);
     
-    List<OdrOrderDetail> findByOrderId(Map<String, Object> param);
-    int countByOrderId(Map<String, Object> param);
+    List<OdrOrderDetail> findByOrderId(Long orderId);
+    int countByOrderId(Long orderId);
 }

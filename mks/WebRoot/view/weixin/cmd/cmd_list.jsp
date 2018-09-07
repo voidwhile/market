@@ -41,9 +41,9 @@ height:16%
             <div class="mui-clearfix">
             	<div id="pullrefresh" class="mui-scroll-wrapper" style="margin-top: 123px;">
     				<div class="mui-scroll">
-			            <ul class="mui-table-view pro_list">
+			            <ul id="ul-cmd-list" class="mui-table-view">
 			            	<c:forEach items="${cmdList }" var="cmd">
-			                <li class="mui-table-view-cell mui-media bg_white pro_list-item">
+			                <li class="mui-table-view-cell ">
 			                    <a href="${path }/wx/cmd/detail.wx?cmdId=${cmd.cmdId}&memberId=${memberId}">
 			                        <img class="mui-media-object mui-pull-left" src="${imgUrl }${cmd.imgPath}">
 			                        <div class="mui-media-body">
@@ -109,8 +109,83 @@ height:16%
 
 <script src="${path}/library/weixin/js/mui.min.js"></script>
 <script src="${path}/library/weixin/js/jquery-1.11.1.js"></script>
-<script src="${path}/library/weixin/js/iscroll.js"></script>
 <script type="text/javascript">
+var page = 1;
+$(function(){
+	mui.init({ 
+		 pullRefresh : {
+		　　 swipeBack: false, //关闭左滑关闭功能
+		    container:"#pullrefresh",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+		    down : {
+		      style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+		      color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+		      height:'50px',//可选,默认50px.下拉刷新控件的高度,
+		      range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+		      offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+		      auto: false,//可选,默认false.首次加载自动上拉刷新一次
+		      callback :pulldownRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+		   },
+		　　up:{
+		　　　　contentrefresh: '正在加载...',
+		　　　　contentnomore:'没有更多数据了',
+		　　　　callback:pulluploading //上拉加载下一页
+		　　}
+		}
+	})
+})
+function pulluploading(){
+	$.ajax({
+		url:path+"/wx/cmd/pulluploading.wx",
+		type:"post",
+		dataType:"json",
+		data:{ccCmdType:'${label}',cmdName:'${cmdName}',page:page+1},
+		success:function(data){
+			if(data.rltCode=="0000"){
+				var cmdList = data.cmdList;
+				if(cmdList.length>0){
+					page=page+1;
+					for(var i=0;i<cmdList.length;i++){
+						var cmd = cmdList[i];
+						var price = 0;
+						var orgPrice;
+						if(cmd.eventPrice){
+							price = cmd.eventPrice;
+							orgPrice = '原价'+cmd.price;
+						} else {
+							price = cmd.price;
+							orgPrice = ''
+						}
+						var cmdhtml = '\
+							<li class="mui-table-view-cell ">\
+		                    <a href="${path }/wx/cmd/detail.wx?cmdId='+cmd.cmdId+'&memberId=${memberId}">\
+		                        <img class="mui-media-object mui-pull-left" src="${imgUrl }'+cmd.imgPath+'">\
+		                        <div class="mui-media-body">\
+		                            <p class="mui-ellipsis splb-tit">'+cmd.cmdName +'</p>\
+		                            <div class="spjg">\
+		                            	<div class="mui-text-left pro_list-price">\
+		                            	<span class="rmb">￥</span>\
+		                            	<span class="pro_list-price-red">'+price+'</span>\
+		                            	</div>\
+		                            	<div class="mui-inline">\
+						                	<span class="spxq-yj">'+orgPrice+'</span>\
+						                </div>\
+		                            </div>\
+		                        </div>\
+		                    </a>\
+		                    <button class="mui-text-right tjgwc" onclick="addCart('+cmd.cmdId+')"><img src="${path }/library/weixin/images/tjgwc.png"></button>\
+		                </li>\
+						';
+		                $("#ul-cmd-list").append(cmdhtml);
+					}
+				}
+			}
+		}
+		
+	});
+}
+function pulldownRefresh(){
+	window.location.href=path+"/wx/cmd/list.wx?memberId=${memberId}&cmdName=${cmdName}&ccCmdType=${label}";
+}
 function addCart(cmdId){
 	$.ajax({
 		url:"${path }/wx/cart/save.wx",

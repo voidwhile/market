@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.voidwhile.common.utils.Tools;
 import com.voidwhile.market.entity.MbeAddress;
 import com.voidwhile.market.mapper.MbeAddressMapper;
 import com.voidwhile.market.service.MbeAddressServcie;
@@ -20,26 +21,34 @@ public class MbeAddressServcieImpl implements MbeAddressServcie {
 
 	@Override
 	public void save(MbeAddress entity) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
+		if (entity.getIsDefault()==null) {
+			entity.setIsDefault(false);
+		}
+		if (entity.getIsDefault()) {
+			this.setDefault(entity.getMemberId());
+		}
+		mapper.insert(entity);
 	}
 
 	@Override
 	public void update(MbeAddress entity) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
+		if (entity.getIsDefault()==null) {
+			entity.setIsDefault(false);
+		}
+		if (entity.getIsDefault()) {
+			this.setDefault(entity.getMemberId());
+		}
+		mapper.updateByPrimaryKey(entity);
 	}
 
 	@Override
 	public void delete(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
+		mapper.deleteByPrimaryKey(Tools.toLong(id));
 	}
 
 	@Override
 	public MbeAddress getById(String id) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.selectByPrimaryKey(Tools.toLong(id));
 	}
 
 	@Override
@@ -51,8 +60,7 @@ public class MbeAddressServcieImpl implements MbeAddressServcie {
 
 	@Override
 	public List<MbeAddress> findByMap(Map<String, Object> param) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.selectByMap(param);
 	}
 
 	@Override
@@ -64,6 +72,12 @@ public class MbeAddressServcieImpl implements MbeAddressServcie {
 	@Override
 	public MbeAddress getDefault(Long memberId) {
 		return mapper.selectDefault(memberId);
+	}
+
+	@Override
+	public void setDefault(Long memberId) {
+		mapper.setDefault(memberId);
+		
 	}
 
 }

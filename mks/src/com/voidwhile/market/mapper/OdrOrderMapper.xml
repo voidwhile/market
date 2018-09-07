@@ -21,6 +21,7 @@
     <result column="status_name" jdbcType="BIGINT" property="statusName" />
     <association property="member" javaType="com.voidwhile.market.entity.MbeMember" column="member_id" select="com.voidwhile.market.mapper.MbeMemberMapper.selectByPrimaryKey" />
     <association property="addr" javaType="com.voidwhile.market.entity.MbeAddress" column="addr_id" select="com.voidwhile.market.mapper.MbeAddressMapper.selectByPrimaryKey" />
+    <collection property="detailList" column="order_id" ofType="com.voidwhile.market.entity.OdrOrderDetail" select="com.voidwhile.market.mapper.OdrOrderDetailMapper.findByOrderId"/>
   </resultMap>
   <sql id="Base_Column_List">
     <!--
