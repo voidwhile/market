@@ -46,15 +46,26 @@ public class WxMemberCtrl {
 		Map<String, Object> param = new HashMap<>();
 		try {
 			param.put("memberId", entity.getMemberId());
-			if (entity.getStatus()!=null) {
-				param.put("status", entity.getStatus());
-			}
 			if (entity.getOrderId()!=null) {
 				param.put("orderId", entity.getOrderId());
 			}
-			
-			PageResult<OdrOrder> result = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time desc ");
-			map.put("orderList", result.getList());
+			PageResult<OdrOrder> all = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time ");
+			param.put("payStatus", 0);
+			PageResult<OdrOrder> willPay = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time desc ");
+			param.put("payStatus", 1);
+			param.put("status", 1);
+			PageResult<OdrOrder> willDeliver = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time desc ");
+			param.put("payStatus", 1);
+			param.put("status", 3);
+			PageResult<OdrOrder> willDone = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time desc ");
+			param.put("payStatus", 1);
+			param.put("status", 4);
+			PageResult<OdrOrder> done = orderService.findPageData(param, page.getPage(), page.getApprows(), " create_time desc ");
+			map.put("orderList", all.getList());
+			map.put("willPayList", willPay.getList());
+			map.put("willDeliverList", willDeliver.getList());
+			map.put("willDoneList", willDone.getList());
+			map.put("doneList", done.getList());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

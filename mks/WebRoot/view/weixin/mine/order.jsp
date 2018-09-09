@@ -42,7 +42,7 @@
 				待收货
 			</a>
 					<a class="mui-control-item" href="#item5">
-				已发货
+				已完成
 			</a>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
                                             <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
                                             <div class="mui-media-body">
                                                 <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
-                                                <span class="mui-pull-right splb-jg">￥${detail.cmdPrice }</span>
+                                                <span class="mui-pull-right splb-jg">￥${detail.unitPrice }</span>
                                                 <div class="spjg clear">
                                                     500g<span class="mui-pull-right">&times;2</span>
                                                 </div>
@@ -79,15 +79,19 @@
 					</div>
 				</div>
 				<div id="item2" class="mui-control-content">
-					<div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
+					<div id="scroll" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<c:forEach items="${willPayList }" var="order">
+							<div class="ddbh-list">
+                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：${order.orderCode }</span></p>
                                 <ul class="mui-table-view pro_list">
+                                    <c:forEach items="${order.detailList }" var="detail">
                                     <li class="mui-table-view-cell mui-media bg_white pro_list-item">
                                         <a href="spxq.html">
                                             <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
                                             <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
+                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
+                                                <span class="mui-pull-right splb-jg">￥${detail.unitPrice }</span>
                                                 <div class="spjg clear">
                                                     500g<span class="mui-pull-right">&times;2</span>
                                                 </div>
@@ -95,19 +99,8 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
+                                	</c:forEach>
+                                    
                                 </ul> 
                                 <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
                             </div>
@@ -116,68 +109,59 @@
                                      <a class="qxdd-btn" href="#">取消订单</a><a  class="fk2-btn" href="#">付款</a>
                                </div>
                            </div> 
+                		</c:forEach>
+                	</div>
+                	</div>
 				</div>
 				<div id="item3" class="mui-control-content">
-						<div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
-                                <ul class="mui-table-view pro_list">
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> 
-                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
-                            </div>
-                            <div class="btn-bg">
-                               <div class="dd-group">
-                                     <a class="qxdd-btn" href="#">取消订单</a><a  class="ddgz-btn" href="mine_ddgz.html">订单跟踪</a>
-                               </div>
-                           </div> 
-                           <div class="line-hui"></div>
-                           	<div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
-                                <ul class="mui-table-view pro_list">
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> 
-                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
-                            </div>
-                            <div class="btn-bg">
-                               <div class="dd-group">
-                                     <a class="qxdd-btn" href="#">取消订单</a><a  class="ddgz-btn" href="mine_ddgz.html">订单跟踪</a>
-                               </div>
-                           </div>
+					<div id="scroll" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<c:forEach items="${willDeliverList }" var="order">
+								<div class="ddbh-list">
+	                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：${order.orderCode }</span></p>
+	                                <ul class="mui-table-view pro_list">
+	                                    <c:forEach items="${order.detailList }" var="detail">
+	                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
+	                                        <a href="spxq.html">
+	                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
+	                                            <div class="mui-media-body">
+	                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
+	                                                <span class="mui-pull-right splb-jg">￥${detail.unitPrice }</span>
+	                                                <div class="spjg clear">
+	                                                    500g<span class="mui-pull-right">&times;2</span>
+	                                                </div>
+	                                            
+	                                            </div>
+	                                        </a>
+	                                    </li>
+	                                	</c:forEach>
+	                                </ul> 
+	                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
+	                            </div>
+	                            <div class="btn-bg">
+	                               <div class="dd-group">
+	                                     <a class="qxdd-btn" href="#">取消订单</a><a  class="ddgz-btn" href="mine_ddgz.html">订单跟踪</a>
+	                               </div>
+	                           </div> 
+	                           <div class="line-hui"></div>
+                           	</c:forEach>
+                        </div>
+                    </div>
 				</div>
                 <div id="item4" class="mui-control-content">
-					<div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
+                	<div id="scroll" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<c:forEach items="${willDoneList }" var="order">
+							<div class="ddbh-list">
+                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：${order.orderCode }</span></p>
                                 <ul class="mui-table-view pro_list">
+                                    <c:forEach items="${order.detailList }" var="detail">
                                     <li class="mui-table-view-cell mui-media bg_white pro_list-item">
                                         <a href="spxq.html">
                                             <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
                                             <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
+                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
+                                                <span class="mui-pull-right splb-jg">￥${detail.unitPrice }</span>
                                                 <div class="spjg clear">
                                                     500g<span class="mui-pull-right">&times;2</span>
                                                 </div>
@@ -185,6 +169,7 @@
                                             </div>
                                         </a>
                                     </li>
+                                	</c:forEach>
                                 </ul> 
                                 <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
                             </div>
@@ -194,41 +179,24 @@
                                </div>
                            </div> 
                            <div class="line-hui"></div>
-                           <div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
-                                <ul class="mui-table-view pro_list">
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> 
-                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
-                            </div>
-                            <div class="btn-bg">
-                               <div class="dd-group">
-                                     <a class="qrsh-btn" href="#">确认收货</a><a  class="qxdd-btn" href="mine_ddgz.html">订单跟踪</a>
-                               </div>
-                           </div>
+                         </c:forEach>
+                       </div>
+                     </div>
 				</div>
                 <div id="item5" class="mui-control-content">
-					  	<div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
+                	<div id="scroll" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<c:forEach items="${doneList }" var="order">
+					  		<div class="ddbh-list">
+                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：${order.orderCode }</span></p>
                                 <ul class="mui-table-view pro_list">
+                                    <c:forEach items="${order.detailList }" var="detail">
                                     <li class="mui-table-view-cell mui-media bg_white pro_list-item">
                                         <a href="spxq.html">
                                             <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
                                             <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
+                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">${detail.cmdName }</p>
+                                                <span class="mui-pull-right splb-jg">￥${detail.unitPrice }</span>
                                                 <div class="spjg clear">
                                                     500g<span class="mui-pull-right">&times;2</span>
                                                 </div>
@@ -236,6 +204,7 @@
                                             </div>
                                         </a>
                                     </li>
+                                	</c:forEach>
                                 </ul> 
                                 <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
                             </div>
@@ -245,30 +214,9 @@
                                </div>
                            </div> 
                            <div class="line-hui"></div>
-                           <div class="ddbh-list">
-                                <p class="ddbh"><img class="ddbh-img" src="${path }/library/weixin/images/mine_dd.png"><span class="ddbh-num">订单编号：123456012750</span></p>
-                                <ul class="mui-table-view pro_list">
-                                    <li class="mui-table-view-cell mui-media bg_white pro_list-item">
-                                        <a href="spxq.html">
-                                            <img class="mui-media-object mui-pull-left" src="${path }/library/weixin/images/splb1.png">
-                                            <div class="mui-media-body">
-                                                <p class="mui-ellipsis-2 splb-tit mui-pull-left">天天特价山东栖霞精品红富士苹果新鲜水果  当季红富士 酸甜爽口</p>
-                                                <span class="mui-pull-right splb-jg">￥15.90</span>
-                                                <div class="spjg clear">
-                                                    500g<span class="mui-pull-right">&times;2</span>
-                                                </div>
-                                            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul> 
-                                <p class="ddbh-hj">共2件商品&nbsp;合计：<span class="ddbh-hj-jg">116.00</span></p>
-                            </div>
-                            <div class="btn-bg">
-                               <div class="th-group">
-                                   <a class="th-btn" href="#">退货</a>
-                               </div>
-                           </div>
+                          </c:forEach>
+                     </div>
+                   </div>
 				</div>
 			</div>
 		</div>

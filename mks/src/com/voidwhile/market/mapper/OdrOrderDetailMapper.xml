@@ -149,7 +149,6 @@
     from mk_odr_order_detail mood,mk_cmd_commodity mcc,mk_cmd_price mcp
     where mood.cmd_id = mcc.cmd_id and mood.price_id = mcp.price_id and order_id = #{orderId,jdbcType=BIGINT}
     order by detail_id
-	limit #{offset} , #{pageSize}
   </select>
   <select id="countByOrderId" parameterType="java.lang.Long" resultType="java.lang.Integer" >
     <!--

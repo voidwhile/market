@@ -214,6 +214,9 @@
 			<if test="memberName !=null and memberName!=''">
 				and member_id in (select member_id from mk_mbe_member where real_name like CONCAT('%', #{memberName},'%'))
 			</if>
+			<if test="memberId !=null">
+				and member_id = #{memberId}
+			</if>
 			<if test="status !=null">
 				and moo.status = #{status,jdbcType=INTEGER}
 			</if>
