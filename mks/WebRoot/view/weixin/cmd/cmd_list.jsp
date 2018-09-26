@@ -131,7 +131,13 @@ $(function(){
 		　　　　callback:pulluploading //上拉加载下一页
 		　　}
 		}
-	})
+	});
+	$("#pullrefresh").on('tap','a',function(event){
+		this.click();
+	});
+	$("#pullrefresh").find('button').on('tap',function(event){
+		this.click();
+	});
 })
 function pulluploading(){
 	$.ajax({
