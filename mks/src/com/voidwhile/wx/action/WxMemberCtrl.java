@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.voidwhile.market.entity.MbeAddress;
 import com.voidwhile.market.entity.MbeMember;
@@ -42,7 +43,7 @@ public class WxMemberCtrl {
 	}
 	
 	@RequestMapping("/order.wx")
-	public String order(OdrOrder entity,PageBean page,ModelMap map){
+	public String order(OdrOrder entity,String item,PageBean page,ModelMap map){
 		Map<String, Object> param = new HashMap<>();
 		try {
 			param.put("memberId", entity.getMemberId());
@@ -66,6 +67,8 @@ public class WxMemberCtrl {
 			map.put("willDeliverList", willDeliver.getList());
 			map.put("willDoneList", willDone.getList());
 			map.put("doneList", done.getList());
+			map.put("item", item);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -146,6 +149,19 @@ public class WxMemberCtrl {
 		}
 		map.put("memberId", entity.getMemberId());
 		return "redirect:/wx/mbe/address.wx";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/save.wx")
+	public Map<String, Object> save(MbeMember entity){
+		Map<String, Object> map= new HashMap<>();
+		try {
+			service.update(entity);
+			map.put("rltCode", "0000");
+		} catch (Exception e) {
+			map.put("rltCode", "1111");
+		}
+		return map;
 	}
 	
 	

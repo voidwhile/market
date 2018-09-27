@@ -29,25 +29,25 @@
 		<div class="mui-content wddd">
 			<div style="padding: 10px 10px 0px;">
 				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-primary">
-					<a class="mui-control-item mui-active" href="#item1">
-				全部
-			</a>
-					<a class="mui-control-item" href="#item2">
-				待付款
-			</a>
-					<a class="mui-control-item" href="#item3">
-				待发货
-			</a>
-            			<a class="mui-control-item" href="#item4">
-				待收货
-			</a>
-					<a class="mui-control-item" href="#item5">
-				已完成
-			</a>
+					<a class="mui-control-item <c:if test="${item=='item1'}">mui-active</c:if> " href="#item1">
+						全部
+					</a>
+							<a class="mui-control-item <c:if test="${item=='item2'}">mui-active</c:if>" href="#item2">
+						待付款
+					</a>
+							<a class="mui-control-item <c:if test="${item=='item3'}">mui-active</c:if>" href="#item3">
+						待发货
+					</a>
+		            			<a class="mui-control-item <c:if test="${item=='item4'}">mui-active</c:if>" href="#item4">
+						待收货
+					</a>
+							<a class="mui-control-item <c:if test="${item=='item5'}">mui-active</c:if>" href="#item5">
+						已完成
+					</a>
 				</div>
 			</div>
 			<div>
-				<div id="item1" class="mui-control-content mui-active">
+				<div id="item1" class="mui-control-content <c:if test="${item=='item1'}">mui-active</c:if>">
 					<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<c:forEach items="${orderList }" var="order">
@@ -78,7 +78,7 @@
                         </div>
 					</div>
 				</div>
-				<div id="item2" class="mui-control-content">
+				<div id="item2" class="mui-control-content <c:if test="${item=='item2'}">mui-active</c:if>">
 					<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<c:forEach items="${willPayList }" var="order">
@@ -113,7 +113,7 @@
                 	</div>
                 	</div>
 				</div>
-				<div id="item3" class="mui-control-content">
+				<div id="item3" class="mui-control-content <c:if test="${item=='item3'}">mui-active</c:if>">
 					<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<c:forEach items="${willDeliverList }" var="order">
@@ -148,7 +148,7 @@
                         </div>
                     </div>
 				</div>
-                <div id="item4" class="mui-control-content">
+                <div id="item4" class="mui-control-content <c:if test="${item=='item4'}">mui-active</c:if>">
                 	<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<c:forEach items="${willDoneList }" var="order">
@@ -183,7 +183,7 @@
                        </div>
                      </div>
 				</div>
-                <div id="item5" class="mui-control-content">
+                <div id="item5" class="mui-control-content <c:if test="${item=='item5'}">mui-active</c:if>">
                 	<div id="scroll" class="mui-scroll-wrapper">
 						<div class="mui-scroll">
 							<c:forEach items="${doneList }" var="order">

@@ -33,13 +33,16 @@
 			<h1 class="mui-title">编辑资料</h1>
 		</header>
 		<div class="mui-content">
+		<form id="form-info">
           <ul class="mui-table-view bg_white grzx-list mt0">         
               <li class="mui-table-view-cell">
                 <div class="mui-navigate-right grzx-tx-text">
                   <label style="line-height:36px;" for="portrait">头像
-                  <img class="mui-pull-right yjzz-input grzl_tx" src="${member.portrait }">
+                  <img id="img-portrait" class="mui-pull-right yjzz-input grzl_tx" src="${member.portrait }">
                   </label>
-                  <input id="portrait" name="portrait" class="sc-hidden" type="file"/>
+                  <input id="file" name="file" class="sc-hidden" type="file" onchange="upload(this.id)"/>
+                  <input id="portrait" name="portrait" type="hidden"/>
+                  <input id="memberId" name="memberId" type="hidden" value="${memberId }"/>
                 </div>
               </li>
                <li class="mui-table-view-cell">
@@ -53,11 +56,51 @@
                    <input class="yjzz-input" name="mp" value="${member.mp }"/>
               </li>
             </ul>
+		</form>
             <div class="line-hui"></div>
-             <a class="save-btn" href="mine.html">保存</a>
+             <a class="save-btn" href="javascript:save();" >保存</a>
 		</div>
 	</body>
 	<script src="${path }/library/weixin/js/jquery.min.js"></script>
     <script src="${path }/library/weixin/js/mui.min.js"></script>
-
+    <script src="${path }/library/js/ajaxfileupload.js"></script>
+	<script type="text/javascript">
+	function upload(id){
+		$.ajaxFileUpload({
+			url:path+"/upload.do",
+			type:'post',
+			secureuri:false,
+			fileElementId:id,
+			dataType:'json',
+			success:function(data){
+				
+				if (typeof (data.error) != 'undefined') {
+	                if (data.error == '0000') {
+	                	$("#portrait").val(data.imgurl);
+	                	$("#img-portrait").attr('src',data.imgurl);
+	                } else {
+	                	
+	                }
+	            }
+			},
+			error: function (data, status, e)//服务器响应失败处理函数
+	        {
+				swal("error:"+data+"|"+status+"|"+e,"","error");
+	        }
+		});
+	}
+	function save(){
+		$.ajax({
+			url:path+"/wx/mbe/save.wx",
+			type:"post",
+			dataType:"json",
+			data:$("#form-info").serialize(),
+			success:function(data){
+				if(data.rltCode=="0000"){
+					mui.toast('保存成功！');
+				}
+			}
+		});
+	}
+	</script>
 </html>

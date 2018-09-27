@@ -32,40 +32,34 @@
 		</nav>
 			<ul class="mui-table-view">
               <li class="mui-table-view-cell">
-                <a href="${path }/wx/mbe/order.wx?memberId=${memberId}" class="mui-navigate-right mine-ddtit">
+                <a href="${path }/wx/mbe/order.wx?memberId=${memberId}&item=item1" class="mui-navigate-right mine-ddtit">
                   我的订单<span class="mine-more">查看更多订单</span>
                 </a>
               </li>
             </ul>  
             <div class="mine-shzt">
             	<div class="mine-shzt-item">
-                    <a href="mine_wddd.html">
+                    <a href="${path }/wx/mbe/order.wx?memberId=${memberId}&item=item2">
                     	<span class="mine-shzt-ico1"></span>
                         待付款
                     </a>
                 </div>
                 <div class="mine-shzt-item">
-                    <a href="mine_wddd.html">
+                    <a href="${path }/wx/mbe/order.wx?memberId=${memberId}&item=item3">
                     	<span class="mine-shzt-ico2"></span>
                        待发货
                     </a>
                 </div>
                 <div class="mine-shzt-item">
-                    <a href="mine_wddd.html">
+                    <a href="${path }/wx/mbe/order.wx?memberId=${memberId}&item=item4">
                     	<span class="mine-shzt-ico3"></span>
                         待收货
                     </a>
                 </div>
                 <div class="mine-shzt-item">
-                    <a href="mine_wddd.html">
+                    <a href="${path }/wx/mbe/order.wx?memberId=${memberId}&item=item5">
                     <span class="mine-shzt-ico4"></span>
                         已收货
-                    </a>
-                </div>
-                 <div class="mine-shzt-item">
-                    <a href="mine_wddd_yth.html">
-                    <span class="mine-shzt-ico4"></span>
-                        退货
                     </a>
                 </div>
             </div>

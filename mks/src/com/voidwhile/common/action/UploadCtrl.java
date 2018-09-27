@@ -14,12 +14,11 @@ import com.voidwhile.common.Constant;
 import com.voidwhile.common.utils.WebUtils;
 
 @Controller
-@RequestMapping("/upload")
 public class UploadCtrl {
 	
 	@ResponseBody
-	@RequestMapping("/imageUpload.do")
-	public Map<String, Object> imageUpload(@RequestParam("pic") MultipartFile file){
+	@RequestMapping("/upload.do")
+	public Map<String, Object> imageUpload(@RequestParam("file") MultipartFile file){
 		Map<String, Object> map = new HashMap<>();
 		if (!file.isEmpty()) {
 			try {
