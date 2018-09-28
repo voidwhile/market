@@ -78,7 +78,7 @@
                 ${cmd.description }
            </div> 
            <div class="buy-jjr-zx">
-        	 <div class="buy-jjr-zx-left">
+        	 <div class="buy-jjr-zx-left" style="padding-top: 4px;" onclick="addCollect();">
 	             <img id="collect" class="buy-jjr-img" src="${path}/library/weixin/images/sc_img.png">
                    <div class="buy-jjr-text">收藏</div>
             </div>

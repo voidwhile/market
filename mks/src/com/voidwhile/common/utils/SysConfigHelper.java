@@ -8,7 +8,7 @@ import com.voidwhile.system.service.SysConfigService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统运行参数工具类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月4日 下午3:08:05
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public class SysConfigHelper {
 	 * @param code
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午3:21:52
 	 */
 	public static SysConfig getSysConfig(String code) {
@@ -40,7 +40,7 @@ public class SysConfigHelper {
 	 * @param code
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:39:11
 	 */
 	public static SysConfig getSysConfig(String supplierId, String code) {
@@ -59,7 +59,7 @@ public class SysConfigHelper {
 	 * @param defaultValue
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午3:22:32
 	 */
 	public static String getConfigValue(String code, String defaultValue) {
@@ -83,7 +83,7 @@ public class SysConfigHelper {
 	 * @param defaultValue
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月9日 下午2:01:52
 	 */
 	public static String getConfigValue(String supplierId, String code, String defaultValue) {

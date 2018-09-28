@@ -19,7 +19,7 @@ import com.voidwhile.system.service.SysSupplierService;
  * CopyRright (c) 2017: 
  * 
  * @Description: Controller 基础类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月19日 上午10:17:16
  *
  * @Version: v1.0
@@ -41,7 +41,7 @@ public abstract class BaseController {
 	 * @param request
 	 * @param map
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 上午10:44:46
 	 */
 	public static void commonData(HttpServletRequest request, Map<String, Object> map) {
@@ -55,7 +55,7 @@ public abstract class BaseController {
 	 * @param supplierCode 为0时为系统管理登陆
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午11:38:10
 	 */
 	protected SysSupplier findSupplier(String supplierCode) {
@@ -80,7 +80,7 @@ public abstract class BaseController {
 	 * @param user
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:31:55
 	 */
 	protected boolean authenticate(String password, SysUser user) {

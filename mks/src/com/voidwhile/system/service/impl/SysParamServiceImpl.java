@@ -22,7 +22,7 @@ import ch.qos.logback.classic.db.names.TableName;
  * CopyRright (c) 2017: 
  * 
  * @Description: 编码管理业务类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月3日 上午10:44:54
  *
  * @Version: v1.0

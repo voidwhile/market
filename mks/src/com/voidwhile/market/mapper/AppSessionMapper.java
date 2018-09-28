@@ -7,7 +7,7 @@ import com.voidwhile.market.entity.AppSession;
  * CopyRright (c) 2017: 
  * 
  * @Description: 掌上APP登陆Session控制 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月18日 上午11:15:09
  *
  * @Version: v1.0
@@ -20,7 +20,7 @@ public interface AppSessionMapper {
 	 * @param entity
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 上午11:17:22
 	 */
 	int insert(AppSession entity);
@@ -31,7 +31,7 @@ public interface AppSessionMapper {
 	 * @param sessionId
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午9:36:22
 	 */
 	AppSession getBySessionId(String sessionId);
@@ -43,7 +43,7 @@ public interface AppSessionMapper {
 	 * @param userName
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午9:38:29
 	 */
 	int deleteBySupplierAndUserName(String supplierId, String userName);

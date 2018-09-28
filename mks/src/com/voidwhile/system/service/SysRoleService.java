@@ -42,7 +42,7 @@ public interface SysRoleService extends IBaseService<SysRole> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 下午2:46:43
 	 */
 	List<SysRole> getByUserId(String userId) throws DataAccessException;
@@ -76,7 +76,7 @@ public interface SysRoleService extends IBaseService<SysRole> {
 	 * @return 返回角色代码
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 下午4:57:02
 	 */
 	public String appAuthorization(String userId) throws DataAccessException;

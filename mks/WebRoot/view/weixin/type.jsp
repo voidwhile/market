@@ -23,22 +23,17 @@
 			<div class="mui-col-xs-3">
 				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
 					<c:forEach items="${typeList }" var="t" varStatus="s">
-					<c:if test="${s.index==0 }">
-					<a href="#content_${t.cmdType }" class="mui-control-item mui-active">${t.typeName }</a>
-					</c:if>
-					<c:if test="${s.index>0 }">
-					<a href="#content_${t.cmdType }" class="mui-control-item">${t.typeName }</a>
-					</c:if>
+					<a href="#content_${t.cmdType }" class="mui-control-item <c:if test="${s.index==0 }">mui-active </c:if>">${t.typeName }</a>
 					</c:forEach>
 				</div>
 			</div>
 			<div id="segmentedControlContents" class="mui-col-xs-9">
-				<c:forEach items="${typeList }" var="t">
-				<div id="content_${t.cmdType }" class="mui-control-content mui-active">
+				<c:forEach items="${typeList }" var="t" varStatus="s">
+				<div id="content_${t.cmdType }" class="mui-control-content <c:if test="${s.index==0 }">mui-active</c:if>">
 					<ul class="fenlei-nav">
 						<c:forEach items="${t.children }" var="tc">
 						<li class="mui-col-xs-4 mui-col-sm-4 mui-pull-left">
-							<a href="${path }/wx/cmd/list.wx?cmdType=${tc.cmdType}&memberId=${memberId}">
+							<a href="${path }/wx/cmd/list.wx?ccCmdType=${tc.cmdType}&memberId=${memberId}">
 								<img src="${imgUrl }${tc.imgPath}" alt="" style="width:140px;height:70px">
 								<h4 class="mui-text-center j-tit  mui-ellipsis">${tc.typeName }</h4>
 							</a>

@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysParam;
  * CopyRright (c) 2017: 
  * 
  * @Description: 编码管理 Service接口
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月3日 上午10:44:04
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public interface SysParamService extends IBaseService<SysParam> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:27:16
 	 */
 	SysParam getBySupplierIdAndParamCode(String supplierId, String paramCode) throws DataAccessException;

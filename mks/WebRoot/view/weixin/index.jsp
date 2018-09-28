@@ -64,7 +64,7 @@
                     <div class="mui-slider-item">
                         <ul class="mui-table-view mui-grid-view mui-grid-9">
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=46&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=46&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/scl_ico.png"/>
                                     <span class="mui-media-body">
                                         	蔬菜类
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=41&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=41&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/sg_ico.png"/>
                                     <span class="mui-media-body">
                                         	水果类
@@ -80,7 +80,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=47&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=47&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/mmly_ico.png"/>
                                     <span class="mui-media-body">
                                         	米面粮油
@@ -88,7 +88,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=43&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=43&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/jg_ico.png"/>
                                     <span class="mui-media-body">
                                         	菌菇类
@@ -96,7 +96,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=42&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=42&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/xr_ico.png"/>
                                     <span class="mui-media-body">
                                         	鲜肉类
@@ -104,7 +104,7 @@
                                 </a>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=45&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=45&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/st_ico.png"/>
                                     <span class="mui-media-body">
                                        	 副食类
@@ -112,7 +112,7 @@
                                 </a>
                             </li>
                                <li class="mui-table-view-cell mui-media mui-col-xs-3">
-                                <a href="${path }/wx/cmd/list.wx?cmdType=49&memberId=${memberId}">
+                                <a href="${path }/wx/cmd/list.wx?ccCmdType=49&memberId=${memberId}">
                                     <img src="${path }/library/weixin/images/jp_ico.png"/>
                                     <span class="mui-media-body">
                                         	饮品区

@@ -13,7 +13,7 @@ import com.voidwhile.core.utils.Slf4JLogger;
  * CopyRright (c) 2017: 
  * 
  * @Description: 提供获取初始化配置参数的抽象过滤器
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:48:07
  *
  * @Version: v1.0

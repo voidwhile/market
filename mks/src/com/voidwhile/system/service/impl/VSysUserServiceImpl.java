@@ -18,7 +18,7 @@ import com.voidwhile.system.service.VSysUserService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 视图v_sys_user 业务操作类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月12日 上午9:30:09
  *
  * @Version: v1.0

@@ -4,7 +4,7 @@ package com.voidwhile.common.dto;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业定位配置类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月15日 下午1:18:19
  *
  * @Version: v1.0

@@ -37,7 +37,7 @@
 					<ul class="fenlei-nav">
 						<c:forEach items="${t.children }" var="tc">
 						<li class="mui-col-xs-4 mui-col-sm-4 mui-pull-left">
-							<a href="${path }/wx/cmd/list.wx?cmdType=${tc.cmdType}&memberId=${memberId}">
+							<a href="${path }/wx/cmd/list.wx?ccCmdType=${tc.cmdType}&memberId=${memberId}">
 								<img src="${imgUrl }${tc.imgPath}" alt="" style="width:140px;height:70px">
 								<h4 class="mui-text-center j-tit  mui-ellipsis">${tc.typeName }</h4>
 							</a>

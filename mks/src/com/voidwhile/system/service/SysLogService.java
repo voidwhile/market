@@ -26,7 +26,7 @@ public interface SysLogService {
 	 * @param ids
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午8:06:42
 	 */
 	void deleteByIds(String[] ids) throws DataAccessException;

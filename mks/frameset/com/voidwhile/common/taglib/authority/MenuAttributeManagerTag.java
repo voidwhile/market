@@ -9,7 +9,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  * 
  * @Description: 登陆用户菜单操作权限控制 TAG
  * 
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月29日 上午9:49:32
  *
  * @Version: v1.0

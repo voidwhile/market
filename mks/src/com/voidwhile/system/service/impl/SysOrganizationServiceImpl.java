@@ -24,7 +24,7 @@ import com.voidwhile.system.service.SysOrganizationService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业内部组织机构管理业务类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月5日 下午1:43:26
  *
  * @Version: v1.0
@@ -211,7 +211,7 @@ public class SysOrganizationServiceImpl implements SysOrganizationService {
 	 * @param id
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月26日 上午11:11:49
 	 */
 	private boolean orgCancelCheck(String id) {

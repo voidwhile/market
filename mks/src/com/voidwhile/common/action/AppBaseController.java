@@ -29,7 +29,7 @@ import com.voidwhile.system.service.SysSupplierService;
  * CopyRright (c) 2017: 
  * 
  * @Description: Controller 基础类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月19日 上午10:17:16
  *
  * @Version: v1.0
@@ -52,7 +52,7 @@ public abstract class AppBaseController {
 	 *            企业代码
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午11:38:10
 	 */
 	protected SysSupplier findSupplier(String supplierCode) {
@@ -68,7 +68,7 @@ public abstract class AppBaseController {
 	 * @param user
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:31:55
 	 */
 	protected boolean authenticate(String password, SysUser user) {
@@ -88,7 +88,7 @@ public abstract class AppBaseController {
 	 * @param sessionId
 	 * @return 会话ID是否验证通过
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月20日 下午2:12:43
 	 */
 	protected AppSession validateSession(String sessionId) {
@@ -100,7 +100,7 @@ public abstract class AppBaseController {
 	 * @Description: 根据经纬度获取实际地址
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月25日 下午2:54:53
 	 */
 	protected String getAddressByLanLon(String lat, String lng) {
@@ -114,7 +114,7 @@ public abstract class AppBaseController {
 	 * @param supplierId
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月15日 下午1:30:30
 	 */
 	protected PositionConfigDTO getPositionConfig(String supplierId) {

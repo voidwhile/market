@@ -23,7 +23,7 @@ import cn.jpush.api.push.model.notification.Notification;
  * CopyRright (c) 2017: 
  * 
  * @Description: 极光推送工具类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月22日 上午9:48:28
  *
  * @Version: v1.0
@@ -42,7 +42,7 @@ public class JPushUtil {
 	 * @param alertContent
 	 * @param extras
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月22日 上午10:07:38
 	 */
 	public static void sendMsg(List<String> regids, String title, String alertContent, Map<String, String> extras) throws PushException {
@@ -75,7 +75,7 @@ public class JPushUtil {
 	 * @param alertContent
 	 * @param extras
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月22日 上午10:08:21
 	 */
 	public static void sendMsgToAll(String title, String alertContent, Map<String, String> extras) throws PushException {

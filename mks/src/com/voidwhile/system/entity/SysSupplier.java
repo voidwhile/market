@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业基本信息
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:35:24
  *
  * @Version: v1.0

@@ -27,7 +27,7 @@ import com.voidwhile.system.service.SysUserService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业组织机构 controller
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月5日 下午1:49:43
  *
  * @Version: v1.0
@@ -50,7 +50,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午4:26:51
 	 */
 	@RequestMapping("/tree.do")
@@ -93,7 +93,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午1:51:21
 	 */
 	@RequestMapping("/v_list.do")
@@ -111,7 +111,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午1:52:56
 	 */
 	@RequestMapping("/list.do")
@@ -147,7 +147,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:44:38
 	 */
 	@RequestMapping("/v_add.do")
@@ -164,7 +164,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:46:03
 	 */
 	@RequestMapping("/v_edit.do")
@@ -185,7 +185,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午4:06:12
 	 */
 	@RequestMapping(value = "/save.do")
@@ -228,7 +228,7 @@ public class SysOrganizationController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午4:06:20
 	 */
 	@RequestMapping(value = "/del.do")

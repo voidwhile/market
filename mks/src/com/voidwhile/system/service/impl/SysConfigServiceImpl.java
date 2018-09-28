@@ -18,7 +18,7 @@ import com.voidwhile.system.service.SysConfigService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统运行参数业务处理类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月4日 下午3:59:54
  *
  * @Version: v1.0

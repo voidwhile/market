@@ -9,7 +9,7 @@ import com.voidwhile.system.entity.SysUser;
  * CopyRright (c) 2017: 
  * 
  * @Description: 用户扩展信息
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午2:14:48
  *
  * @Version: v1.0

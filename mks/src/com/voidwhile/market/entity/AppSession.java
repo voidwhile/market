@@ -7,7 +7,7 @@ import java.util.Date;
  * CopyRright (c) 2017: 
  * 
  * @Description: 客户端登陆Session信息表
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月19日 上午9:55:30
  *
  * @Version: v1.0
@@ -16,7 +16,7 @@ import java.util.Date;
  * CopyRright (c) 2017: 
  * 
  * @Description: 类的描述
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月8日 下午5:11:09
  *
  * @Version: v1.0

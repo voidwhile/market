@@ -28,7 +28,7 @@ public class MainController extends BaseController{
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 下午4:04:35
 	 */
 	@RequestMapping(value = "/index.do")
@@ -44,7 +44,7 @@ public class MainController extends BaseController{
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 下午4:05:19
 	 */
 	@RequestMapping(value = "/main.do")

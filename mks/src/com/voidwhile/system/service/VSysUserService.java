@@ -20,7 +20,7 @@ public interface VSysUserService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:11:27
 	 */
 	public PageResult<VSysUser> findPageData(Map<String, Object> param, int pageNo, int pageSize, String orderByClause) throws DataAccessException;
@@ -33,7 +33,7 @@ public interface VSysUserService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:10:33
 	 */
 	public List<VSysUser> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -45,7 +45,7 @@ public interface VSysUserService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:10:12
 	 */
 	public int countByMap(Map<String, Object> param) throws DataAccessException;

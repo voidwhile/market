@@ -18,7 +18,7 @@ import com.voidwhile.system.service.SysSupplierService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业管理业务处理类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月18日 下午2:31:42
  *
  * @Version: v1.0

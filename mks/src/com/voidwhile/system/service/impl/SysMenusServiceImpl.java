@@ -23,7 +23,7 @@ import com.voidwhile.system.service.SysMenusService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 菜单管理Service
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:08:23
  *
  * @Version: v1.0
@@ -31,7 +31,7 @@ import com.voidwhile.system.service.SysMenusService;
 /** 
  * CopyRright (c) 2017: 
  * @Description: 类的描述
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月26日 下午1:15:23 
  *
  * @Version: v1.0
@@ -40,7 +40,7 @@ import com.voidwhile.system.service.SysMenusService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 类的描述
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月26日 下午1:15:25
  *
  * @Version: v1.0

@@ -14,7 +14,7 @@ import com.voidwhile.system.entity.vo.SysRoleVo;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统角色管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:57:41
  *
  * @Version: v1.0
@@ -28,7 +28,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:57:31
 	 */
 	int insert(SysRole entity) throws DataAccessException;
@@ -41,7 +41,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:57:22
 	 */
 	int insertPermissions(String roleId, long menuId) throws DataAccessException;
@@ -53,7 +53,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:56:57
 	 */
 	int updateById(SysRole entity) throws DataAccessException;
@@ -65,7 +65,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:56:38
 	 */
 	boolean deleteById(String roleId) throws DataAccessException;
@@ -77,7 +77,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:56:28
 	 */
 	boolean deletePermissionsById(String roleId) throws DataAccessException;
@@ -101,7 +101,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:56:13
 	 */
 	SysRole getById(String roleId) throws DataAccessException;
@@ -113,7 +113,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:56:04
 	 */
 	SysRoleVo getPermissionsByRoleid(String roleId) throws DataAccessException;
@@ -125,7 +125,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:55:41
 	 */
 	List<SysRole> getRoleByUserId(String userId) throws DataAccessException;
@@ -138,7 +138,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:55:32
 	 */
 	List<SysRoleVo> getUserPermissionsByUserId(String userId) throws DataAccessException;
@@ -150,7 +150,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:55:24
 	 */
 	List<SysRole> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -162,7 +162,7 @@ public interface SysRoleMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:55:14
 	 */
 	int countByMap(Map<String, Object> param) throws DataAccessException;

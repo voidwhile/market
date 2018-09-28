@@ -12,7 +12,7 @@ import com.voidwhile.system.entity.SysSupplier;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:35:44
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:36:14
 	 */
 	int insert(SysSupplier entity) throws DataAccessException;
@@ -38,7 +38,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:36:27
 	 */
 	int updateById(SysSupplier entity) throws DataAccessException;
@@ -50,7 +50,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:36:41
 	 */
 	boolean deleteById(String id) throws DataAccessException;
@@ -62,7 +62,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:36:53
 	 */
 	SysSupplier getById(String id) throws DataAccessException;
@@ -74,7 +74,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:37:15
 	 */
 	List<SysSupplier> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -86,7 +86,7 @@ public interface SysSupplierMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:37:24
 	 */
 	int countByMap(Map<String, Object> param) throws DataAccessException;

@@ -22,7 +22,7 @@ import com.voidwhile.system.constant.SysConstant;
  * CopyRright (c) 2017: 
  * 
  * @Description: 管理端过滤器
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:48:19
  *
  * @Version: v1.0

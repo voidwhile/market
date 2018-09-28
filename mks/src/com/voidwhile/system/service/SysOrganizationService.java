@@ -13,7 +13,7 @@ import com.voidwhile.system.entity.SysOrganization;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业组织机构管理 interface
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月5日 下午1:42:18
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public interface SysOrganizationService extends IBaseService<SysOrganization> {
 	 * @param supplierId
 	 * @param parentId
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午4:13:24
 	 */
 	List<SysOrganization> getChilds(String supplierId, String parentId) throws DataAccessException;
@@ -37,7 +37,7 @@ public interface SysOrganizationService extends IBaseService<SysOrganization> {
 	 * @param param
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午2:21:08
 	 */
 	List<Map<String, Object>> getTreeGridData(Map<String, Object> param) throws DataAccessException;
@@ -48,7 +48,7 @@ public interface SysOrganizationService extends IBaseService<SysOrganization> {
 	 * @param ids
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午8:06:42
 	 */
 	void deleteByIds(String[] ids) throws DataAccessException;
@@ -62,7 +62,7 @@ public interface SysOrganizationService extends IBaseService<SysOrganization> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月5日 下午4:10:33
 	 */
 	List<TreeNode> getTree(String supplierId, String parentId, String exclude) throws DataAccessException;
@@ -76,7 +76,7 @@ public interface SysOrganizationService extends IBaseService<SysOrganization> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月12日 下午4:07:41
 	 */
 	public List<TreeNode> getUserTree(String supplierId, String parentId, List<String> selectedUser) throws DataAccessException;

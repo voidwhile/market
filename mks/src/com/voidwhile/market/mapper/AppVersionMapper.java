@@ -8,7 +8,7 @@ import com.voidwhile.market.entity.AppVersion;
  * CopyRright (c) 2017: 
  * 
  * @Description: 版本管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月22日 上午11:18:11
  *
  * @Version: v1.0
@@ -21,7 +21,7 @@ public interface AppVersionMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月22日 上午11:19:19
 	 */
 	int insert(AppVersion entity) throws DataAccessException;
@@ -33,7 +33,7 @@ public interface AppVersionMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月22日 上午11:23:23
 	 */
 	int update(AppVersion entity) throws DataAccessException;
@@ -45,7 +45,7 @@ public interface AppVersionMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月22日 上午11:23:45
 	 */
 	AppVersion getBySupplierId(String supplierid) throws DataAccessException;

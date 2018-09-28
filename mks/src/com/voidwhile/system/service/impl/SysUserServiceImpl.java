@@ -20,7 +20,7 @@ import com.voidwhile.system.service.SysUserService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 用户操作业务逻辑类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:16:29
  *
  * @Version: v1.0

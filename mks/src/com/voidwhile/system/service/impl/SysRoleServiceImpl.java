@@ -24,7 +24,7 @@ import com.voidwhile.system.service.SysRoleService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统角色管理 Service
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:47:18
  *
  * @Version: v1.0

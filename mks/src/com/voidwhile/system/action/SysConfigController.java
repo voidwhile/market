@@ -25,7 +25,7 @@ import com.voidwhile.system.service.SysConfigService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统运行参数设置Controller
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月4日 下午3:56:30
  *
  * @Version: v1.0
@@ -43,7 +43,7 @@ public class SysConfigController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:57:20
 	 */
 	@RequestMapping(value = "/v_list.do")
@@ -61,7 +61,7 @@ public class SysConfigController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午4:05:50
 	 */
 	@RequestMapping(value = "/list.do")
@@ -100,7 +100,7 @@ public class SysConfigController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:44:38
 	 */
 	@RequestMapping("/v_add.do")
@@ -116,7 +116,7 @@ public class SysConfigController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:46:03
 	 */
 	@RequestMapping("/v_edit.do")
@@ -137,7 +137,7 @@ public class SysConfigController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午4:06:12
 	 */
 	@RequestMapping(value = "/save.do")
@@ -195,7 +195,7 @@ public class SysConfigController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午4:06:20
 	 */
 	@RequestMapping(value = "/del.do")

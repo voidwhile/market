@@ -12,7 +12,7 @@ import com.voidwhile.system.entity.SysParamItem;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统字典内容管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:10:11
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:10:20
 	 */
 	int insert(SysParamItem entity) throws DataAccessException;
@@ -38,7 +38,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:10:28
 	 */
 	int updateById(SysParamItem entity) throws DataAccessException;
@@ -50,7 +50,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:10:38
 	 */
 	boolean deleteById(String id) throws DataAccessException;
@@ -62,7 +62,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月3日 上午11:13:21
 	 */
 	int deleteByParamId(String paramId) throws DataAccessException;
@@ -74,7 +74,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:10:45
 	 */
 	SysParamItem getById(String id) throws DataAccessException;
@@ -87,7 +87,7 @@ public interface SysParamItemMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:10:52
 	 */
 	List<SysParamItem> findByMap(Map<String, Object> param) throws DataAccessException;

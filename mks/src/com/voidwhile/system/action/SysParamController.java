@@ -31,7 +31,7 @@ import com.voidwhile.system.service.SysParamService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统编码管理类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月3日 上午11:32:14
  *
  * @Version: v1.0
@@ -53,7 +53,7 @@ public class SysParamController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 下午4:04:35
 	 */
 	@RequestMapping(value = "/v_list.do")
@@ -98,7 +98,7 @@ public class SysParamController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:44:38
 	 */
 	@RequestMapping("/v_add.do")
@@ -114,7 +114,7 @@ public class SysParamController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:46:03
 	 */
 	@RequestMapping("/v_edit.do")
@@ -208,7 +208,7 @@ public class SysParamController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月3日 下午2:39:23
 	 */
 	@RequestMapping(value = "/v_item_list.do")
@@ -225,7 +225,7 @@ public class SysParamController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月3日 下午2:51:59
 	 */
 	@RequestMapping(value = "/item_list.do")
@@ -255,7 +255,7 @@ public class SysParamController extends BaseController {
 	 * @param inserted
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月3日 下午5:36:44
 	 */
 	@RequestMapping(value = "/item_save.do")

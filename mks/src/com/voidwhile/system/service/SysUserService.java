@@ -18,7 +18,7 @@ public interface SysUserService extends IBaseService<SysUser> {
 	 * @param roleIds
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 下午4:48:18
 	 */
 	public void save(SysUser entity, List<String> roleIds) throws DataAccessException;
@@ -30,7 +30,7 @@ public interface SysUserService extends IBaseService<SysUser> {
 	 * @param roleIds
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 下午4:53:08
 	 */
 	public void update(SysUser entity, List<String> roleIds) throws DataAccessException;
@@ -43,7 +43,7 @@ public interface SysUserService extends IBaseService<SysUser> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午10:33:14
 	 */
 	public SysUser getBySupplierAndUserName(String supplierId, String userName) throws DataAccessException;
@@ -55,7 +55,7 @@ public interface SysUserService extends IBaseService<SysUser> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 下午4:02:14
 	 */
 	public List<SysUser> getUserRoleById(String userId) throws DataAccessException;

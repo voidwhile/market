@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
  * CopyRright (c) 2017: 
  * 
  * @Description: 周处理工具类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月11日 下午1:21:07
  *
  * @Version: v1.0
@@ -21,7 +21,7 @@ public class WeekUtil {
 	 * @param date
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:20:09
 	 */
 	public static int getWeekOfYear(Date date) {
@@ -39,7 +39,7 @@ public class WeekUtil {
 	 * @param year
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:19:59
 	 */
 	public static int getMaxWeekNumOfYear(int year) {
@@ -56,7 +56,7 @@ public class WeekUtil {
 	 * @param week
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:19:00
 	 */
 	public static Date getFirstDayOfWeek(int year, int week) {
@@ -78,7 +78,7 @@ public class WeekUtil {
 	 * @param week
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:19:05
 	 */
 	public static Date getLastDayOfWeek(int year, int week) {
@@ -99,7 +99,7 @@ public class WeekUtil {
 	 * @param date
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:19:14
 	 */
 	public static Date getFirstDayOfWeek(Date date) {
@@ -116,7 +116,7 @@ public class WeekUtil {
 	 * @param date
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月11日 下午1:19:23
 	 */
 	public static Date getLastDayOfWeek(Date date) {

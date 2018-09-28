@@ -17,7 +17,7 @@ public interface AppSessionService {
 	 * @return 返回SessionID
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午9:48:48
 	 */
 	public String saveSession(String supplierId, String supplierCode, String userId, String userName, String clientType) throws DataAccessException;
@@ -29,7 +29,7 @@ public interface AppSessionService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午9:44:54
 	 */
 	public AppSession validateSession(String sessionId) throws DataAccessException;

@@ -17,7 +17,7 @@ import com.voidwhile.system.service.SysParamItemService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 编码处理业务类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月3日 下午2:53:42
  *
  * @Version: v1.0

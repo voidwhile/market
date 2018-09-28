@@ -13,7 +13,7 @@ import com.voidwhile.system.service.SysOrganizationService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统用户表 实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:15:11
  *
  * @Version: v1.0

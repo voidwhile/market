@@ -12,7 +12,7 @@ import com.voidwhile.system.constant.SysConstant;
  * CopyRright (c) 2017: 
  * 
  * @Description: 提供一些系统中使用到的共用方法，比如获得用户信息
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月29日 下午2:08:15
  *
  * @Version: v1.0
@@ -31,7 +31,7 @@ public class MarketUtils {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月29日 下午2:08:05
 	 */
 	public static Admin getAdmin(HttpServletRequest request) {

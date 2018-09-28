@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * CopyRright (c) 2017: 
  * 
  * @Description: 视图v_sys_user映射类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月11日 下午5:05:16
  *
  * @Version: v1.0

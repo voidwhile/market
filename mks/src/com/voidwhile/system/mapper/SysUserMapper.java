@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysUser;
  * CopyRright (c) 2017: 
  * 
  * @Description: 用户管理Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月18日 下午3:00:48
  *
  * @Version: v1.0
@@ -103,7 +103,7 @@ public interface SysUserMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 下午4:45:22
 	 */
 	int insertUserRole(String userId, String roleId) throws DataAccessException;
@@ -115,7 +115,7 @@ public interface SysUserMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月18日 下午4:52:26
 	 */
 	int deleteRoleByUserId(String userId) throws DataAccessException;

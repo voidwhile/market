@@ -4,7 +4,7 @@ package com.voidwhile.system.entity;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统字典值 实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:49:24
  *
  * @Version: v1.0

@@ -4,7 +4,7 @@ package com.voidwhile.common.dto;
  * CopyRright (c) 2017: 
  * 
  * @Description: 我的日程 数据对象
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月20日 下午4:59:42
  *
  * @Version: v1.0

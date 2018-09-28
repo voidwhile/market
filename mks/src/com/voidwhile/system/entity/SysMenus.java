@@ -15,7 +15,7 @@ import com.voidwhile.common.dto.MenuAttachDTO;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统菜单实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:48:00
  *
  * @Version: v1.0

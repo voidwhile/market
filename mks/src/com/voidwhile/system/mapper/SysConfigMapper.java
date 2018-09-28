@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysConfig;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统运行参数管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:31:26
  *
  * @Version: v1.0
@@ -25,7 +25,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:31:37
 	 */
 	int insert(SysConfig entity) throws DataAccessException;
@@ -37,7 +37,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:32:54
 	 */
 	int updateById(SysConfig entity) throws DataAccessException;
@@ -49,7 +49,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:04
 	 */
 	int updateByIdSelective(SysConfig entity) throws DataAccessException;
@@ -61,7 +61,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:14
 	 */
 	boolean deleteById(String id) throws DataAccessException;
@@ -72,7 +72,7 @@ public interface SysConfigMapper {
 	 * @param ids
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午8:06:07
 	 */
 	void deleteByIds(String[] ids) throws DataAccessException;
@@ -84,7 +84,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:23
 	 */
 	SysConfig getById(String id) throws DataAccessException;
@@ -96,7 +96,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:31
 	 */
 	List<SysConfig> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -108,7 +108,7 @@ public interface SysConfigMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:47
 	 */
 	int countByMap(Map<String, Object> param) throws DataAccessException;

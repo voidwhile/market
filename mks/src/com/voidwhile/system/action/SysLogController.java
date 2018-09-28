@@ -24,7 +24,7 @@ import com.voidwhile.system.service.SysLogService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统日志 Controller
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:18:15
  *
  * @Version: v1.0

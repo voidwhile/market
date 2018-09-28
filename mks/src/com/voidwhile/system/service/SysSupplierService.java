@@ -9,7 +9,7 @@ import com.voidwhile.system.entity.SysSupplier;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业管理Service
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月18日 下午2:31:13
  *
  * @Version: v1.0
@@ -24,7 +24,7 @@ public interface SysSupplierService extends IBaseService<SysSupplier> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月19日 上午11:00:15
 	 */
 	public SysSupplier getBySupplierCode(String supplierCode, boolean isOfficial) throws DataAccessException;

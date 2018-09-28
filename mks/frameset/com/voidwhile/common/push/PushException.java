@@ -4,7 +4,7 @@ package com.voidwhile.common.push;
  * CopyRright (c) 2017: 
  * 
  * @Description: 推磅异常
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月22日 上午10:20:11
  *
  * @Version: v1.0

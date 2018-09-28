@@ -9,7 +9,7 @@ import com.voidwhile.system.entity.SysRole;
  * CopyRright (c) 2017: 
  * 
  * @Description: 角色信息扩展类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午2:15:08
  *
  * @Version: v1.0

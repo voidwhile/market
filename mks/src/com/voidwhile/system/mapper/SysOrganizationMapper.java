@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysOrganization;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业组织机构管理Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月5日 下午1:27:32
  *
  * @Version: v1.0
@@ -24,7 +24,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:31:37
 	 */
 	int insert(SysOrganization entity) throws DataAccessException;
@@ -36,7 +36,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:32:54
 	 */
 	int updateById(SysOrganization entity) throws DataAccessException;
@@ -48,7 +48,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:14
 	 */
 	boolean deleteById(String id) throws DataAccessException;
@@ -60,7 +60,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:23
 	 */
 	SysOrganization getById(String id) throws DataAccessException;
@@ -72,7 +72,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:31
 	 */
 	List<SysOrganization> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -84,7 +84,7 @@ public interface SysOrganizationMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:33:47
 	 */
 	int countByMap(Map<String, Object> param) throws DataAccessException;

@@ -35,7 +35,7 @@ import com.voidwhile.system.service.SysUserService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 管理登陆
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午1:18:44
  *
  * @Version: v1.0
@@ -64,7 +64,7 @@ public class LoginController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:19:13
 	 */
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -83,7 +83,7 @@ public class LoginController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:19:23
 	 */
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
@@ -167,7 +167,7 @@ public class LoginController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:23:58
 	 */
 	@RequestMapping(value = "/logout.do")
@@ -189,7 +189,7 @@ public class LoginController extends BaseController {
 	 * @param captcha
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:32:11
 	 */
 	protected boolean validateCaptcha(HttpServletRequest request, String captcha) {
@@ -212,7 +212,7 @@ public class LoginController extends BaseController {
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午1:32:26
 	 */
 	protected String loginFailure(HttpServletRequest request, String supplierCode, String username, String errorCode, ModelMap model) {

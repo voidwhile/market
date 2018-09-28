@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.vo.VSysUser;
  * CopyRright (c) 2017: 
  * 
  * @Description: 视图v_sys_user操作类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月11日 下午5:16:00
  *
  * @Version: v1.0

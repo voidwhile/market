@@ -12,7 +12,7 @@ import com.voidwhile.system.constant.SysConstant;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统日志 实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午10:47:37
  *
  * @Version: v1.0

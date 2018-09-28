@@ -13,7 +13,7 @@ import com.voidwhile.system.entity.SysMenus;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统菜单管理 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:14:42
  *
  * @Version: v1.0
@@ -28,7 +28,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:15:01
 	 */
 	SysMenus getById(long id) throws DataAccessException;
@@ -40,7 +40,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:15:18
 	 */
 	List<SysMenus> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -52,7 +52,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:15:25
 	 */
 	int insert(SysMenus entity) throws DataAccessException;
@@ -64,7 +64,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:15:35
 	 */
 	int updateById(SysMenus entity) throws DataAccessException;
@@ -76,7 +76,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:15:50
 	 */
 	int deleteById(long id) throws DataAccessException;
@@ -88,7 +88,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:16:23
 	 */
 	List<SysMenus> findMenusByRoleId(String roleId) throws DataAccessException;
@@ -101,7 +101,7 @@ public interface SysMenusMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 下午5:57:26
 	 */
 	Set<SysMenus> findMenusByPIdAndUserId(long parentId, String userId) throws DataAccessException;

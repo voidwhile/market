@@ -66,7 +66,7 @@ public class SysUserController extends BaseController {
 	 * @param request
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月12日 下午4:48:05
 	 */
 	@RequestMapping("/tree.do")

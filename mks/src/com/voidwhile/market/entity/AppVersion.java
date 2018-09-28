@@ -6,7 +6,7 @@ import java.util.Date;
  * CopyRright (c) 2017: 
  * 
  * @Description: APP版本管理实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月22日 上午11:16:12
  *
  * @Version: v1.0

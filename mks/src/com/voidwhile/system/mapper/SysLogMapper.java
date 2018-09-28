@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysLog;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统日志操作 Mapper
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 上午11:16:38
  *
  * @Version: v1.0
@@ -24,7 +24,7 @@ public interface SysLogMapper {
 	 * @param entity
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:16:51
 	 */
 	void insert(SysLog entity) throws DataAccessException;
@@ -35,7 +35,7 @@ public interface SysLogMapper {
 	 * @param ids
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午8:06:07
 	 */
 	void deleteByIds(String[] ids) throws DataAccessException;
@@ -47,7 +47,7 @@ public interface SysLogMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:17:00
 	 */
 	List<SysLog> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -59,7 +59,7 @@ public interface SysLogMapper {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午11:17:08
 	 */
 	int countByMap(Map<String, Object> param) throws DataAccessException;

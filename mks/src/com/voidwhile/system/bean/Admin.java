@@ -14,7 +14,7 @@ import com.voidwhile.system.entity.SysUser;
  * CopyRright (c) 2017: 
  * 
  * @Description: 用户登陆信息
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年10月24日 下午2:16:49
  *
  * @Version: v1.0

@@ -9,7 +9,7 @@ import com.voidwhile.system.service.SysUserService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 企业内部组织机构表 实体类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月18日 上午10:15:39
  *
  * @Version: v1.0

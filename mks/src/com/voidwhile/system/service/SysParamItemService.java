@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysParamItem;
  * CopyRright (c) 2017: 
  * 
  * @Description: 编码管理 Service接口
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月3日 上午10:44:04
  *
  * @Version: v1.0
@@ -25,7 +25,7 @@ public interface SysParamItemService extends IBaseService<SysParamItem> {
 	 * @param isValid
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月3日 上午11:25:29
 	 */
 	public List<SysParamItem> findByParamId(String paramId, boolean isValid) throws DataAccessException;
@@ -36,7 +36,7 @@ public interface SysParamItemService extends IBaseService<SysParamItem> {
 	 * @param entities
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:09:55
 	 */
 	int batchInsert(String paramId, List<SysParamItem> entities) throws DataAccessException;
@@ -47,7 +47,7 @@ public interface SysParamItemService extends IBaseService<SysParamItem> {
 	 * @param entities
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:10:08
 	 */
 	int batchDelete(List<SysParamItem> entities) throws DataAccessException;
@@ -58,7 +58,7 @@ public interface SysParamItemService extends IBaseService<SysParamItem> {
 	 * @param entities
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:10:11
 	 */
 	int batchUpdate(List<SysParamItem> entities) throws DataAccessException;

@@ -20,7 +20,7 @@ public interface IBaseService<T> {
 	 * @param entity
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:09:41
 	 */
 	public void save(T entity) throws DataAccessException;
@@ -31,7 +31,7 @@ public interface IBaseService<T> {
 	 * @param entity
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:09:59
 	 */
 	public void update(T entity) throws DataAccessException;
@@ -42,7 +42,7 @@ public interface IBaseService<T> {
 	 * @param id
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:12:09
 	 */
 	public void delete(String id) throws DataAccessException;
@@ -54,7 +54,7 @@ public interface IBaseService<T> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:11:56
 	 */
 	public T getById(String id) throws DataAccessException;
@@ -69,7 +69,7 @@ public interface IBaseService<T> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:11:27
 	 */
 	public PageResult<T> findPageData(Map<String, Object> param, int pageNo, int pageSize, String orderByClause) throws DataAccessException;
@@ -82,7 +82,7 @@ public interface IBaseService<T> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:10:33
 	 */
 	public List<T> findByMap(Map<String, Object> param) throws DataAccessException;
@@ -94,7 +94,7 @@ public interface IBaseService<T> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 上午10:10:12
 	 */
 	public int countByMap(Map<String, Object> param) throws DataAccessException;

@@ -24,7 +24,7 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
  * 
  * @Description: 简单封装Jackson，实现JSON String<->Java Object的Mapper. 封装不同的输出风格,
  *               使用不同的builder函数创建实例.
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月20日 下午1:46:21
  *
  * @Version: v1.0
@@ -189,7 +189,7 @@ public class JsonMapper {
 	 * @Description: 设置日期格式
 	 * @param dateFormat
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月24日 下午6:48:43
 	 */
 	public void setDateFormat(String dateFormat) {

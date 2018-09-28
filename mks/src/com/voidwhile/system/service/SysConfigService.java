@@ -11,7 +11,7 @@ import com.voidwhile.system.entity.SysConfig;
  * CopyRright (c) 2017: 
  * 
  * @Description: 系统运行参数管理 Service 接口
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月4日 下午3:59:06
  *
  * @Version: v1.0
@@ -26,7 +26,7 @@ public interface SysConfigService extends IBaseService<SysConfig> {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:27:16
 	 */
 	SysConfig getBySupplierIdAndConfigCode(String supplierId, String configCode) throws DataAccessException;
@@ -37,7 +37,7 @@ public interface SysConfigService extends IBaseService<SysConfig> {
 	 * @param ids
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年10月24日 下午8:06:42
 	 */
 	void deleteByIds(String[] ids) throws DataAccessException;

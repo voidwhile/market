@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.voidwhile.market.entity.CmdCommodity;
 import com.voidwhile.market.entity.MbeAddress;
 import com.voidwhile.market.entity.MbeMember;
 import com.voidwhile.market.entity.OdrOrder;
@@ -73,6 +74,14 @@ public class WxMemberCtrl {
 			e.printStackTrace();
 		}
 		return "weixin/mine/order";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/pulluploading.wx")
+	public Map<String, Object> pulluploading(CmdCommodity cmd,PageBean page){
+		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> param = new HashMap<>();
+		return map;
 	}
 	
 	@RequestMapping("/feedback.wx")

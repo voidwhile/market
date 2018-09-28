@@ -10,7 +10,7 @@ import com.voidwhile.core.utils.HttpXmlClient;
  * CopyRright (c) 2017: 
  * 
  * @Description: Baidu Map API 调用
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年11月25日 下午3:49:39
  *
  * @Version: v1.0
@@ -33,7 +33,7 @@ public class BaiduMapRequest {
 	 * @param lng 纬度
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月25日 下午3:50:15
 	 */
 	public String getAddress(String lat, String lng) {

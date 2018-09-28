@@ -13,7 +13,7 @@ import com.voidwhile.system.service.SysParamService;
  * CopyRright (c) 2017: 
  * 
  * @Description: 字典编码工具 类
- * @author: xiaowei
+ * @author: zhanzheng
  * @Create Date: 2014年12月4日 下午3:08:05
  *
  * @Version: v1.0
@@ -34,7 +34,7 @@ public class SysParamHelper {
 	 * @param code
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:39:11
 	 */
 	public static List<SysParamItem> getCodeList(String supplierId, String code) {
@@ -60,7 +60,7 @@ public class SysParamHelper {
 	 * @param isShowBlank
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 下午3:09:40
 	 */
 	public static String getCodeOption(String supplierId, String code, String selected, boolean isShowBlank) {

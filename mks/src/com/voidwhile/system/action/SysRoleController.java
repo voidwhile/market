@@ -232,7 +232,7 @@ public class SysRoleController extends BaseController{
 	 * @param model
 	 * @return
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月4日 上午10:44:38
 	 */
 	@RequestMapping("/v_add.do")

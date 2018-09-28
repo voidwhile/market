@@ -40,7 +40,7 @@ public interface SysMenusService {
 	 * @param supplierLevel5
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月26日 下午2:30:23
 	 */
 	public void saveMenuLevel(String[] supplierLevel0, String[] supplierLevel1, String[] supplierLevel2, String[] supplierLevel3, String[] supplierLevel4,
@@ -85,7 +85,7 @@ public interface SysMenusService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月26日 上午9:59:33
 	 */
 	public Set<SysMenus> findMenusByPIdAndSupplierLevel(long parentId, String supplierLevel) throws DataAccessException;
@@ -98,7 +98,7 @@ public interface SysMenusService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年11月28日 下午6:08:47
 	 */
 	public Set<SysMenus> findMenusByPIdAndUserId(long parentId, String userId) throws DataAccessException;
@@ -110,7 +110,7 @@ public interface SysMenusService {
 	 * @return
 	 * @throws DataAccessException
 	 *
-	 * @Author: xiaowei
+	 * @author: zhanzheng
 	 * @Create Date: 2014年12月26日 下午1:15:03
 	 */
 	public List<Map<String, Object>> getTreeGridData(Map<String, Object> param) throws DataAccessException;
